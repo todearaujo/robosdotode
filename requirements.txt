@@ -2,5 +2,5 @@ flask
 gunicorn
 pandas
 requests
-BeautifulSoup
+bs4
 urllib
