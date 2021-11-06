@@ -23,15 +23,17 @@ def sobre():
     """
 
 @app.route("/uol-economia")
-linkuol = "https://economia.uol.com.br/" #Link para extração
-respuol = urlopen(linkuol) #Requisição do conteúdo da página
-conteudouol = respuol.read().decode("utf-8") #Definição da variável com o conteúdo
-soupuol = BeautifulSoup(conteudouol, "html.parser") #Chama o análise do BS
 
-for a in soupuol.find('div', {"class": "highlights"}).select('a[href]'): #Encontrar destaques e links
-  print(a.text.strip()) #Imprimir texto
-  print(a['href']) #Imprimir link
-  print() #Dar espaço
+def uol():
+    linkuol = "https://economia.uol.com.br/" #Link para extração
+    respuol = urlopen(linkuol) #Requisição do conteúdo da página
+    conteudouol = respuol.read().decode("utf-8") #Definição da variável com o conteúdo
+    soupuol = BeautifulSoup(conteudouol, "html.parser") #Chama o análise do BS
+
+    for a in soupuol.find('div', {"class": "highlights"}).select('a[href]'): #Encontrar destaques e links
+        print(a.text.strip()) #Imprimir texto
+        print(a['href']) #Imprimir link
+        print() #Dar espaço
 
 def covid_pr():
     casos, obitos = dados_covid_pr()
