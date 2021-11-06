@@ -1,4 +1,3 @@
-urllib
 flask
 gunicorn
 pandas
