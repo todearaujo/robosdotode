@@ -51,16 +51,4 @@ def uol():
     print(a.text.strip()) #Imprimir texto
     print(a['href']) #Imprimir link
     print() #Dar espaço
-
-def covid():
-    casos, obitos = dados_covid_pr()
-    return f"""
-      <h1>COVID-19: Dados sobre o Paraná</h1>
-      <a href="/">Página inicial</a> - <a href="/sobre">Sobre esse site</a>
-      <p>
-        <b>Casos</b>: {casos}
-      </p>
-      <p>
-        <b>Óbitos</b>: {obitos}
-      </p>
-    """
+    return
