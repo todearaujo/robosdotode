@@ -33,15 +33,12 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello_world():
-    return render_template(
-        "home.html")
+    return render_template("home.html")
 
 @app.route("/sobre")
 def sobre():
-    arquivo = open("templates/sobre.html")
-    return arquivo.read()
+     return render_template("sobre.html")
 
 @app.route("/covid-19")
 def covid():
-    arquivo = open("templates/covid-19.html")
-    return arquivo.read()
+    return render_template("covid-19.html")
