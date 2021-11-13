@@ -7,31 +7,6 @@ import requests
 
 app = Flask(__name__)
 
-def dados_covid_pr():
-    hoje = datetime.datetime.now().date()
-    ontem = hoje - datetime.timedelta(days=1)
-    conteudo = None
-    for data in (hoje, ontem):
-        url1 = f"https://www.saude.pr.gov.br/sites/default/arquivos_restritos/files/documento/{data.year}-{data.month:02d}/INFORME_EPIDEMIOLOGICO_{data.day:02d}_{data.month:02d}_{data.year}_OBITOS_CASOS_Municipio.csv"
-        url2 = url1.lower()
-        for url in (url1, url2):
-            resposta = requests.get(url)
-            if resposta.ok:
-                conteudo = resposta.content.decode(resposta.apparent_encoding)
-                break
-        if conteudo:
-            break
-    if not conteudo:
-        return None, None, None
-    casos = 0
-    obitos = 0
-    leitor = csv.DictReader(io.StringIO(conteudo), delimiter=";")
-    for registro in leitor:
-        casos += int(registro["Casos"])
-        obitos += int(registro["Obitos"])
-
-    return data, casos, obitos
-
 @app.route("/")
 def hello_world():
     return render_template(
@@ -42,11 +17,7 @@ def sobre():
     arquivo = open("templates/sobre.html")
     return arquivo.read()
 
-@app.route("/covid-19")
+@app.route("/covid-pr")
 def covid():
-    ultima_data, casos, obitos = dados_covid_pr()
-    return render_template("covid-19.html",
-                           data=ultima_data,
-                           casos=casos_pr,
-                           obitos=obitos_pr
-    )
+    arquivo = open("templates/covid-pr.html")
+    return arquivo.read()
