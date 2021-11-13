@@ -42,6 +42,6 @@ def covid():
     return datareturn render_template(
         "covid-19.html",
         data=ultima_data,
-        casos=casos_pr
+        casos=casos_pr,
         obitos=obitos_pr
     )
