@@ -1,8 +1,8 @@
 <h1>COVID-19: Dados sobre o Paraná</h1>
       <a href="/">Página inicial</a> - <a href="/sobre">Sobre esse site</a>
       <p>
-        <b>Casos</b> no PR no dia { {data} }: { {casos} }
+        <b>Casos</b> no PR: { {casos} }
       </p>
       <p>
-        <b>Óbitos</b> no PR no dia { {data} }: { {obitos} }
+        <b>Óbitos</b> no PR: { {obitos} }
       </p>
