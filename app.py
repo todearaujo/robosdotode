@@ -40,7 +40,7 @@ def sobre():
 def covid():
     ultima_data, casos, obitos = dados_covid_pr()
     return datareturn render_template(
-        "home.html",
+        "covid-19.html",
         data=ultima_data,
         casos=casos_pr
         obitos=obitos_pr
