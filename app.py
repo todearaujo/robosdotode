@@ -27,7 +27,3 @@ def dados_covid_pr():
 @app.route("/")
 def home():
     return render_template("home.html")
-
-@app.route("/sobre")
-def sobre():
-    return render_template("sobre.html")
