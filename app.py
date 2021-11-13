@@ -36,7 +36,12 @@ def sobre():
     arquivo = open("templates/sobre.html")
     return arquivo.read()
 
-@app.route("/covid-pr")
+@app.route("/covid-19")
 def covid():
-    arquivo = open("templates/sobre.html")
-    return arquivo.read()
+    ultima_data, casos, obitos = dados_covid_pr()
+    return datareturn render_template(
+        "home.html",
+        data=ultima_data,
+        casos=casos_pr
+        obitos=obitos_pr
+    )
