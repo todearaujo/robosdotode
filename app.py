@@ -37,9 +37,14 @@ def hello_world():
 
 @app.route("/sobre")
 def sobre():
-     return render_template("sobre.html")
+    return render_template("sobre.html")
 
-@app.route("/covid-19")
-def covid():
-    ultima_data, casos_pr, obitos_pr = dados_covid_pt()
-    return render_template("covid-19.html", data=ultima_data, casos=casos_pr, obitos=obitos_pr)
+@app.route("/covid-pr")
+def covid_pr():
+    data_ultimo_boletim, casos_pr, obitos_pr = dados_covid_pr()
+    return render_template(
+        "covid-pr.html", 
+        data=data_ultimo_boletim, 
+        casos=casos_pr, 
+        obitos=obitos_pr
+    )
