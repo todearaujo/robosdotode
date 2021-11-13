@@ -25,20 +25,9 @@ def dados_covid_pr():
     return data, casos, obitos
 
 @app.route("/")
-def hello_world():
-    return render_template(
-        "home.html")
+def home():
+    return render_template("home.html")
 
 @app.route("/sobre")
 def sobre():
-    arquivo = open("templates/sobre.html")
-    return arquivo.read()
-
-@app.route("/covid-19")
-def covid():
-    ultima_data, casos, obitos = dados_covid_pr()
-    return render_template("covid-19.html",
-                           data=ultima_data,
-                           casos=casos_pr,
-                           obitos=obitos_pr
-    )
+    return render_template("sobre.html")
