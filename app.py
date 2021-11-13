@@ -41,5 +41,5 @@ def sobre():
 
 @app.route("/covid-19")
 def covid():
-    data, casos, obitos = dados_covid_pt()
-    return render_template("covid-19.html", data=data, casos=casos, obitos=obitos)
+    ultima_data, casos_pr, obitos_pr = dados_covid_pt()
+    return render_template("covid-19.html", data=ultima_data, casos=casos_pr, obitos=obitos_pr)
