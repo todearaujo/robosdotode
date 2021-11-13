@@ -1,8 +1,13 @@
-<h1>COVID-19: Dados sobre o Paraná</h1>
-      <a href="/">Página inicial</a> - <a href="/sobre">Sobre esse site</a>
-      <p>
-        <b>Casos</b> no PR em  {{data}}: {{casos}}
-      </p>
-      <p>
-        <b>Óbitos</b> no PR {{data}}: {{obitos}}
-      </p>
+{% extends 'base.html' %}
+
+{% block titulo %}Dados sobre COVID-19 Paraná{% endblock %}
+{% block cabecalho %}COVID-19: Dados sobre o Paraná{% endblock %}
+{% block conteudo %}
+<a href="/">Página inicial</a> - <a href="/sobre">Sobre este site</a>
+<p>
+  <b>Casos (para {{ data }})</b>: {{ casos }}
+</p>
+<p>
+  <b>Óbitos (para {{ data }})</b>: {{ obitos }}
+</p>
+{% endblock %}
