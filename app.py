@@ -48,3 +48,15 @@ def covid_pr():
         casos=casos_pr, 
         obitos=obitos_pr
     )
+
+from flask import request
+import requests
+
+@app.route("/telegram", methods=["POST"])
+def telegram():
+    token = "2109277707:AAEwvDWtTwG5r0Ju_9swspX_vzcSKo9Fv-k"
+    dados = request.json
+    mensagem = {"chat_id": dados["mensagem"]["chat"]["id]", "text": "Oi"}
+    url = f"https://api.telegram.org/bot{token}/sendMessage"
+    request.post(url, data=mensagem)
+    return "ok"
