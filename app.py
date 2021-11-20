@@ -56,7 +56,7 @@ import requests
 def telegram():
     token = "2109277707:AAEwvDWtTwG5r0Ju_9swspX_vzcSKo9Fv-k"
     dados = request.json
-    mensagem = {"chat_id": dados["mensagem"]["chat"]["id]", "text": "Oi"}
+    mensagem = {"chat_id": dados["mensage"]["chat"]["id]", "text": "Oi"}
     url = f"https://api.telegram.org/bot{token}/sendMessage"
-    request.post(url, data=mensagem)
+    requests.post(url, data=mensagem)
     return "ok"
