@@ -54,19 +54,22 @@ import requests
 
 @app.route("/telegram", methods=["POST"])
 def telegram():
+    
+    #Token
+    token = "2109277707:AAEwvDWtTwG5r0Ju_9swspX_vzcSKo9Fv-k"
 
     #Processa a mensagem
     update = request.json
     chat_id = update["message"]["chat"]["id"]
     text = update["message"]["text"].lower()
-
-    #Token
-    token = "2109277707:AAEwvDWtTwG5r0Ju_9swspX_vzcSKo9Fv-k"
     
     if text in ["oi", "ola", "olá", "olar"]:
         answer = "Oi! Como vai?"
     elif text in ["bom dia", "boa tarde", "boa noite"]:
         answer = text
+    elif "covid" in  text:
+        data, casos, obitos = dados_covid_pr()
+        answer = f"Os dados que tenho sobre Covid-19 no PR para a {data} são: {casos} casos e {obitos} obitos."
     else:
         answer = "Não entendi"
         
