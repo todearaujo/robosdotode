@@ -63,7 +63,7 @@ def telegram():
     #Token
     token = "2109277707:AAEwvDWtTwG5r0Ju_9swspX_vzcSKo9Fv-k"
     
-    if text in ["oi","ola","olá","olar"]:
+    if text in ["oi", "ola", "olá", "olar"]:
         answer = "Oi! Como vai?"
     elif text in ["bom dia", "boa tarde", "boa noite"]:
         answer = text
@@ -71,7 +71,7 @@ def telegram():
         anwser = "Ainda não sei processsar seu texto"
         
     #Responde    
-    message = {"chat_id": , "text": anwser}
+    message = {"chat_id": chat_id, "text": answer}
     url = f"https://api.telegram.org/bot{token}/sendMessage"
     requests.post(url, data=message)
     
