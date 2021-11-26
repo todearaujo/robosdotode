@@ -68,7 +68,7 @@ def telegram():
     elif text in ["bom dia", "boa tarde", "boa noite"]:
         answer = text
     else:
-        anwser = "Ainda não sei processsar seu texto"
+        answer = "Não entendi"
         
     #Responde    
     message = {"chat_id": chat_id, "text": answer}
