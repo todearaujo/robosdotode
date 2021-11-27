@@ -1,8 +1,10 @@
 import csv
 import datetime
 import io
+import os
 import requests
 from flask import Flask, render_template
+from flask import request
 
 def dados_covid_pr():
     hoje = datetime.datetime.now().date()
@@ -49,14 +51,11 @@ def covid_pr():
         obitos=obitos_pr
     )
                                                     
-from flask import request
-import requests
-
 @app.route("/telegram", methods=["POST"])
 def telegram():
     
     #Token
-    token = "2109277707:AAEwvDWtTwG5r0Ju_9swspX_vzcSKo9Fv-k"
+    token = os.environ["TELEGRAM_TOKEN"]
 
     #Processa a mensagem
     update = request.json
