@@ -4,7 +4,7 @@ import requests
 from urllib.request import urlopen, Request
 from lxml import html
 import pandas as pd
-from flask import Flask, render_template
+from flask import Flask, render_template, render_template_string, make_response
 from flask import request
 
 def scrapeatodict(page,xpathexp):
