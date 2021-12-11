@@ -47,14 +47,13 @@ def sobre():
 
 @app.route("/ronda")
 def ronda():
+    
     investnews = pd.DataFrame(scrapeh2todict(
         'https://investnews.com.br/',
         '//div[@class="mvp-feat1-left-wrap relative"]//h2',
         '//div[@class="mvp-feat1-left-wrap relative"]//a'))
-    inhtml1 = investnews.to_html(render_links=True,index=False)
-    
-    inhtml = make_response(render_template_string(inhtml1))
-    
+    inhtml = investnews.to_html(render_links=True,index=False)
+       
     return render_template(
         "ronda.html",
         inhtml = inhtml,
