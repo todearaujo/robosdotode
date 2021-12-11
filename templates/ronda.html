@@ -3,35 +3,55 @@
 {% block titulo %}Ronda de sites de economia, investimentos e finanças pessoais{% endblock %}
 {% block metadescription %}Ronda de sites de economia, investimentos e finanças pessoais{% endblock %}
 {% block cabecalho %}<b>Ronda de sites</b> de economia, investimentos e finanças pessoais{% endblock %}
+
+<style>@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap');
+
+body {
+  background-color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+}
+
+h1 {
+  text-align: center;
+  font-weight: 500;
+} 
+
+.dataframe {
+  width: 100%;
+  border: 0;
+  font-weight: 300;
+}
+
+td {
+  padding: 5px;
+  width: 50%;
+}
+</style>
+
 {% block conteudo %}
 <div>
-  <p><h2>InfoMoney</h2>
-  <p><a href="http://infomoney.com.br" target="_blank">http://infomoney.com.br</a></p>
-  <p>{{ imhtml | safe }}</p>  
-</div>
-<div>
-  <p><h2>InvestNews</h2>
-  <p><a href="http://investnews.com.br" target="_blank">http://investnews.com.br</a></p>
+  <p><h2>InvestNews</h2> - <a href="http://investnews.com.br" target="_blank">http://investnews.com.br</a></p>
   <p>{{ inhtml | safe }}</p>  
 </div>
 <div>
-  <p><h2>MoneyTimes</h2>
-  <p><a href="https://www.moneytimes.com.br/" target="_blank">https://moneytimes.com.br/</a></p>
+  <p><h2>MoneyTimes</h2> - <a href="https://www.moneytimes.com.br/" target="_blank">https://moneytimes.com.br/</a></p>
   <p>{{ mthtml | safe }}</p>  
 </div>
 <div>
-  <p><h2>UOL Economia</h2>
-  <p><a href="https://economia.uol.com.br/" target="_blank">https://economia.uol.com.br/</a></p>
+  <p><h2>UOL Economia</h2> - <a href="https://economia.uol.com.br/" target="_blank">https://economia.uol.com.br/</a></p>
   <p>{{ uhtml | safe }}</p>  
 </div>
 <div>
-  <p><h2>Exame.com</h2>
-  <p><a href="http://exame.com" target="_blank">http://exame.com</a></p>
+  <p><h2>Exame.com</h2> - <a href="http://exame.com" target="_blank">http://exame.com</a></p>
   <p>{{ ehtml | safe }}</p>  
 </div>
 <div>
-  <p><h2>O Globo</h2>
-  <p><a href="https://oglobo.globo.com/economia/" target="_blank">https://oglobo.globo.com/economia/</a></p>
+  <p><h2>O Globo</h2> - <a href="https://oglobo.globo.com/economia/" target="_blank">https://oglobo.globo.com/economia/</a></p>
   <p>{{ oghtml | safe }}</p>  
+</div>
+<div>
+  <p><h2>InfoMoney</h2> - <a href="http://infomoney.com.br" target="_blank">http://infomoney.com.br</a></p>
+  <p>{{ imhtml | safe }}</p>  
 </div>
 {% endblock %}
