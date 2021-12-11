@@ -5,10 +5,10 @@
     <title>{% block titulo %}{% endblock %} | Site do Tode</title>
     <meta name="description" content="{% block metadescription %}{% endblock %}" />
     <style>@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap');
-       body {
-         background-color: #ffffff;
-         font-family: 'Roboto', sans-serif; 
-         font-size: 14px;
+      body {
+        background-color: #ffffff;
+        font-family: 'Roboto', sans-serif; 
+        font-size: 14px;
       }
       
       h1 {
@@ -16,15 +16,26 @@
         font-weight: 500;
       } 
       
-      .dataframe {
-        width: 100%;
-        border: 0;
-        font-weight: 300;
+      td, th {
+        border: 1px solid #cccccc;
+        text-align: left;
+        padding: 8px;
+        width: 50%;
+        max-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      tr:nth-child(even) {
+        background-color: #dddddd;
       }
       
-      td {
-        padding: 5px;
-        width: 50%;
+      .dataframe {
+        width: 90%;
+        font-weight: 300;
+        border-collapse: collapse;
+        margin: auto;
       }
 </style>
   </head>
