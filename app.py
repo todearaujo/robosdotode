@@ -48,6 +48,10 @@ def sobre():
 @app.route("/ronda")
 def ronda():
     
+    #Valor Econômico
+    valor = pd.DataFrame(scrapeatodict('https://valor.globo.com/','//div[@class="container-topo-3-colunas grid-x"]//div[@class="highlight__title theme-title-element "]//a'))
+    vehtml = valor.to_html(render_links=True,index=False,escape=True)
+    
     #InfoMoney
     infomoney = pd.DataFrame(scrapeatodict('https://www.infomoney.com.br/','//div[@class="row mt-5 default_Big"]//div//div//div//span//a'))
     imhtml = infomoney.to_html(render_links=True,index=False,escape=True)
@@ -88,7 +92,8 @@ def ronda():
         mthtml = mthtml,
         uhtml = uhtml,
         ehtml = ehtml,
-        oghtml = oghtml,
+        oghtml = oghtml
+        vehtml = vehtml,
     )
                                                     
 @app.route("/telegram", methods=["POST"])
