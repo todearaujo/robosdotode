@@ -4,8 +4,9 @@
 {% block metadescription %}Ronda de sites de economia, investimentos e finanças pessoais{% endblock %}
 {% block cabecalho %}<b>Ronda de sites</b> de economia, investimentos e finanças pessoais{% endblock %}
 {% block conteudo %}
-<a href="/">Página inicial</a> - <a href="/sobre">Sobre esse site</a>
 <div>
-  {{ inhtml }}
+  <p>
+  {{ inhtml | safe }}
+  </p>  
 </div>
 {% endblock %}
