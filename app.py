@@ -6,30 +6,33 @@ import requests
 from flask import Flask, render_template
 from flask import request
 
-def dados_covid_pr():
-    hoje = datetime.datetime.now().date()
-    ontem = hoje - datetime.timedelta(days=1)
-    conteudo = None
-    for data in (hoje, ontem):
-        url1 = f"https://www.saude.pr.gov.br/sites/default/arquivos_restritos/files/documento/{data.year}-{data.month:02d}/INFORME_EPIDEMIOLOGICO_{data.day:02d}_{data.month:02d}_{data.year}_OBITOS_CASOS_Municipio.csv"
-        url2 = url1.lower()
-        for url in (url1, url2):
-            resposta = requests.get(url)
-            if resposta.ok:
-                conteudo = resposta.content.decode(resposta.apparent_encoding)
-                break
-        if conteudo:
-            break
-    if not conteudo:
-        return None, None, None
-    casos = 0
-    obitos = 0
-    leitor = csv.DictReader(io.StringIO(conteudo), delimiter=";")
-    for registro in leitor:
-        casos += int(registro["Casos"])
-        obitos += int(registro["Obitos"])
+def scrapeatodict(page,xpathexp):
+  resp = Request(page, headers={'User-Agent': 'Mozilla/5.0'})
+  conteudo = urlopen(resp).read().decode("utf-8")
+  ohtml = html.fromstring(conteudo)
+  
+  tagxpath = ohtml.xpath(xpathexp)
+  
+  dict = {"Título":[], "Link":[]}
+  for a in tagxpath:
+    dict["Título"].append(a.xpath("text()")[0])
+    dict["Link"].append(a.xpath("@href")[0])
+  return dict
 
-    return data, casos, obitos
+def scrapeh2todict(page,xpathexph2,xpathexpa):
+  resp = Request(page, headers={'User-Agent': 'Mozilla/5.0'})
+  conteudo = urlopen(resp).read().decode("utf-8")
+  ohtml = html.fromstring(conteudo)
+  
+  tagxpathh2 = ohtml.xpath(xpathexph2)
+  tagxpatha = ohtml.xpath(xpathexpa)
+  
+  dict = {"Título":[], "Link":[]}
+  for h2 in tagxpathh2:
+    dict["Título"].append(h2.xpath("text()")[0])
+  for a in tagxpatha:
+    dict["Link"].append(a.xpath("@href")[0])
+  return dict
 
 app = Flask(__name__)
 
@@ -41,20 +44,17 @@ def hello_world():
 def sobre():
     return render_template("sobre.html")
 
-@app.route("/covid-pr")
-def covid_pr():
-    data_ultimo_boletim, casos_pr, obitos_pr = dados_covid_pr()
-    return render_template(
-        "covid-pr.html", 
-        data=data_ultimo_boletim, 
-        casos=casos_pr, 
-        obitos=obitos_pr
-    )
-
 @app.route("/ronda")
 def ronda():
+    investnews = pd.DataFrame(scrapeh2todict(
+        'https://investnews.com.br/',
+        '//div[@class="mvp-feat1-left-wrap relative"]//h2',
+        '//div[@class="mvp-feat1-left-wrap relative"]//a'))
+    inhtml = investnews.to_html(render_links=True,index=False)
+    
     return render_template(
-        "ronda.html"
+        "ronda.html",
+        inhtml = inhtml,
     )
                                                     
 @app.route("/telegram", methods=["POST"])
