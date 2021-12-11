@@ -3,3 +3,6 @@ gunicorn
 pandas
 requests
 bs4
+urllib.request
+lxml
+pandas
