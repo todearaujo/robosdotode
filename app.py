@@ -51,7 +51,9 @@ def ronda():
         'https://investnews.com.br/',
         '//div[@class="mvp-feat1-left-wrap relative"]//h2',
         '//div[@class="mvp-feat1-left-wrap relative"]//a'))
-    inhtml = investnews.to_html(render_links=True,index=False)
+    inhtml1 = investnews.to_html(render_links=True,index=False)
+    
+    inhtml = make_response(render_template_string(inhtml1))
     
     return render_template(
         "ronda.html",
