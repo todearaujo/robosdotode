@@ -50,6 +50,12 @@ def covid_pr():
         casos=casos_pr, 
         obitos=obitos_pr
     )
+
+@app.route("/ronda")
+def ronda():
+    return render_template(
+        "ronda.html"
+    )
                                                     
 @app.route("/telegram", methods=["POST"])
 def telegram():
