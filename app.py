@@ -14,10 +14,10 @@ def scrapeatodict(page,xpathexp):
   
   tagxpath = ohtml.xpath(xpathexp)
   
-  dict = {"Título":[], "Link":[]}
+  dict = {"Destaque":[], "Link para o conteúdo":[]}
   for a in tagxpath:
-    dict["Título"].append(a.xpath("text()")[0])
-    dict["Link"].append(a.xpath("@href")[0])
+    dict["Destaque"].append(a.xpath("text()")[0])
+    dict["Link para o conteúdo"].append(a.xpath("@href")[0])
   return dict
 
 def scrapeh2todict(page,xpathexph2,xpathexpa):
@@ -28,11 +28,11 @@ def scrapeh2todict(page,xpathexph2,xpathexpa):
   tagxpathh2 = ohtml.xpath(xpathexph2)
   tagxpatha = ohtml.xpath(xpathexpa)
   
-  dict = {"Título":[], "Link":[]}
+  dict = {"Destaque":[], "Link para o conteúdo":[]}
   for h2 in tagxpathh2:
-    dict["Título"].append(h2.xpath("text()")[0])
+    dict["Destaque"].append(h2.xpath("text()")[0])
   for a in tagxpatha:
-    dict["Link"].append(a.xpath("@href")[0])
+    dict["Link para o conteúdo"].append(a.xpath("@href")[0])
   return dict
 
 app = Flask(__name__)
@@ -48,15 +48,47 @@ def sobre():
 @app.route("/ronda")
 def ronda():
     
+    #InfoMoney
+    infomoney = scrapeatodict('https://www.infomoney.com.br/','//div[@class="row mt-5 default_Big"]//div//div//div//span//a')
+    imhtml = infomoney.to_html(render_links=True,index=False,escape=True)
+    
+    #InvestNews
     investnews = pd.DataFrame(scrapeh2todict(
         'https://investnews.com.br/',
         '//div[@class="mvp-feat1-left-wrap relative"]//h2',
         '//div[@class="mvp-feat1-left-wrap relative"]//a'))
     inhtml = investnews.to_html(render_links=True,index=False)
-       
+    
+    #MoneyTimes
+    moneytimesh21 = pd.DataFrame(scrapeatodict('https://www.moneytimes.com.br/','//div[@class="home-highlight"]//h2/a'))
+    moneytimesh22 = pd.DataFrame(scrapeatodict('https://www.moneytimes.com.br/','//div[@class="secondary"]//a'))
+    moneytimesh3 = pd.DataFrame(scrapeatodict('https://www.moneytimes.com.br/','//div[@class="home-list"]/div/h3/a'))
+    moneytimes1 = moneytimesh21.append(moneytimesh22)
+    moneytimes = moneytimes1.append(moneytimesh3)
+    mthtml = moneytimes.to_html(render_links=True,index=False,escape=True)
+    
+    #UOL
+    uol = scrapeh2todict('https://economia.uol.com.br/','//div[@class="highlights"]//a//h2','//div[@class="highlights"]//div/a')
+    uhtml = uol.to_html(render_links=True,index=False,escape=True)
+    
+    #Exame
+    examea1 = pd.DataFrame(scrapeatodict('https://exame.com/','//div[@class="highlight-infos"]//span[@class="full-widget-title"]//a'))
+    examea2 = pd.DataFrame(scrapeatodict('https://exame.com/','//div[@class="highlight-infos"]//li[@class="highlight-bullet"]//a'))
+    exame = examea1.append(examea2)
+    ehtml = exame.to_html(render_links=True,index=False,escape=True)
+
+    #O Globo
+    oglobo = pd.DataFrame(scrapeatodict('https://oglobo.globo.com/economia/','//section[@class="block five-teasers"]//div/div/div/article/div/h1/a'))
+    oghtml = oglobo.to_html(render_links=True,index=False,escape=True)
+
     return render_template(
         "ronda.html",
+        imhtml = imhtml,
         inhtml = inhtml,
+        mthtml = mthtml,
+        uhtml = uhtml,
+        ehtml = ehtml,
+        oghtml = oghtml,
     )
                                                     
 @app.route("/telegram", methods=["POST"])
