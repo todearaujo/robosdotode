@@ -5,6 +5,10 @@
 {% block cabecalho %}<b>Ronda de sites</b> de economia, investimentos e finanças pessoais{% endblock %}
 {% block conteudo %}
 <div>
+  <p>InfoMoney - <a href="http://infomoney.com.br" target="_blank">http://infomoney.com.br</a></p>
+  <p>{{ imhtml | safe }}</p>  
+</div>
+<div>
   <p>InvestNews - <a href="http://investnews.com.br" target="_blank">http://investnews.com.br</a></p>
   <p>{{ inhtml | safe }}</p>  
 </div>
@@ -17,15 +21,11 @@
   <p>{{ uhtml | safe }}</p>  
 </div>
 <div>
-  <p>Exame.com - <a href="http://exame.com" target="_blank">http://exame.com</a></p>
-  <p>{{ ehtml | safe }}</p>  
-</div>
-<div>
   <p>O Globo - <a href="https://oglobo.globo.com/economia/" target="_blank">https://oglobo.globo.com/economia/</a></p>
   <p>{{ oghtml | safe }}</p>  
 </div>
 <div>
-  <p>InfoMoney - <a href="http://infomoney.com.br" target="_blank">http://infomoney.com.br</a></p>
-  <p>{{ imhtml | safe }}</p>  
+  <p>Exame.com - <a href="http://exame.com" target="_blank">http://exame.com</a></p>
+  <p>{{ ehtml | safe }}</p>  
 </div>
 {% endblock %}
