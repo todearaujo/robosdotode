@@ -1,8 +1,9 @@
 import csv
 import datetime
-import io
-import os
 import requests
+from urllib.request import urlopen, Request
+from lxml import html
+import pandas as pd
 from flask import Flask, render_template
 from flask import request
 
