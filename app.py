@@ -49,7 +49,7 @@ def sobre():
 def ronda():
     
     #InfoMoney
-    infomoney = scrapeatodict('https://www.infomoney.com.br/','//div[@class="row mt-5 default_Big"]//div//div//div//span//a')
+    infomoney = pd.DataFrame(scrapeatodict('https://www.infomoney.com.br/','//div[@class="row mt-5 default_Big"]//div//div//div//span//a'))
     imhtml = infomoney.to_html(render_links=True,index=False,escape=True)
     
     #InvestNews
@@ -68,7 +68,7 @@ def ronda():
     mthtml = moneytimes.to_html(render_links=True,index=False,escape=True)
     
     #UOL
-    uol = scrapeh2todict('https://economia.uol.com.br/','//div[@class="highlights"]//a//h2','//div[@class="highlights"]//div/a')
+    uol = pd.DataFrame(scrapeh2todict('https://economia.uol.com.br/','//div[@class="highlights"]//a//h2','//div[@class="highlights"]//div/a'))
     uhtml = uol.to_html(render_links=True,index=False,escape=True)
     
     #Exame
