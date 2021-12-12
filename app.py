@@ -14,10 +14,10 @@ def scrapeatodict(page,xpathexp):
   
   tagxpath = ohtml.xpath(xpathexp)
   
-  dict = {"Destaque":[], "Link para o conteúdo":[]}
+  dict = {"Destaque":[], "Link":[]}
   for a in tagxpath:
     dict["Destaque"].append(a.xpath("text()")[0])
-    dict["Link para o conteúdo"].append(a.xpath("@href")[0])
+    dict["Link"].append(a.xpath("@href")[0])
   return dict
 
 def scrapeh2todict(page,xpathexph2,xpathexpa):
@@ -28,11 +28,11 @@ def scrapeh2todict(page,xpathexph2,xpathexpa):
   tagxpathh2 = ohtml.xpath(xpathexph2)
   tagxpatha = ohtml.xpath(xpathexpa)
   
-  dict = {"Destaque":[], "Link para o conteúdo":[]}
+  dict = {"Destaque":[], "Link":[]}
   for h2 in tagxpathh2:
     dict["Destaque"].append(h2.xpath("text()")[0])
   for a in tagxpatha:
-    dict["Link para o conteúdo"].append(a.xpath("@href")[0])
+    dict["Link"].append(a.xpath("@href")[0])
   return dict
 
 app = Flask(__name__)
