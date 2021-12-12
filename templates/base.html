@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block titulo %}{% endblock %} | Site do Tode</title>
     <meta name="description" content="{% block metadescription %}{% endblock %}" />
-    <style>@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap');
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap');
+      
       body {
         background-color: #ffffff;
         font-family: 'Roboto', sans-serif; 
@@ -49,6 +51,9 @@
         border-collapse: collapse;
         margin: auto;
       }
+      
+      {% block style %}{% endblock %}
+      
 </style>
   </head>
   <body>
