@@ -3,6 +3,73 @@
 {% block titulo %}Ronda de sites de economia, investimentos e finanças pessoais{% endblock %}
 {% block metadescription %}Ronda de sites de economia, investimentos e finanças pessoais{% endblock %}
 {% block cabecalho %}<b>Ronda de sites</b> de economia, investimentos e finanças pessoais{% endblock %}
+{% block style %}
+      div {
+        max-width: 600px;
+        margin: auto;
+      }
+      
+      td, th {
+        border: 1px solid #cccccc;
+        text-align: left;
+        padding: 8px;
+        max-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      tr:nth-child(even) {
+        background-color: #dddddd;
+      }
+      
+      td:first-child {
+        width:80%;
+      }
+      
+      td:last-child {
+        white-space: nowrap;
+      } 
+      
+      .dataframe {
+        width: 100%;
+        font-weight: 300;
+        border-collapse: collapse;
+        margin: auto;
+      }
+      
+      th {
+        color: #ffffff;
+      }
+
+      #valor th {
+        background: #37626e;
+      }
+
+      #infomoney th {
+        background: #212121;
+      }
+
+      #investnews th {
+        background: #90067C;
+      }
+
+      #moneytimes th {
+        background: #00c940;
+      }
+
+      #uol th {
+        background: #ff8000;
+      }
+
+      #oglobo th {
+        background: #1e4c9a;
+      }
+
+      #exame th {
+        background: #ff0000;
+      }
+
+{% endblock %}
 {% block conteudo %}
 <div>
   <p>Valor Econômico - <a href="https://valor.globo.com/" target="_blank">https://valor.globo.com/</a></p>
