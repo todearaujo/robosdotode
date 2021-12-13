@@ -76,9 +76,9 @@ def ronda():
     mthtml = moneytimes.to_html(render_links=True,index=False,escape=True,table_id="moneytimes")
     
     #UOL
-    uol = pd.DataFrame(scrapeh2todict('https://economia.uol.com.br/',
-                                      '//div[@class="highlights"]//a//h2','//div[@class="highlights"]//div/a'))
-    uhtml = uol.to_html(render_links=True,index=False,escape=True,table_id="uol")
+    #uol = pd.DataFrame(scrapeh2todict('https://economia.uol.com.br/',
+    #                                  '//div[@class="highlights"]//a//h2','//div[@class="highlights"]//div/a'))
+    #uhtml = uol.to_html(render_links=True,index=False,escape=True,table_id="uol")
     
     #Exame
     examea1 = pd.DataFrame(scrapeh2todict('https://minha.exame.com/',
