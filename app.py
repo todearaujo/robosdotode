@@ -107,7 +107,6 @@ def ronda():
         imhtml = imhtml,
         inhtml = inhtml,
         mthtml = mthtml,
-        uhtml = uhtml,
         ehtml = ehtml,
         oghtml = oghtml,
         vehtml = vehtml,
