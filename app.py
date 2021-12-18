@@ -115,5 +115,5 @@ def economia():
         ehtml = ehtml,
         oghtml = oghtml,
         vehtml = vehtml,
-        manifest = "economia",
+        manifest = "economia.webmanifest",
     )
