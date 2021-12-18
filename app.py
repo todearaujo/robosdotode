@@ -6,9 +6,11 @@ from lxml import html
 import pandas as pd
 from flask import Flask, render_template, render_template_string, make_response
 from flask import request
-from cachetools import cached, LRUCache, TTLCache
+from cachetools import cached, TTLCache
 
-@cached(cache=TTLCache(maxsize=1024, ttl=600))
+cache = TTLCache(maxsize=1024, ttl=600)
+
+@cached(cache)
 def scrapeatodict(page,xpathexp):
   resp = Request(page, headers={'User-Agent': 'Mozilla/5.0'})
   conteudo = urlopen(resp).read().decode("utf-8")
