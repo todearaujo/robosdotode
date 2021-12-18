@@ -1,8 +1,10 @@
 {% extends 'base.html' %}
 
 {% block titulo %}Ronda de sites de economia, investimentos e finanças pessoais{% endblock %}
+
 {% block metadescription %}Ronda de sites de economia, investimentos e finanças pessoais{% endblock %}
-{% block cabecalho %}<b>Ronda de sites</b> de economia, investimentos e finanças pessoais{% endblock %}
+{% block webmanifest %}economico.webmanifest{% endblock %}
+
 {% block style %}
       a:visited {
         text-decoration: none !important;
@@ -74,6 +76,11 @@
         background: #ff0000;
       }
 {% endblock %}
+
+{% block cabecalho %}
+<b>Ronda de sites</b> de economia, investimentos e finanças pessoais
+{% endblock %}
+
 {% block conteudo %}
 <div>
   <p>Valor Econômico - <a href="https://valor.globo.com/" target="_blank">https://valor.globo.com/</a></p>
