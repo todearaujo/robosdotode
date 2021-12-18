@@ -1,12 +1,14 @@
 {% extends 'base.html' %}
 
 {% block titulo %}Página inicial{% endblock %}
+
 {% block metadescription %}Site feito com a biblioteca Flask do Python e algumas funções que aprendi ou criei durante o Master de Jornalismo de dados e Automação do Insper{% endblock %}
-{% block cabecalho %}Todebots - robôs do Tode{% endblock %}
+
 {% block style %}
 {% endblock %}
+
+<div>{% block cabecalho %}Todebots - robôs do Tode{% endblock %}
 {% block conteudo %}
-<div>
 <a href="/economia">Homeiro /economia</a> - <a href="/sobre">Sobre esse site</a>
 <p>Olá, professores e colegas, tudo bem?!</p>
 <p>Por enquanto só temos um robô, o homeiro de Economia que te conta os destaques em tempo real sobre finanças, investimentos e mais do mundo econômico. Clica aí!</p>

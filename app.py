@@ -6,7 +6,9 @@ from lxml import html
 import pandas as pd
 from flask import Flask, render_template, render_template_string, make_response
 from flask import request
+from cachetools import cached, LRUCache, TTLCache
 
+@cached(cache=TTLCache(ttl=600))
 def scrapeatodict(page,xpathexp):
   resp = Request(page, headers={'User-Agent': 'Mozilla/5.0'})
   conteudo = urlopen(resp).read().decode("utf-8")
@@ -20,6 +22,7 @@ def scrapeatodict(page,xpathexp):
     dict["Link"].append(a.xpath("@href")[0])
   return dict
 
+@cached(cache=TTLCache(ttl=600))
 def scrapeh2todict(page,xpathexph2,xpathexpa):
   resp = Request(page, headers={'User-Agent': 'Mozilla/5.0'})
   conteudo = urlopen(resp).read().decode("utf-8")
@@ -45,8 +48,8 @@ def hello_world():
 def sobre():
     return render_template("sobre.html")
 
-@app.route("/ronda")
-def ronda():
+@app.route("/economia")
+def economia():
     
     #Valor Econômico
     valor = pd.DataFrame(scrapeatodict('https://valor.globo.com/',
@@ -112,32 +115,3 @@ def ronda():
         vehtml = vehtml,
         manifest = "economico.manifest",
     )
-                                                    
-@app.route("/telegram", methods=["POST"])
-def telegram():
-    
-    #Token
-    token = os.environ["TELEGRAM_TOKEN"]
-
-    #Processa a mensagem
-    update = request.json
-    chat_id = update["message"]["chat"]["id"]
-    text = update["message"]["text"].lower()
-    
-    if text in ["oi", "ola", "olá", "olar"]:
-        answer = "Oi! Como vai?"
-    elif text in ["bom dia", "boa tarde", "boa noite"]:
-        answer = text
-    elif "covid" in  text:
-        data, casos, obitos = dados_covid_pr()
-        answer = f"Os dados que tenho sobre Covid-19 no PR para a {data} são: {casos} casos e {obitos} obitos."
-    else:
-        answer = "Não entendi"
-        
-    #Responde    
-    message = {"chat_id": chat_id, "text": answer}
-    url = f"https://api.telegram.org/bot{token}/sendMessage"
-    requests.post(url, data=message)
-    
-    #Finaliza
-    return "ok"
