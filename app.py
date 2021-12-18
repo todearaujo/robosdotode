@@ -103,7 +103,7 @@ def ronda():
     oghtml = oglobo.to_html(render_links=True,index=False,escape=True,table_id="oglobo")
 
     return render_template(
-        "ronda.html",
+        "economia.html",
         imhtml = imhtml,
         inhtml = inhtml,
         mthtml = mthtml,

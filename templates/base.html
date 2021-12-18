@@ -13,7 +13,7 @@
     <!-- End Google Tag Manager -->
     <meta name="robots" content="noimageindex, nofollow, nosnippet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{% block titulo %}{% endblock %} | Site do Tode</title>
+    <title>{% block titulo %}{% endblock %} | Robôs do Tode</title>
     <meta name="description" content="{% block metadescription %}{% endblock %}" />
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap');
@@ -28,9 +28,17 @@
         text-align: center;
         font-weight: 500;
       }
-          
+
+      a:visited {
+        text-decoration: none !important;
+        color: #000000;
+      }
+       
+      div {
+        max-width: 600px;
+        margin: auto;
+      }          
       {% block style %}{% endblock %}
-      
 </style>
   </head>
   <body>

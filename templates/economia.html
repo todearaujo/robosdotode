@@ -1,20 +1,10 @@
 {% extends 'base.html' %}
 
-{% block titulo %}Ronda de sites de economia, investimentos e finanças pessoais{% endblock %}
+{% block titulo %}robohomeiro/economia{% endblock %}
 
-{% block metadescription %}Ronda de sites de economia, investimentos e finanças pessoais{% endblock %}
+{% block metadescription %}Ronda de homes em sites de economia, investimentos e finanças pessoais{% endblock %}
 
-{% block style %}
-      a:visited {
-        text-decoration: none !important;
-        color: #000000;
-      }
-       
-      div {
-        max-width: 600px;
-        margin: auto;
-      }
-      
+{% block style %}   
       td, th {
         border: 1px solid #cccccc;
         text-align: left;
@@ -77,32 +67,33 @@
 {% endblock %}
 
 {% block cabecalho %}
-<b>Ronda de sites</b> de economia, investimentos e finanças pessoais
+Ronda /<b>economia</b>+financas+investimentos
 {% endblock %}
 
 {% block conteudo %}
+<div><p>O que está em destaques sobre economia, investimentos e finanças pessoais</p></div>
 <div>
-  <p>Valor Econômico - <a href="https://valor.globo.com/" target="_blank">https://valor.globo.com/</a></p>
+  <p><a href="https://valor.globo.com/" target="_blank">valor.globo.com/</a></p>
   {{ vehtml | safe }}
 </div>
 <div>
-  <p>InfoMoney - <a href="http://infomoney.com.br" target="_blank">http://infomoney.com.br</a></p>
+  <p><a href="http://infomoney.com.br" target="_blank">infomoney.com.br/</a></p>
   {{ imhtml | safe }}  
 </div>
 <div>
-  <p>InvestNews - <a href="http://investnews.com.br" target="_blank">http://investnews.com.br</a></p>
+  <p><a href="http://investnews.com.br" target="_blank">investnews.com.br/</a></p>
   {{ inhtml | safe }}  
 </div>
 <div>
-  <p>MoneyTimes - <a href="https://www.moneytimes.com.br/" target="_blank">https://moneytimes.com.br/</a></p>
+  <p><a href="https://www.moneytimes.com.br/" target="_blank">moneytimes.com.br/</a></p>
   {{ mthtml | safe }}  
 </div>
 <div>
-  <p>O Globo - <a href="https://oglobo.globo.com/economia/" target="_blank">https://oglobo.globo.com/economia/</a></p>
+  <p><a href="https://oglobo.globo.com/economia/" target="_blank">oglobo.globo.com/economia</a></p>
   {{ oghtml | safe }}  
 </div>
 <div>
-  <p>Exame.com - <a href="http://exame.com" target="_blank">http://exame.com</a></p>
+  <p><a href="http://exame.com" target="_blank">exame.com/</a></p>
   {{ ehtml | safe }}</p>  
 </div>
 {% endblock %}
