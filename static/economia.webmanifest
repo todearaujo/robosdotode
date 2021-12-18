@@ -1,18 +1,31 @@
 {"name":"Todebot: Homeiro de Economia",
 "short_name":"Homeiro de Economia",
-"start_url": "../ronda",
+"start_url": "../economia",
 "theme_color":"#ffffff",
 "background_color":"#ffffff",
 "display":"minimal-ui",
-"description": "A simply readable Hacker News app.",
+"description": "O que está em destaques sobre economia, investimentos e finanças pessoais",
+"lang": "pt-BR",
 "icons":[{
     "src":"static/android-chrome-192x192.png",
     "sizes":"192x192","type":"image/png",
-    "type": "image/png"
+    "type": "image/png",
+    "purpose": "any maskable"
+  },{
+    "src":"static/favicon-16x16.png",
+    "sizes":"16x16","type":"image/png",
+    "type": "image/png",
+    "purpose": "any maskable"
+  },{
+    "src":"static/favicon-32x32.png",
+    "sizes":"32x32","type":"image/png",
+    "type": "image/png",
+    "purpose": "any maskable"
   }, {
     "src":"static/android-chrome-512x512.png",
     "sizes":"512x512",
-    "type":"image/png"
+    "type":"image/png",
+    "purpose": "any maskable"
   }],
 "related_applications":[{
     "platform": "web"
