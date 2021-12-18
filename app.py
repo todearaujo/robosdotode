@@ -110,6 +110,7 @@ def ronda():
         ehtml = ehtml,
         oghtml = oghtml,
         vehtml = vehtml,
+        manifest = "economico.manifest",
     )
                                                     
 @app.route("/telegram", methods=["POST"])
