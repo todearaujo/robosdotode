@@ -1,5 +1,3 @@
-import csv
-import datetime
 import requests
 from urllib.request import urlopen, Request
 from lxml import html
