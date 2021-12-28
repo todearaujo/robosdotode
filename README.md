@@ -6,7 +6,7 @@ O desenvolvimeno foi iniciado na disciplina de **Algoritmos de automação** com
 
 # Linguagens e bibliotecas
 
-A aplicação/site roda em **Flask**, biblioteca do Python, compilando funções que aprendi ou desenvolvi durante o [**Master de Jornalismo de dados e Automação do Insper**](https://www.insper.edu.br/pos-graduacao/master-em-jornalismo-de-dados-automacao-e-data-storytelling/).
+A aplicação/site roda em **Flask**, biblioteca do Python, compilando funções que aprendi ou desenvolvi durante o [**Master de Jornalismo de dados, Automação e Data Storytelling do Insper**](https://www.insper.edu.br/pos-graduacao/master-em-jornalismo-de-dados-automacao-e-data-storytelling/).
 
 ## Links
 URL Heroku https://tode-siteflask.herokuapp.com/
