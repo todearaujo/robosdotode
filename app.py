@@ -2,8 +2,7 @@ import requests
 from urllib.request import urlopen, Request
 from lxml import html
 import pandas as pd
-from flask import Flask, render_template, render_template_string, make_response
-from flask import request
+from flask import Flask, render_template, redirect, url_for
 from cachetools import cached, TTLCache
 
 cache = TTLCache(maxsize=1024, ttl=600)
@@ -47,6 +46,10 @@ def hello_world():
 @app.route("/sobre")
 def sobre():
     return render_template("sobre.html")
+
+@app.route("/economia")
+def economia():
+    return redirect(url_for('economiadestaques'))
 
 @app.route("/economia/destaques")
 def economiadestaques():
