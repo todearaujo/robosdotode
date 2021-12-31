@@ -1,10 +1,16 @@
 {% extends 'base.html' %}
 
-{% block titulo %}Homeiro /economia{% endblock %}
+{% block titulo %}Editor de /economia{% endblock %}
 
-{% block metadescription %}Ronda de homes em sites de economia, investimentos e finanças pessoais{% endblock %}
+{% block metadescription %}O que é assunto em sites de economia, investimentos e finanças pessoais do Brasil{% endblock %}
+
+{% block manifest %}economia.webmanifest{% endblock %}
 
 {% block style %}   
+      a:link #nomesite {
+        text-decoration: none !important;
+        color: #000000 !important;
+      }
       td, th {
         border: 1px solid #cccccc;
         text-align: left;
@@ -12,6 +18,10 @@
         max-width: 0;
         overflow: hidden;
         text-overflow: ellipsis;
+      }
+
+      tr:nth-child(odd) {
+        background-color: #ffffff;
       }
 
       tr:nth-child(even) {
@@ -66,34 +76,42 @@
       }
 {% endblock %}
 
+{% block menu %}
+<div class="menu">
+    <a class="menu nao" href="/">Página inicial</a>
+    <a class="menu sim" href="/economia">Editor de /economia</a>
+    <a class="menu nao" href="/sobre">Sobre o site</a>
+</div>
+{% endblock %}
+
 {% block cabecalho %}
-Ronda /<b>economia</b>+financas+investimentos
+O que é assunto em /<b>economia</b>
 {% endblock %}
 
 {% block conteudo %}
-<div><p style="text-align: center;">O que está em destaque sobre economia, investimentos e finanças pessoais</p></div>
+<div><p style="text-align: center;">Destaques nas homes sobre investimentos, finanças pessoais e mercado financeiro</p></div>
 <div>
-  <p><a href="https://valor.globo.com/" target="_blank">valor.globo.com/</a></p>
+  <p><a class="linksite" href="https://valor.globo.com/" target="_blank">valor.globo.com/</a></p>
   {{ vehtml | safe }}
 </div>
 <div>
-  <p><a href="http://infomoney.com.br" target="_blank">infomoney.com.br/</a></p>
+  <p><a class="linksite" href="http://infomoney.com.br" target="_blank">infomoney.com.br/</a></p>
   {{ imhtml | safe }}  
 </div>
 <div>
-  <p><a href="http://investnews.com.br" target="_blank">investnews.com.br/</a></p>
+  <p><a class="linksite" href="http://investnews.com.br" target="_blank">investnews.com.br/</a></p>
   {{ inhtml | safe }}  
 </div>
 <div>
-  <p><a href="https://www.moneytimes.com.br/" target="_blank">moneytimes.com.br/</a></p>
+  <p><a class="linksite" href="https://www.moneytimes.com.br/" target="_blank">moneytimes.com.br/</a></p>
   {{ mthtml | safe }}  
 </div>
 <div>
-  <p><a href="https://oglobo.globo.com/economia/" target="_blank">oglobo.globo.com/economia</a></p>
+  <p><a class="linksite" href="https://oglobo.globo.com/economia/" target="_blank">oglobo.globo.com/economia</a></p>
   {{ oghtml | safe }}  
 </div>
 <div>
-  <p><a href="http://exame.com" target="_blank">exame.com/</a></p>
+  <p><a class="linksite" href="http://exame.com" target="_blank">exame.com/</a></p>
   {{ ehtml | safe }}</p>  
 </div>
 {% endblock %}

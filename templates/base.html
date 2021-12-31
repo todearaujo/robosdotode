@@ -2,7 +2,7 @@
 <html>
   <head>
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
-    <link rel="manifest" href="../static/{{ manifest }}")">
+    <link rel="manifest" href="../static/{% block manifest %}{% endblock %}")">
     <!-- Google Tag Manager -->
       <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -19,25 +19,56 @@
       @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap');
       
       body {
-        background-color: #ffffff;
+        max-width: 600px;
+        margin: auto;
+        background-color: #DD2E43;
         font-family: 'Roboto', sans-serif; 
         font-size: 15px;
       }
+
+      #main {
+        vertical-align: middle;
+        background-color: #ffffff;
+        padding: 20px;
+        border: 4px solid #DD2E43;
+      }    
+
+      #robo {
+        background-color: #ffffff;
+        text-align: center;
+      }
       
       h2 {
+        color: #DD2E43;
         text-align: center;
         font-weight: 500;
       }
 
+      .menu {
+        padding: 3px;
+        text-align: center;
+        font-size: 12px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        font-weight: bold;
+      }
+
+      .sim {
+        text-decoration: solid overline #DD2E43 2px;
+      }
+
+      .nao {
+        text-decoration: solid underline #DD2E43 2px;
+      }
+
+      a:link {
+        color: #0000FF !important;
+      }
+
       a:visited {
         text-decoration: none !important;
-        color: #000000;
-      }
-       
-      div {
-        max-width: 600px;
-        margin: auto;
-      }          
+        color: #606060;
+      }       
       {% block style %}{% endblock %}
 </style>
   </head>
@@ -45,7 +76,10 @@
     <!-- Google Tag Manager (noscript) -->
       <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PXDDNLD" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    <h2>{% block cabecalho %}{% endblock %}</h2>
-    {% block conteudo %}{% endblock %}
+    <div id="main">
+      <h2>{% block cabecalho %}{% endblock %}</h2>
+      {% block conteudo %}{% endblock %}
+    </div>
+    {% block menu %}{% endblock %}
   </body>
 </html>
