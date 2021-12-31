@@ -7,10 +7,21 @@
 {% block manifest %}economia.webmanifest{% endblock %}
 
 {% block style %}   
-      a:link #nomesite {
+      a.linksite {
         text-decoration: none !important;
         color: #000000 !important;
       }
+
+      a.dataframe {
+        text-decoration: solid underline #DD2E43 2px;
+        color: #0000FF;
+      }
+
+      a.dataframe:visited {
+        text-decoration: none;
+        color: #000000;
+      }  
+
       td, th {
         border: 1px solid #cccccc;
         text-align: left;

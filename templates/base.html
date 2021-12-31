@@ -53,23 +53,22 @@
         font-weight: bold;
       }
 
-      .sim {
-        text-decoration: solid overline #DD2E43 2px;
+      a.sim {
+        text-decoration: solid overline #000000 2px;
       }
 
-      .nao {
+      a.nao {
         text-decoration: solid underline #DD2E43 2px;
       }
 
-      a:link {
-        text-decoration: solid underline #DD2E43 2px;
-        color: #0000FF !important;
+      a {
+        text-decoration: none;
+        color: #0000FF;
       }
 
       a:visited {
-        text-decoration: none !important;
-        color: #606060;
-      }       
+        color: #000000;
+      }     
       {% block style %}{% endblock %}
 </style>
   </head>
