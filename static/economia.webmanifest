@@ -2,20 +2,13 @@
 "short_name":"Editor de Economia",
 "id": "../economia/destaques?app",
 "start_url": "../destaques?app",
-"shortcuts": [
-  {
+"shortcuts": [{
     "name": "Destaques",
-    "short_name": "Destaques",
-    "description": "Veja as manchetes em sites de economia",
-    "url": "../economia/destaques?atalho",
-  },
-  {
+    "url": "../economia/destaques?atalho"
+  },{
     "name": "Mais lidas",
-    "short_name": "Mais lidas",
-    "description": "Os conteúdos mais vistos em sites de economia",
-    "url": "../economia/maislidass?atalho",
-  }
-],
+    "url": "../economia/maislidass?atalho"
+  }],
 "theme_color":"#DD2E42",
 "background_color":"#DD2E42",
 "display":"standalone",
