@@ -52,28 +52,21 @@ def sobre():
 def economiadestaques():
     
     #Valor Econômico
-    valor = pd.DataFrame(scrapeatodict('https://valor.globo.com/',
-                                       '//div[@class="container-topo-3-colunas grid-x"]//div[@class="highlight__title theme-title-element "]//a'))
+    valor = pd.DataFrame(scrapeatodict('https://valor.globo.com/','//div[@class="container-topo-3-colunas grid-x"]//div[@class="highlight__title theme-title-element "]//a'))
     vehtml = valor.to_html(render_links=True,index=False,escape=True,table_id="valor")
     
     #InfoMoney
-    infomoney = pd.DataFrame(scrapeatodict('https://www.infomoney.com.br/',
-                                           '//div[@class="row mt-5 default_Big"]//div//div//div//span//a'))
+    infomoney = pd.DataFrame(scrapeatodict('https://www.infomoney.com.br/','//div[@class="row mt-5 default_Big"]//div//div//div//span//a'))
     imhtml = infomoney.to_html(render_links=True,index=False,escape=True,table_id="infomoney")
     
     #InvestNews
-    investnews = pd.DataFrame(scrapeh2todict('https://investnews.com.br/',
-                                             '//div[@class="mvp-feat1-left-wrap relative"]//h2',
-                                             '//div[@class="mvp-feat1-left-wrap relative"]//a'))
+    investnews = pd.DataFrame(scrapeh2todict('https://investnews.com.br/','//div[@class="mvp-feat1-left-wrap relative"]//h2','//div[@class="mvp-feat1-left-wrap relative"]//a'))
     inhtml = investnews.to_html(render_links=True,index=False,escape=True,table_id="investnews")
     
     #MoneyTimes
-    moneytimesh21 = pd.DataFrame(scrapeatodict('https://www.moneytimes.com.br/',
-                                               '//div[@class="home-highlight"]//h2/a'))
-    moneytimesh22 = pd.DataFrame(scrapeatodict('https://www.moneytimes.com.br/',
-                                               '//div[@class="secondary"]//a'))
-    moneytimesh3 = pd.DataFrame(scrapeatodict('https://www.moneytimes.com.br/',
-                                              '//div[@class="home-list"]/div/h3/a'))
+    moneytimesh21 = pd.DataFrame(scrapeatodict('https://www.moneytimes.com.br/','//div[@class="home-highlight"]//h2/a'))
+    moneytimesh22 = pd.DataFrame(scrapeatodict('https://www.moneytimes.com.br/','//div[@class="secondary"]//a'))
+    moneytimesh3 = pd.DataFrame(scrapeatodict('https://www.moneytimes.com.br/','//div[@class="home-list"]/div/h3/a'))
     moneytimes1 = moneytimesh21.append(moneytimesh22)
     moneytimes = moneytimes1.append(moneytimesh3)
     mthtml = moneytimes.to_html(render_links=True,index=False,escape=True,table_id="moneytimes")
@@ -96,9 +89,12 @@ def economiadestaques():
     ehtml = exame.to_html(render_links=True,index=False,escape=True,table_id="exame")
 
     #O Globo
-    oglobo = pd.DataFrame(scrapeatodict('https://oglobo.globo.com/economia/',
-                                        '//section[@class="block five-teasers"]//div/div/div/article/div/h1/a'))
+    oglobo = pd.DataFrame(scrapeatodict('https://oglobo.globo.com/economia/','//section[@class="block five-teasers"]//div/div/div/article/div/h1/a'))
     oghtml = oglobo.to_html(render_links=True,index=False,escape=True,table_id="oglobo")
+
+    #O Especialista
+    oespecialista = pd.DataFrame(scrapeatodict('https://oespecialista.com.br/','//div[@id="front-page-top"]//h3//a'))
+    oehtml = oespecialista.to_html(render_links=True,index=False,escape=True,table_id="oespecialista")
 
     return render_template(
         "economia-destaques.html",
@@ -108,6 +104,7 @@ def economiadestaques():
         ehtml = ehtml,
         oghtml = oghtml,
         vehtml = vehtml,
+        oehtml = oehtml,
     )
 
 @app.route("/economia/maislidas")
@@ -125,10 +122,14 @@ def economiamaislidas():
   valor = pd.DataFrame(scrapeatodict('https://valor.globo.com/','//div[@data-component-type="card-mais-lidas"]//a'))
   vehtml = valor.to_html(render_links=True,index=False,escape=True,table_id="valor")
 
+  oespecialista = pd.DataFrame(scrapeatodict('https://oespecialista.com.br/','//div[@id="popular-posts"]//li//a'))
+  oehtml = oespecialista.to_html(render_links=True,index=False,escape=True,table_id="oespecialista")
+
   return render_template(
         "economia-maislidas.html",
         inhtml = inhtml,
         mthtml = mthtml,
         ehtml = ehtml,
         vehtml = vehtml,
+        oehtml = oehtml,
     )

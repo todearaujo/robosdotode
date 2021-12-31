@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block titulo %}Editor de /economia{% endblock %}
+{% block titulo %}Editor de /economia - Destaques{% endblock %}
 
 {% block metadescription %}O que é assunto em sites de economia, investimentos e finanças pessoais do Brasil{% endblock %}
 
@@ -85,6 +85,10 @@
       #exame th {
         background: #ff0000;
       }
+
+      #oespecialista th {
+        background: #000033;
+      }
 {% endblock %}
 
 {% block menu %}
@@ -129,5 +133,9 @@ O que é destaque em /<b>economia</b>
 <div>
   <p><a class="linksite" href="http://exame.com" target="_blank">exame.com/</a></p>
   {{ ehtml | safe }}</p>  
+</div>
+<div>
+  <p><a class="linksite" href="http://oespecialista.com.br" target="_blank">oespecialista.com.br/</a></p>
+  {{ oehtml | safe }}</p>  
 </div>
 {% endblock %}
