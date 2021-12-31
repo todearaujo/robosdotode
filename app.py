@@ -48,8 +48,8 @@ def hello_world():
 def sobre():
     return render_template("sobre.html")
 
-@app.route("/economia")
-def economia():
+@app.route("/economia/destaques")
+def economiadestaques():
     
     #Valor Econômico
     valor = pd.DataFrame(scrapeatodict('https://valor.globo.com/',
@@ -78,11 +78,6 @@ def economia():
     moneytimes = moneytimes1.append(moneytimesh3)
     mthtml = moneytimes.to_html(render_links=True,index=False,escape=True,table_id="moneytimes")
     
-    #UOL
-    #uol = pd.DataFrame(scrapeh2todict('https://economia.uol.com.br/',
-    #                                  '//div[@class="highlights"]//a//h2','//div[@class="highlights"]//div/a'))
-    #uhtml = uol.to_html(render_links=True,index=False,escape=True,table_id="uol")
-    
     #Exame
     examea1 = pd.DataFrame(scrapeh2todict('https://minha.exame.com/',
                                           '//div[@class="hide_thumb widget-home-box-item-info"]//a[@class="widget-home-box-list-item-title"]//h2',
@@ -106,11 +101,34 @@ def economia():
     oghtml = oglobo.to_html(render_links=True,index=False,escape=True,table_id="oglobo")
 
     return render_template(
-        "economia.html",
+        "economia-destaques.html",
         imhtml = imhtml,
         inhtml = inhtml,
         mthtml = mthtml,
         ehtml = ehtml,
         oghtml = oghtml,
+        vehtml = vehtml,
+    )
+
+@app.route("/economia/maislidas")
+def economiamaislidas():
+
+  investnews = pd.DataFrame(scrapeh2todict('https://investnews.com.br/','//div[@class="mvp-feat1-mid-wrap left relative"]//p','//div[@class="mvp-feat1-mid-wrap left relative"]//a'))
+  inhtml = investnews.to_html(render_links=True,index=False,escape=True,table_id="investnews")
+
+  moneytimes = pd.DataFrame(scrapeatodict('https://www.moneytimes.com.br/ultimas-noticias/','//div[@class="widget widget-maislidas widget-mt-mais-lidas"]//a'))
+  mthtml = moneytimes.to_html(render_links=True,index=False,escape=True,table_id="moneytimes")
+
+  exame = pd.DataFrame(scrapeh2todict('https://exame.com/','//div[@class="widget-popular-posts-info"]//h3','//div[@class="widget-popular-posts-info"]//a'))
+  ehtml = exame.to_html(render_links=True,index=False,escape=True,table_id="exame")
+
+  valor = pd.DataFrame(scrapeatodict('https://valor.globo.com/','//div[@data-component-type="card-mais-lidas"]//a'))
+  vehtml = valor.to_html(render_links=True,index=False,escape=True,table_id="valor")
+
+  return render_template(
+        "economia-maislidas.html",
+        inhtml = inhtml,
+        mthtml = mthtml,
+        ehtml = ehtml,
         vehtml = vehtml,
     )

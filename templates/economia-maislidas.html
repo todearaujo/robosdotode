@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 
-{% block titulo %}Editor de /economia{% endblock %}
+{% block titulo %}Editor de /economia - Mais vistos{% endblock %}
 
-{% block metadescription %}O que é assunto em sites de economia, investimentos e finanças pessoais do Brasil{% endblock %}
+{% block metadescription %}Conteúdos com maior audiência em sites de economia, investimentos e finanças pessoais do Brasil{% endblock %}
 
 {% block manifest %}economia.webmanifest{% endblock %}
 
@@ -90,24 +90,27 @@
 {% block menu %}
 <div class="menu">
     <a class="menu nao" href="/">Página inicial</a>
-    <a class="menu sim" href="/economia">Editor de /economia</a>
+    <a class="menu sim" href="/economia/destaques">Editor de /economia</a>
     <a class="menu nao" href="/sobre">Sobre o site</a>
 </div>
 {% endblock %}
 
 {% block cabecalho %}
-O que é assunto em /<b>economia</b>
+Mais lidas em /<b>economia</b>
 {% endblock %}
 
 {% block conteudo %}
-<div><p style="text-align: center;">Destaques nas homes sobre investimentos, finanças pessoais e mercado financeiro</p></div>
+
+<div class="menu">
+  <a class="menu nao" href="/economia/destaques">/destaques</a>
+  <a class="menu sim" href="/economia/maislidas">/maislidas</a>
+</div>
+<div>
+  <p style="text-align: center;">Conteúdos com maior audiência sobre investimentos, finanças pessoais e mercado financeiro</p></div>
+<div>
 <div>
   <p><a class="linksite" href="https://valor.globo.com/" target="_blank">valor.globo.com/</a></p>
   {{ vehtml | safe }}
-</div>
-<div>
-  <p><a class="linksite" href="http://infomoney.com.br" target="_blank">infomoney.com.br/</a></p>
-  {{ imhtml | safe }}  
 </div>
 <div>
   <p><a class="linksite" href="http://investnews.com.br" target="_blank">investnews.com.br/</a></p>
@@ -116,10 +119,6 @@ O que é assunto em /<b>economia</b>
 <div>
   <p><a class="linksite" href="https://www.moneytimes.com.br/" target="_blank">moneytimes.com.br/</a></p>
   {{ mthtml | safe }}  
-</div>
-<div>
-  <p><a class="linksite" href="https://oglobo.globo.com/economia/" target="_blank">oglobo.globo.com/economia</a></p>
-  {{ oghtml | safe }}  
 </div>
 <div>
   <p><a class="linksite" href="http://exame.com" target="_blank">exame.com/</a></p>
