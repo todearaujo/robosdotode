@@ -4,6 +4,7 @@ var staticCacheName = "flask-pwa-v" + cacheVersion
 
 var filesToCache = [
     '/',
+    '/sobre',
     '/offline',
     '/static/48.png',
     '/static/72.png',

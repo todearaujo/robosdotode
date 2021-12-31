@@ -1,19 +1,20 @@
 {"name":"Todebot: Editor de Economia",
 "short_name":"Editor de Economia",
+"start_url": "/?app",
+"id": "/?app",
 "scope": "../",
-"start_url": "../economia/destaques?app",
 "shortcuts": [{
     "name": "Destaques",
     "url": "../economia/destaques?atalho",
     "icons": [{
-      "src":"192.png",
+      "src":"../static/192.png",
       "sizes":"192x192"
       }]
   },{
     "name": "Mais lidas",
     "url": "../economia/maislidas?atalho",
     "icons": [{
-      "src":"192.png",
+      "src":"../static/192.png",
       "sizes":"192x192"
       }]
   }],
@@ -23,42 +24,42 @@
 "description": "O que é assunto em sites de economia, investimentos e finanças pessoais do Brasil",
 "lang": "pt-BR",
 "icons":[{
-    "src":"favicon-16x16.png",
+    "src":"../static/favicon-16x16.png",
     "sizes":"16x16",
     "type": "image/png",
     "purpose": "any"
   },{
-    "src":"favicon-32x32.png",
+    "src":"../static/favicon-32x32.png",
     "sizes":"32x32",
     "type": "image/png",
     "purpose": "any"
   },{
-    "src":"48.png",
+    "src":"../static/48.png",
     "sizes":"48x48",
     "type": "image/png",
     "purpose": "maskable"
   },{
-    "src":"72.png",
+    "src":"../static/72.png",
     "sizes":"72x72",
     "type": "image/png",
     "purpose": "maskable"
   },{
-    "src":"96.png",
+    "src":"../static/96.png",
     "sizes":"96x96",
     "type": "image/png",
     "purpose": "maskable"
   },{
-    "src":"128.png",
+    "src":"../static/128.png",
     "sizes":"128x128",
     "type": "image/png",
     "purpose": "maskable"
   },{
-    "src":"192.png",
+    "src":"../static/192.png",
     "sizes":"192x192",
     "type": "image/png",
     "purpose": "any"
   },{
-    "src":"512.png",
+    "src":"../static/512.png",
     "sizes":"512x512",
     "type":"image/png",
     "purpose": "any"

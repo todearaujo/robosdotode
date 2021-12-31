@@ -2,7 +2,7 @@
 <html>
   <head>
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
-    <link rel="manifest" href="../static/{% block manifest %}{% endblock %}")">
+    <link rel="manifest" href="../{% block manifest %}{% endblock %}")">
     <!-- Google Tag Manager -->
       <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -84,18 +84,18 @@
 
     {% block serviceworker %}
     <script type="text/javascript">
-      if ("serviceWorker" in navigator) {
-          window.addEventListener("load", () => {
-          navigator.serviceWorker
-              .register("../static/js/sw.js")
-              .then((registration) => {
-                console.log(`ServiceWorker carregado`)
-              })
-              .catch((err) => {
-                console.log(`ServiceWorker não carregou: ${err}`);
-              });
-          });
-      }
+      if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register("/sw.js", { scope: '/' })
+        .then(function(registration) {
+          // Registration was successful
+          console.log('ServiceWorker carregado no escopo: ', registration.scope);
+        }, function(err) {
+          // registration failed :(
+          console.log('ServiceWorker não carregado: ', err);
+        });
+      });
+    } 
     </script>
     {% endblock serviceworker %}
 

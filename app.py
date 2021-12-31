@@ -2,7 +2,7 @@ import requests
 from urllib.request import urlopen, Request
 from lxml import html
 import pandas as pd
-from flask import Flask, render_template, redirect, url_for
+from flask import Flask, render_template, redirect, url_for, make_response, send_from_directory
 from cachetools import cached, TTLCache
 
 cache = TTLCache(maxsize=1024, ttl=600)
@@ -50,6 +50,17 @@ def sobre():
 @app.route("/offline")
 def offline():
     return render_template("offline.html")
+
+@app.route("/economia.webmanifest")
+def economiamanifest():
+    return render_template("economia.webmanifest")
+
+@app.route('/sw.js')
+def sw():
+    response=make_response(send_from_directory(path='static',directory='static',filename='sw.js'))
+    #change the content header file. Can also omit; flask will handle correctly.
+    response.headers['Content-Type'] = 'application/javascript'
+    return response
 
 @app.route("/economia")
 def economia():
