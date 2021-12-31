@@ -1,8 +1,10 @@
 # Todebots: robôs do Tode ![Robô](https://github.com/todearaujo/robosdotode/blob/main/static/favicon-32x32.png)
 
-Olá, pessoal. Por enquanto só temos um robô, o homeiro de Economia que te conta os destaques em tempo real sobre finanças, investimentos e mais do mundo econômico.
+Olá, pessoal. Por enquanto só temos um robô, o **([editor de Economia](https://robos.todearaujo.com/economia/destaques))** que te conta em tempo real o que é assunto em sites de finanças, investimentos e mercado financeiro. São duas funções: /destaques, para as manchetes nas homes; e /maislidas, para os conteúdos com maior audiência.
 
-O desenvolvimeno foi iniciado na disciplina de **Algoritmos de automação** com o professor Álvaro Justen ([@turicas](https://github.com/turicas)) no segundo trimestre (out-dez/2021) do MJDA.
+Outra funcionalidade é a instalação como um aplicativo. É só escolher a opção "Adicionar à tela inicial" ou "Instalar como aplicativo", dependendo do seu navegador e sistema operacional.
+
+O desenvolvimeno deste site/aplicação foi iniciado na disciplina de **Algoritmos de automação** com o professor Álvaro Justen ([@turicas](https://github.com/turicas)) no segundo trimestre (out-dez/2021) do MJDA.
 
 # Linguagens e bibliotecas
 
