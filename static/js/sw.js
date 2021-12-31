@@ -4,7 +4,7 @@ var staticCacheName = "flask-pwa-v" + cacheVersion
 
 var filesToCache = [
     '/',
-    '/templates/offline',
+    '/offline',
     '/static/48.png',
     '/static/72.png',
     '/static/96.png',
@@ -47,7 +47,7 @@ this.addEventListener('fetch', event => {
   if (event.request.mode === 'navigate' || (event.request.method === 'GET' && event.request.headers.get('accept').includes('text/html'))) {
     event.respondWith(
       fetch(event.request.url).catch(error => {
-        return caches.match('/templates/offline');
+        return caches.match('/offline');
       })
     );
   } else{

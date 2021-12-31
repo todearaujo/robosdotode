@@ -47,6 +47,10 @@ def hello_world():
 def sobre():
     return render_template("sobre.html")
 
+@app.route("/offline")
+def offline():
+    return render_template("offline.html")
+
 @app.route("/economia")
 def economia():
     return redirect(url_for('economiadestaques'))
