@@ -81,5 +81,26 @@
       {% block conteudo %}{% endblock %}
     </div>
     {% block menu %}{% endblock %}
+
+    {% block scripts %}
+    {% endblock scripts %}
+
+    {% block serviceworker %}
+    <script type="text/javascript">
+      if ("serviceWorker" in navigator) {
+          window.addEventListener("load", () => {
+          navigator.serviceWorker
+              .register("../js/sw.js")
+              .then((registration) => {
+                console.log(`ServiceWorker carregado`)
+              })
+              .catch((err) => {
+                console.log(`ServiceWorker não carregou: ${err}`);
+              });
+          });
+      }
+    </script>
+    {% endblock serviceworker %}
+
   </body>
 </html>
