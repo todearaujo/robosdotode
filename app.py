@@ -1,6 +1,7 @@
 import requests
 from urllib.request import urlopen, Request
 from lxml import html
+import lxml.html.clean
 import pandas as pd
 from flask import Flask, render_template, redirect, url_for, make_response, send_from_directory
 from cachetools import cached, TTLCache
@@ -15,10 +16,10 @@ def scrapeatodict(page,xpathexp):
   ohtml = html.fromstring(conteudo)
   
   tagxpath = ohtml.xpath(xpathexp)
-  
+
   dict = {"Destaque":[], "Link":[]}
   for a in tagxpath:
-    dict["Destaque"].append(a.xpath("text()")[0])
+    dict["Destaque"].append(lxml.html.fromstring(a.xpath("text()")[0]).text_content())
     dict["Link"].append(a.xpath("@href")[0])
   return dict
 
@@ -33,7 +34,7 @@ def scrapeh2todict(page,xpathexph2,xpathexpa):
   
   dict = {"Destaque":[], "Link":[]}
   for h2 in tagxpathh2:
-    dict["Destaque"].append(h2.xpath("text()")[0])
+    dict["Destaque"].append(lxml.html.fromstring(h2.xpath("text()")[0]).text_content())
   for a in tagxpatha:
     dict["Link"].append(a.xpath("@href")[0])
   return dict
