@@ -4,6 +4,7 @@ from lxml import html
 import pandas as pd
 from flask import Flask, render_template, redirect, url_for, make_response, send_from_directory
 from cachetools import cached, TTLCache
+from flask_talisman import Talisman
 
 cache = TTLCache(maxsize=1024, ttl=600)
 
@@ -57,10 +58,13 @@ def economiamanifest():
 
 @app.route('/sw.js')
 def sw():
-    response=make_response(send_from_directory(path='static',directory='static',filename='sw.js'))
-    #change the content header file. Can also omit; flask will handle correctly.
+    response=make_response(send_from_directory(path='templates',directory='templates',filename='sw.js'))
     response.headers['Content-Type'] = 'application/javascript'
     return response
+
+#@app.route('/sw.js')
+#def sw():
+#    return render_template('sw.js')
 
 @app.route("/economia")
 def economia():
@@ -151,3 +155,5 @@ def economiamaislidas():
         vehtml = vehtml,
         oehtml = oehtml,
     )
+
+Talisman(app, content_security_policy=None)

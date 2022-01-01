@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
   <head>
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
     <link rel="manifest" href="../{% block manifest %}{% endblock %}")">
@@ -15,6 +15,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block titulo %}{% endblock %} | Robôs do Tode</title>
     <meta name="description" content="{% block metadescription %}{% endblock %}" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Editor de /economia">
+    <meta name="theme-color" content="#DD2E43">
+    <link rel="apple-touch-icon" href="/static/48.png" sizes="48x48">
+    <link rel="apple-touch-icon" href="/static/72.png" sizes="72x72">
+    <link rel="apple-touch-icon" href="/static/96.png" sizes="96x96">
+    <link rel="apple-touch-icon" href="/static/128.png" sizes="128x128">
+    <link rel="apple-touch-icon" href="/static/192.png" sizes="192x192">
+    <link rel="apple-touch-icon" href="/static/384.png" sizes="384x384">
+    <link rel="apple-touch-icon" href="/static/512.png" sizes="512x512">
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap');
       
@@ -76,20 +87,11 @@
 </style>
   </head>
   <body>
-    <!-- Google Tag Manager (noscript) -->
-      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PXDDNLD" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-    <div id="main">
-      <h2>{% block cabecalho %}{% endblock %}</h2>
-      {% block conteudo %}{% endblock %}
-    </div>
-    {% block menu %}{% endblock %}
-
     {% block serviceworker %}
     <script type="text/javascript">
       if ('serviceWorker' in navigator) {
       window.addEventListener('load', function() {
-        navigator.serviceWorker.register("/sw.js", { scope: '/' })
+        navigator.serviceWorker.register("../sw.js", { scope: '/' })
         .then(function(registration) {
           // Registration was successful
           console.log('ServiceWorker carregado no escopo: ', registration.scope);
@@ -101,6 +103,13 @@
     } 
     </script>
     {% endblock serviceworker %}
-
+    <div id="main">
+      <h2>{% block cabecalho %}{% endblock %}</h2>
+      {% block conteudo %}{% endblock %}
+    </div>
+    {% block menu %}{% endblock %}
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PXDDNLD" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
   </body>
 </html>
