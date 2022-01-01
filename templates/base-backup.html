@@ -89,23 +89,18 @@
   <body>
     {% block serviceworker %}
     <script type="text/javascript">
-      (function() {
-      if('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('../sw.js', { scope: '/' })
-                   .then(function(registration) {
-                   console.log('ServiceWorker carregado no escopo: ', registration.scope);
-                   return registration;
-          })
-          .catch(function(err) {
-            console.error('ServiceWorker não carregado: ', err);
-          });
-          navigator.serviceWorker.ready.then(function(registration) {
-            console.log('Service Worker Pronto');
-          });
+      if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register("../sw.js", { scope: '/' })
+        .then(function(registration) {
+          // Registration was successful
+          console.log('ServiceWorker carregado no escopo: ', registration.scope);
+        }, function(err) {
+          // registration failed :(
+          console.log('ServiceWorker não carregado: ', err);
         });
-      }
-    })();
+      });
+    } 
     </script>
     {% endblock serviceworker %}
     <div id="main">
