@@ -39,6 +39,10 @@
         background: #37626e;
       }
 
+      .folha {
+        background: #00adef;
+      }
+
       .infomoney {
         background: #212121;
       }
@@ -81,6 +85,7 @@
   <a class="sim" href="/economia/destaques">/destaques</a>
   <a class="nao" href="/economia/maislidas">/maislidas</a>
 </div>
+
 <table class="tabela">
 <tbody>
   <tr>
@@ -98,6 +103,25 @@
   </tr>
   {% endfor %}
   </tbody>
+</table>
+
+  <table class="tabela">
+    <tbody>
+      <tr>
+        <th height="70px" class="folha">
+          <a class="linksite" href="https://www.folha.uol.com.br/" target="_blank">folha.uol.com.br/mercado</a>
+        </th>
+      </tr>
+    </tbody>
+    <tbody>
+      {% for k, v in folha.items() %}
+      <tr>
+        <td>
+          <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
+        </td>
+      </tr>
+      {% endfor %}
+      </tbody>
   </table>
 
 <table class="tabela">

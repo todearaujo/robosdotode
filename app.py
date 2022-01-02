@@ -87,6 +87,11 @@ def economia():
 def economiadestaques():
     
     valor = scrape_a_to_dict('https://valor.globo.com/','//div[@class="container-topo-3-colunas grid-x"]//div[@class="highlight__title theme-title-element "]//a')
+
+    folha1 = scrape_h_to_dict('https://www1.folha.uol.com.br/mercado/','//div[contains(@class, "c-main-headline")]//a[contains(@class, "c-main-headline")]//h2','//div[contains(@class, "c-main-headline")]//a[contains(@class, "c-main-headline")]')
+    folha2 = scrape_h_to_dict('https://www1.folha.uol.com.br/mercado/','//div[contains(@class, "c-headline")]//div[contains(@class, "c-headline__wrapper")]//div[contains(@class, "c-headline__content")]//a//h2[contains(@class, "c-headline__title")]','//div[contains(@class, "c-headline")]//div[contains(@class, "c-headline__wrapper")]//div[contains(@class, "c-headline__content")]//a')
+    
+    folha = {**folha1,**folha2}
     
     infomoney = scrape_a_to_dict('https://www.infomoney.com.br/','//div[@class="row mt-5 default_Big"]//div//div//div//span//a')
     
@@ -109,7 +114,7 @@ def economiadestaques():
 
     oespecialista = scrape_a_to_dict('https://oespecialista.com.br/','//div[@id="front-page-top"]//h3//a')
 
-    sites = dict(infomoney = infomoney, investnews = investnews, moneytimes = moneytimes, exame = exame, oglobo = oglobo, valor = valor, oespecialista = oespecialista)
+    sites = dict(infomoney = infomoney, folha = folha, investnews = investnews, moneytimes = moneytimes, exame = exame, oglobo = oglobo, valor = valor, oespecialista = oespecialista)
 
     return render_template("economia-destaques.html", **sites)
 
