@@ -5,14 +5,21 @@
 "scope": "../",
 "shortcuts": [{
     "name": "Destaques",
-    "url": "../economia/destaques?atalho",
+    "url": "../economia/destaques?utm_source=atalhopwa",
     "icons": [{
       "src":"../static/192.png",
       "sizes":"192x192"
       }]
   },{
     "name": "Mais lidas",
-    "url": "../economia/maislidas?atalho",
+    "url": "../economia/maislidas?utm_source=atalhopwa",
+    "icons": [{
+      "src":"../static/192.png",
+      "sizes":"192x192"
+      }]
+  },{
+    "name": "Webstories",
+    "url": "../economia/maislidas?utm_source=atalhopwa",
     "icons": [{
       "src":"../static/192.png",
       "sizes":"192x192"
