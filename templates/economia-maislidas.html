@@ -10,6 +10,7 @@
       a.linksite {
         text-decoration: none !important;
         color: #000000 !important;
+        margin-inline-start: 10px;
       }
 
       a.dataframe {
@@ -100,7 +101,7 @@
 {% endblock %}
 
 {% block cabecalho %}
-Mais lidas em /<b>economia</b>
+<a href="/"><img alt="Robô" style="vertical-align: middle;" width="40px" height="40px" src="../static/384.png"/></a> /<b>economia</b>
 {% endblock %}
 
 {% block conteudo %}
@@ -109,9 +110,6 @@ Mais lidas em /<b>economia</b>
   <a class="nao" href="/economia/destaques">/destaques</a>
   <a class="sim" href="/economia/maislidas">/maislidas</a>
 </div>
-<div>
-  <p style="text-align: center;">Conteúdos com maior audiência sobre investimentos, finanças pessoais e mercado financeiro</p></div>
-<div>
 <div>
   <p><a class="linksite" href="https://valor.globo.com/" target="_blank">valor.globo.com/</a></p>
   {{ vehtml | safe }}

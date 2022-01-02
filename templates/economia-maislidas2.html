@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Editor de /economia - Mais lidas{% endblock %}
+
+{% block metadescription %}Conteúdos com maior audiência em sites de economia, investimentos e finanças pessoais do Brasil{% endblock %}
+
+{% block manifest %}economia.webmanifest{% endblock %}
+
+{% block style %}   
+      a.linksite {
+        text-decoration: none !important;
+        color: #FFFFFF !important;
+        margin-inline-start: 10px;
+        font-size: 25px;
+      }
+
+      a.conteudo {
+        color: #0000FF;
+        text-decoration: none;
+      }
+
+      a:visited {
+        color: #000000;
+      }
+      
+      ol {
+        padding-inline-start: 15px;
+      }
+
+      td{
+        padding:10px;
+      }
+
+      tr:nth-child(odd) {
+        background-color: #eeeeee;
+      }
+
+      tr:nth-child(even) {
+        background-color: #e0e0e0;
+      }
+
+      .valor {
+        background: #37626e;
+      }
+
+      .infomoney {
+        background: #212121;
+      }
+
+      .investnews {
+        background: #90067C;
+      }
+
+      .moneytimes {
+        background: #00c940;
+      }
+
+      .uol {
+        background: #ff8000;
+      }
+
+      .oglobo {
+        background: #1e4c9a;
+      }
+
+      .exame {
+        background: #ff0000;
+      }
+
+      .oespecialista {
+        background: #000033;
+      }
+{% endblock %}
+
+{% block menu %}
+<div class="menu">
+    <a class="nao" href="/">Página inicial</a>
+    <a class="sim" href="/economia/destaques">Editor de /economia</a>
+    <a class="nao" href="/sobre">Sobre o site</a>
+</div>
+{% endblock %}
+
+{% block cabecalho %}
+<a href="/"><img alt="Robô" style="vertical-align: middle;" width="40px" height="40px" src="../static/384.png"/></a> /<b>economia</b>
+{% endblock %}
+
+{% block conteudo %}
+
+<div class="menu">
+  <a class="nao" href="/economia/destaques">/destaques</a>
+  <a class="sim" href="/economia/maislidas">/maislidas</a>
+</div>
+
+<table>
+    <tr>
+      <th height="75px" class="investnews">
+        <a class="linksite" href="https://www.investnews.com.br/" target="_blank">investnews.com.br</a>
+      </th>
+    </tr>
+  <tbody>
+  {% for k, v in indict.items() %}
+    
+    <tr>
+      <td>
+        <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
+      </td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

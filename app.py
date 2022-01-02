@@ -151,4 +151,16 @@ def economiamaislidas():
   
   return render_template("economia-maislidas.html", **sites)
 
+@app.route("/economia/maislidas2")
+def economiamaislidas2():
+
+  investnews = scrape_h_to_dict('https://investnews.com.br/','//div[@class="mvp-feat1-mid-wrap left relative"]//p','//div[@class="mvp-feat1-mid-wrap left relative"]//a')
+  destaques = investnews["Destaque"]
+  links = investnews["Link"]
+  indict = dict(zip(destaques, links))
+
+  sites = dict(indict = indict)
+  
+  return render_template("economia-maislidas2.html", **sites, len = len(indict))
+
 Talisman(app, content_security_policy=None)
