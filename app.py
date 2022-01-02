@@ -62,6 +62,18 @@ def sw():
     response.headers['Content-Type'] = 'application/javascript'
     return response
 
+@app.route('/push/ossw.js')
+def ossw():
+    response=make_response(send_from_directory(path='templates',directory='templates',filename='ossw.js'))
+    response.headers['Content-Type'] = 'application/javascript'
+    return response
+
+@app.route('/push/ossuw.js')
+def ossuw():
+    response=make_response(send_from_directory(path='templates',directory='templates',filename='ossuw.js'))
+    response.headers['Content-Type'] = 'application/javascript'
+    return response
+
 @app.route("/economia")
 def economia():
     return redirect(url_for('economiadestaques'))
