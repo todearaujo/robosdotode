@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Editor de /economia - Mais lidas{% endblock %}
+
+{% block metadescription %}Conteúdos com maior audiência em sites de economia, investimentos e finanças pessoais do Brasil{% endblock %}
+
+{% block manifest %}economia.webmanifest{% endblock %}
+
+{% block style %}   
+      a.linksite {
+        text-decoration: none !important;
+        color: #000000 !important;
+        margin-inline-start: 10px;
+      }
+
+      a.dataframe {
+        text-decoration: solid underline #DD2E43 2px;
+        color: #0000FF;
+      }
+
+      a.dataframe:visited {
+        text-decoration: none;
+        color: #000000;
+      }  
+
+      td, th {
+        border: 1px solid #cccccc;
+        text-align: left;
+        padding: 8px;
+        max-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      tr:nth-child(odd) {
+        background-color: #ffffff;
+      }
+
+      tr:nth-child(even) {
+        background-color: #dddddd;
+      }
+      
+      td:first-child {
+        width:80%;
+      }
+      
+      td:last-child {
+        white-space: nowrap;
+      } 
+      
+      .dataframe {
+        width: 100%;
+        font-weight: 300;
+        border-collapse: collapse;
+        margin: auto;
+      }
+      
+      th {
+        color: #ffffff;
+      }
+
+      #valor th {
+        background: #37626e;
+      }
+
+      #infomoney th {
+        background: #212121;
+      }
+
+      #investnews th {
+        background: #90067C;
+      }
+
+      #moneytimes th {
+        background: #00c940;
+      }
+
+      #uol th {
+        background: #ff8000;
+      }
+
+      #oglobo th {
+        background: #1e4c9a;
+      }
+
+      #exame th {
+        background: #ff0000;
+      }
+
+      #oespecialista th {
+        background: #000033;
+      }
+{% endblock %}
+
+{% block menu %}
+<div class="menu">
+    <a class="nao" href="/">Página inicial</a>
+    <a class="sim" href="/economia/destaques">Editor de /economia</a>
+    <a class="nao" href="/sobre">Sobre o site</a>
+</div>
+{% endblock %}
+
+{% block cabecalho %}
+<a href="/"><img alt="Robô" style="vertical-align: middle;" width="40px" height="40px" src="../static/384.png"/></a> /<b>economia</b>
+{% endblock %}
+
+{% block conteudo %}
+
+<div class="menu">
+  <a class="nao" href="/economia/destaques">/destaques</a>
+  <a class="sim" href="/economia/maislidas">/maislidas</a>
+</div>
+<div>
+  <p><a class="linksite" href="https://valor.globo.com/" target="_blank">valor.globo.com/</a></p>
+  {{ vehtml | safe }}
+</div>
+<div>
+  <p><a class="linksite" href="http://investnews.com.br" target="_blank">investnews.com.br/</a></p>
+  {{ inhtml | safe }}  
+</div>
+<div>
+  <p><a class="linksite" href="https://www.moneytimes.com.br/" target="_blank">moneytimes.com.br/</a></p>
+  {{ mthtml | safe }}  
+</div>
+<div>
+  <p><a class="linksite" href="http://exame.com" target="_blank">exame.com/</a></p>
+  {{ ehtml | safe }}</p>  
+</div>
+<div>
+  <p><a class="linksite" href="http://oespecialista.com.br" target="_blank">oespecialista.com.br/</a></p>
+  {{ oehtml | safe }}</p>  
+</div>
+{% endblock %}

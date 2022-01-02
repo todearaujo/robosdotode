@@ -9,85 +9,61 @@
 {% block style %}   
       a.linksite {
         text-decoration: none !important;
-        color: #000000 !important;
+        color: #FFFFFF !important;
         margin-inline-start: 10px;
+        font-size: 25px;
       }
 
-      a.dataframe {
-        text-decoration: solid underline #DD2E43 2px;
-        color: #0000FF;
-      }
-
-      a.dataframe:visited {
-        text-decoration: none;
+      a.conteudo {
         color: #000000;
-      }  
+        text-decoration: none;
+      }
 
-      td, th {
-        border: 1px solid #cccccc;
-        text-align: left;
-        padding: 8px;
-        max-width: 0;
-        overflow: hidden;
-        text-overflow: ellipsis;
+      a.conteudo:visited {
+        color: #CCCCCC;
+      }
+      
+      td{
+        padding:10px;
       }
 
       tr:nth-child(odd) {
-        background-color: #ffffff;
+        background-color: #eeeeee;
       }
 
       tr:nth-child(even) {
-        background-color: #dddddd;
-      }
-      
-      td:first-child {
-        width:80%;
-      }
-      
-      td:last-child {
-        white-space: nowrap;
-      } 
-      
-      .dataframe {
-        width: 100%;
-        font-weight: 300;
-        border-collapse: collapse;
-        margin: auto;
-      }
-      
-      th {
-        color: #ffffff;
+        background-color: #e0e0e0;
       }
 
-      #valor th {
+      .valor {
         background: #37626e;
       }
 
-      #infomoney th {
+      .infomoney {
         background: #212121;
       }
 
-      #investnews th {
+      .investnews {
         background: #90067C;
       }
 
-      #moneytimes th {
+      .moneytimes {
         background: #00c940;
       }
 
-      #uol th {
+      .uol {
         background: #ff8000;
       }
 
-      #oglobo th {
+      .oglobo {
         background: #1e4c9a;
       }
 
-      #exame th {
+      .exame {
         background: #ff0000;
       }
 
-      #oespecialista th {
+      .oespecialista {
         background: #000033;
       }
 {% endblock %}
@@ -110,24 +86,90 @@
   <a class="nao" href="/economia/destaques">/destaques</a>
   <a class="sim" href="/economia/maislidas">/maislidas</a>
 </div>
-<div>
-  <p><a class="linksite" href="https://valor.globo.com/" target="_blank">valor.globo.com/</a></p>
-  {{ vehtml | safe }}
-</div>
-<div>
-  <p><a class="linksite" href="http://investnews.com.br" target="_blank">investnews.com.br/</a></p>
-  {{ inhtml | safe }}  
-</div>
-<div>
-  <p><a class="linksite" href="https://www.moneytimes.com.br/" target="_blank">moneytimes.com.br/</a></p>
-  {{ mthtml | safe }}  
-</div>
-<div>
-  <p><a class="linksite" href="http://exame.com" target="_blank">exame.com/</a></p>
-  {{ ehtml | safe }}</p>  
-</div>
-<div>
-  <p><a class="linksite" href="http://oespecialista.com.br" target="_blank">oespecialista.com.br/</a></p>
-  {{ oehtml | safe }}</p>  
-</div>
+
+<table>
+    <tr>
+      <th height="70px" class="investnews">
+        <a class="linksite" href="https://www.investnews.com.br/" target="_blank">investnews.com.br</a>
+      </th>
+    </tr>
+  <tbody>
+  {% for k, v in investnews.items() %}
+    <tr>
+      <td>
+        <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
+      </td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+<table>
+  <tr>
+    <th height="70px" class="moneytimes">
+      <a class="linksite" href="https://www.moneytimes.com.br/" target="_blank">moneytimes.com.br</a>
+    </th>
+  </tr>
+<tbody>
+{% for k, v in moneytimes.items() %}
+  <tr>
+    <td>
+      <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
+    </td>
+  </tr>
+{% endfor %}
+</tbody>
+</table>
+
+<table>
+  <tr>
+    <th height="70px" class="exame">
+      <a class="linksite" href="https://www.exame.com.br/" target="_blank">exame.com.br</a>
+    </th>
+  </tr>
+<tbody>
+{% for k, v in exame.items() %}
+  <tr>
+    <td>
+      <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
+    </td>
+  </tr>
+{% endfor %}
+</tbody>
+</table>
+
+<table>
+  <tr>
+    <th height="70px" class="valor">
+      <a class="linksite" href="https://www.valor.com.br/" target="_blank">valor.com.br</a>
+    </th>
+  </tr>
+<tbody>
+{% for k, v in valor.items() %}
+  <tr>
+    <td>
+      <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
+    </td>
+  </tr>
+{% endfor %}
+</tbody>
+</table>
+
+<table>
+  <tr>
+    <th height="70px" class="oespecialista">
+      <a class="linksite" href="https://www.oespecialista.com.br/" target="_blank">oespecialista.com.br</a>
+    </th>
+  </tr>
+<tbody>
+{% for k, v in oespecialista.items() %}
+  <tr>
+    <td>
+      <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
+    </td>
+  </tr>
+{% endfor %}
+</tbody>
+</table>
+
 {% endblock %}
