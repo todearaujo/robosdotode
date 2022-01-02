@@ -116,7 +116,14 @@ def economiadestaques():
 
     uol = scrape_h_to_dict('https://uol.com.br/economia/','//section[contains(@class, "highlights-with-photo")]//h2','//section[contains(@class, "highlights-with-photo")]//a')
 
-    sites = dict(infomoney = infomoney, folha = folha, investnews = investnews, moneytimes = moneytimes, exame = exame, oglobo = oglobo, valor = valor, oespecialista = oespecialista, uol = uol)
+    inteligenciaf1 = scrape_a_to_dict('https://inteligenciafinanceira.com.br/','//div[contains(@class, "main-feed__feature")]//h2[contains(@class, "main-feed__title")]//a')
+    inteligenciaf2 = scrape_a_to_dict('https://inteligenciafinanceira.com.br/','//a[contains(@class, "list_needtoknow__link")]')
+
+    inteligenciaf = {**inteligenciaf1,**inteligenciaf2}
+
+    sites = dict(infomoney = infomoney, folha = folha,  investnews = investnews,
+                moneytimes = moneytimes,  exame = exame,  oglobo = oglobo, 
+                valor = valor, oespecialista = oespecialista, uol = uol, inteligenciaf = inteligenciaf)
 
     return render_template("economia-destaques.html", **sites)
 

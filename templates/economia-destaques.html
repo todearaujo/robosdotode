@@ -35,6 +35,10 @@
         background-color: #e0e0e0;
       }
 
+      .inteligenciaf {
+        background: #ec7000;
+      }
+
       .valor {
         background: #37626e;
       }
@@ -90,6 +94,25 @@
   <a class="nao" href="/economia/maislidas">/maislidas</a>
   <a class="nao" href="/economia/webstories">/webstories</a>
 </div>
+
+<table class="tabela">
+  <tbody>
+    <tr>
+      <th height="70px" class="inteligenciaf">
+        <a class="linksite" href="https://www.inteligenciafinanceira.com.br/" target="_blank">inteligenciafinanceira.com.br</a>
+      </th>
+    </tr>
+  </tbody>
+  <tbody>
+    {% for k, v in inteligenciaf.items() %}
+    <tr>
+      <td>
+        <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
+      </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
 
 <table class="tabela">
 <tbody>
