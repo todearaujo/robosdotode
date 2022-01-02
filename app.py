@@ -114,7 +114,9 @@ def economiadestaques():
 
     oespecialista = scrape_a_to_dict('https://oespecialista.com.br/','//div[@id="front-page-top"]//h3//a')
 
-    sites = dict(infomoney = infomoney, folha = folha, investnews = investnews, moneytimes = moneytimes, exame = exame, oglobo = oglobo, valor = valor, oespecialista = oespecialista)
+    uol = scrape_h_to_dict('https://uol.com.br/economia/','//section[contains(@class, "highlights-with-photo")]//h2','//section[contains(@class, "highlights-with-photo")]//a')
+
+    sites = dict(infomoney = infomoney, folha = folha, investnews = investnews, moneytimes = moneytimes, exame = exame, oglobo = oglobo, valor = valor, oespecialista = oespecialista, uol = uol)
 
     return render_template("economia-destaques.html", **sites)
 
@@ -134,5 +136,16 @@ def economiamaislidas():
   sites = dict(investnews = investnews, moneytimes = moneytimes, exame = exame, valor = valor, oespecialista = oespecialista)
   
   return render_template("economia-maislidas.html", **sites)
+
+@app.route("/economia/webstories")
+def economiawebstories():
+
+  investnews = scrape_h_to_dict('https://investnews.com.br/web-stories/','//li[contains(@class, "mvp-blog-story")]//h2','//li[contains(@class, "mvp-blog-story")]//a')
+  
+  infomoney = scrape_a_to_dict('https://www.infomoney.com.br/web-stories/','//span[contains(@class, "hl-title")]//a')
+  
+  sites = dict(investnews = investnews, infomoney = infomoney)
+  
+  return render_template("economia-webstories.html", **sites)
 
 Talisman(app, content_security_policy=None)

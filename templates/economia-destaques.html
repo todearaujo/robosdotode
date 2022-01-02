@@ -66,6 +66,10 @@
       .oespecialista {
         background: #000033;
       }
+
+      .uol {
+        background: #19A39A;
+      }
 {% endblock %}
 
 {% block menu %}
@@ -84,6 +88,7 @@
 <div class="menu" style="font-size: 20px !important;">
   <a class="sim" href="/economia/destaques">/destaques</a>
   <a class="nao" href="/economia/maislidas">/maislidas</a>
+  <a class="nao" href="/economia/webstories">/webstories</a>
 </div>
 
 <table class="tabela">
@@ -228,5 +233,22 @@
 </tr>
 {% endfor %}
 </tbody>
+</table>
+
+<table class="tabela">
+  <tr>
+    <th height="70px" class="uol">
+      <a class="linksite" href="https://uol.com.br/economia" target="_blank">uol.com.br/economia</a>
+    </th>
+  </tr>
+  <tbody>
+  {% for k, v in uol.items() %}
+  <tr>
+    <td>
+      <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
+    </td>
+  </tr>
+  {% endfor %}
+  </tbody>
 </table>
 {% endblock %}

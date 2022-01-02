@@ -80,8 +80,8 @@
 
 <div class="menu" style="font-size: 20px !important;">
   <a class="nao" href="/economia/destaques">/destaques</a>
-  <a class="sim" href="/economia/maislidas">/maislidas</a>
-  <a class="nao" href="/economia/webstories">/webstories</a>
+  <a class="nao" href="/economia/maislidas">/maislidas</a>
+  <a class="sim" href="/economia/webstories">/webstories</a>
 </div>
 
 <table class="tabela">
@@ -103,63 +103,12 @@
 
 <table class="tabela">
   <tr>
-    <th height="70px" class="moneytimes">
-      <a class="linksite" href="https://www.moneytimes.com.br/" target="_blank">moneytimes.com.br</a>
+    <th height="70px" class="infomoney">
+      <a class="linksite" href="https://infomoney.com.br/web-stories" target="_blank">infomoney.com.br</a>
     </th>
   </tr>
 <tbody>
-{% for k, v in moneytimes.items() %}
-  <tr>
-    <td>
-      <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
-    </td>
-  </tr>
-{% endfor %}
-</tbody>
-</table>
-
-<table class="tabela">
-  <tr>
-    <th height="70px" class="exame">
-      <a class="linksite" href="https://www.exame.com.br/" target="_blank">exame.com.br</a>
-    </th>
-  </tr>
-<tbody>
-{% for k, v in exame.items() %}
-  <tr>
-    <td>
-      <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
-    </td>
-  </tr>
-{% endfor %}
-</tbody>
-</table>
-
-<table class="tabela">
-  <tr>
-    <th height="70px" class="valor">
-      <a class="linksite" href="https://www.valor.com.br/" target="_blank">valor.com.br</a>
-    </th>
-  </tr>
-<tbody>
-{% for k, v in valor.items() %}
-  <tr>
-    <td>
-      <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
-    </td>
-  </tr>
-{% endfor %}
-</tbody>
-</table>
-
-<table class="tabela">
-  <tr>
-    <th height="70px" class="oespecialista">
-      <a class="linksite" href="https://www.oespecialista.com.br/" target="_blank">oespecialista.com.br</a>
-    </th>
-  </tr>
-<tbody>
-{% for k, v in oespecialista.items() %}
+{% for k, v in infomoney.items() %}
   <tr>
     <td>
       <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
