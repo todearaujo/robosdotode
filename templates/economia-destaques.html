@@ -77,17 +77,19 @@
 {% endblock %}
 
 {% block conteudo %}
-<div class="menu">
+<div class="menu" style="font-size: 20px !important;">
   <a class="sim" href="/economia/destaques">/destaques</a>
   <a class="nao" href="/economia/maislidas">/maislidas</a>
 </div>
-<table>
+<table class="tabela">
+<tbody>
   <tr>
     <th height="70px" class="valor">
       <a class="linksite" href="https://www.valor.com.br/" target="_blank">valor.com.br</a>
     </th>
   </tr>
-  <tbody>
+</tbody>
+<tbody>
   {% for k, v in valor.items() %}
   <tr>
     <td>
@@ -98,13 +100,15 @@
   </tbody>
   </table>
 
-<table>
+<table class="tabela">
+ <tbody>
   <tr>
     <th height="70px" class="infomoney">
       <a class="linksite" href="https://www.infomoney.com.br/" target="_blank">infomoney.com.br</a>
     </th>
   </tr>
-  <tbody>
+ </tbody>
+ <tbody>
   {% for k, v in infomoney.items() %}
   <tr>
     <td>
@@ -115,12 +119,14 @@
   </tbody>
 </table>
 
-<table>
+<table class="tabela">
+<tbody>
   <tr>
     <th height="70px" class="oglobo">
       <a class="linksite" href="https://oglobo.globo.com/" target="_blank">oglobo.globo.com/economia</a>
     </th>
   </tr>
+</tbody>
 <tbody>
 {% for k, v in oglobo.items() %}
   <tr>
@@ -132,24 +138,7 @@
 </tbody>
 </table>
 
-<table>
-  <tr>
-    <th height="70px" class="investnews">
-      <a class="linksite" href="https://www.investnews.com.br/" target="_blank">investnews.com.br</a>
-    </th>
-  </tr>
-<tbody>
-{% for k, v in investnews.items() %}
-  <tr>
-    <td>
-      <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
-    </td>
-  </tr>
-{% endfor %}
-</tbody>
-</table>
-
-<table>
+<table class="tabela">
 <tr>
   <th height="70px" class="moneytimes">
     <a class="linksite" href="https://www.moneytimes.com.br/" target="_blank">moneytimes.com.br</a>
@@ -166,7 +155,24 @@
 </tbody>
 </table>
 
-<table>
+<table class="tabela">
+  <tr>
+    <th height="70px" class="investnews">
+      <a class="linksite" href="https://www.investnews.com.br/" target="_blank">investnews.com.br</a>
+    </th>
+  </tr>
+  <tbody>
+  {% for k, v in investnews.items() %}
+  <tr>
+    <td>
+      <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
+    </td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+<table class="tabela">
 <tr>
   <th height="70px" class="exame">
     <a class="linksite" href="https://www.exame.com.br/" target="_blank">exame.com.br</a>
@@ -183,7 +189,7 @@
 </tbody>
 </table>
 
-<table>
+<table class="tabela">
 <tr>
   <th height="70px" class="oespecialista">
     <a class="linksite" href="https://www.oespecialista.com.br/" target="_blank">oespecialista.com.br</a>

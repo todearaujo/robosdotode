@@ -5,7 +5,7 @@ from lxml import html
 import lxml.html.clean
 from cachetools import cached, TTLCache
 
-cache = TTLCache(maxsize=10, ttl=900)
+cache = TTLCache(maxsize=128, ttl=900)
 
 @cached(cache)
 def scrape_a_to_dict(page,xpathexp):
