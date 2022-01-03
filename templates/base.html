@@ -54,7 +54,7 @@
         height: 25px;
         -webkit-animation: spin 1s linear infinite; /* Safari */
         animation: spin 1s linear infinite;
-        display: none;
+        visibility: hidden;
       }
 
       /* Safari */
@@ -111,12 +111,12 @@
       }     
       {% block style %}{% endblock %}
 </style>
-<script type="text/javascript">// <![CDATA[
-  function loading(){
-      $("#loading").show();
-      $("#content").hide();       
+<script>
+  function loading() {
+    document.getElementById("content").style.visibility = "hidden";
+    document.getElementById("loading").style.visibility = "visible";
   }
-// ]]></script>
+</script>
   </head>
   <body>
 <!-- Google Tag Manager (noscript) -->
