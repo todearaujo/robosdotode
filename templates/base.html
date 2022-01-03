@@ -43,6 +43,31 @@
         font-size: 18px;
       }
 
+      #loading {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        border: 10px solid #FFFFFF;
+        border-radius: 50%;
+        border-top: 10px solid #DD2E43;
+        width: 25px;
+        height: 25px;
+        -webkit-animation: spin 1s linear infinite; /* Safari */
+        animation: spin 1s linear infinite;
+        display: none;
+      }
+
+      /* Safari */
+      @-webkit-keyframes spin {
+        0% { -webkit-transform: rotate(0deg); }
+        100% { -webkit-transform: rotate(360deg); }
+      }
+
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+
       #robo {
         background-color: #ffffff;
         text-align: center;
@@ -86,6 +111,12 @@
       }     
       {% block style %}{% endblock %}
 </style>
+<script type="text/javascript">// <![CDATA[
+  function loading(){
+      $("#loading").show();
+      $("#content").hide();       
+  }
+// ]]></script>
   </head>
   <body>
 <!-- Google Tag Manager (noscript) -->
@@ -112,10 +143,11 @@
     })();
     </script>
     {% endblock serviceworker %}
-    <div>
+    <div id="loading"></div>
+    <div id="content">
       <h2>{% block cabecalho %}{% endblock %}</h2>
       {% block conteudo %}{% endblock %}
-    </div>
     {% block menu %}{% endblock %}
+    </div>
   </body>
 </html>

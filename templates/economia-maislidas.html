@@ -66,9 +66,9 @@
 
 {% block menu %}
 <div class="menu">
-    <a class="nao" href="/">Página inicial</a>
-    <a class="sim" href="/economia/destaques">Editor de /economia</a>
-    <a class="nao" href="/sobre">Sobre o site</a>
+    <a class="nao" onclick="loading();" href="/">Página inicial</a>
+    <a class="sim" onclick="loading();" href="/economia/destaques">Editor de /economia</a>
+    <a class="nao" onclick="loading();" href="/sobre">Sobre o site</a>
 </div>
 {% endblock %}
 
@@ -79,9 +79,9 @@
 {% block conteudo %}
 
 <div class="menu" style="font-size: 20px !important;">
-  <a class="nao" href="/economia/destaques">/destaques</a>
-  <a class="sim" href="/economia/maislidas">/maislidas</a>
-  <a class="nao" href="/economia/webstories">/webstories</a>
+  <a class="nao" onclick="loading();" href="/economia/destaques">/destaques</a>
+  <a class="sim" onclick="loading();" href="/economia/maislidas">/maislidas</a>
+  <a class="nao" onclick="loading();" href="/economia/webstories">/webstories</a>
 </div>
 
 <table class="tabela">
