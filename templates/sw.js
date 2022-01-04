@@ -5,13 +5,6 @@ importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.2.0/workbox
 if (workbox) {
   console.log("Yay! Workbox is loaded 🎉");
 
-  workbox.precaching.precacheAndRoute([
-    {
-      "url": "/",
-      "revision": "2"
-    }
-  ]);
-
   workbox.routing.registerRoute(
     /\.(?:js|css)$/,
     workbox.strategies.staleWhileRevalidate({
@@ -43,6 +36,9 @@ if (workbox) {
       ],
     }),
   );
+
+  skipWaiting();
+
 } else {
   console.log("Boo! Workbox didn't load 😬");
 }
