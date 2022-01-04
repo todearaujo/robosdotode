@@ -64,25 +64,27 @@
       }
 {% endblock %}
 
-{% block menu %}
-<div class="menu">
+{% block cabecalho %}
+<a onclick="loading()" href="/"><img alt="Robô" style="vertical-align: middle;" width="40px" height="40px" src="../static/384.png"/></a> /<b>economia</b>
+{% endblock %}
+
+{% block menuinferior %}
+<div class="menuinferior">
     <a class="nao" onclick="loading()" href="/">Página inicial</a>
     <a class="sim" onclick="loading()" href="/economia/destaques">Editor de /economia</a>
     <a class="nao" onclick="loading()" href="/sobre">Sobre o site</a>
 </div>
 {% endblock %}
 
-{% block cabecalho %}
-<a onclick="loading()" href="/"><img alt="Robô" style="vertical-align: middle;" width="40px" height="40px" src="../static/384.png"/></a> /<b>economia</b>
-{% endblock %}
-
-{% block conteudo %}
-
-<div class="menu" style="font-size: 20px !important;">
+{% block menusuperior %}
+<div class="menusuperior">
   <a class="nao" onclick="loading()" href="/economia/destaques">/destaques</a>
   <a class="sim" onclick="loading()" href="/economia/maislidas">/maislidas</a>
   <a class="nao" onclick="loading()" href="/economia/webstories">/webstories</a>
 </div>
+{% endblock %}
+
+{% block conteudo %}
 
 <table class="tabela">
     <tr>

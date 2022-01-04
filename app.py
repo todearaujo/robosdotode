@@ -46,7 +46,7 @@ def scrape_h_to_dict(page,xpathexph2,xpathexpa):
 app = Flask(__name__)
 
 @app.route("/")
-def hello_world():
+def home():
     return render_template("home.html")
 
 @app.route("/sobre")
@@ -65,6 +65,7 @@ def economiamanifest():
 def sw():
     response=make_response(send_from_directory(path='templates',directory='templates',filename='sw.js'))
     response.headers['Content-Type'] = 'application/javascript'
+    response.headers['Cache-Control'] = 'no-cache'
     return response
 
 @app.route('/push/ossw.js')

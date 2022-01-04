@@ -1,6 +1,6 @@
 {"name":"Todebot: Editor de Economia",
 "short_name":"/economia",
-"start_url": "/economia/destaques?app",
+"start_url": "/economia/destaques?utm_source=iconepwa",
 "id": "/?app",
 "scope": "../",
 "shortcuts": [{
