@@ -164,7 +164,6 @@ def economiawebstories():
   return render_template("economia-webstories.html", **sites)
 
 @app.route("/economia/tweets/top10")
-@cached(cache)
 def toptweets():
 
   consumer_key = os.environ["CONSUMER_KEY_TW"]
@@ -177,21 +176,20 @@ def toptweets():
 
   api = tweepy.API(auth)
 
-  list_tweets = api.list_timeline(list_id = '1479520610908876806', count = '50', include_rts = False)
+  tweetssites = api.list_timeline(list_id = '1479520610908876806', count = '50', include_rts = False)
 
-  todas_urls = {'ID':[], 'Eng':[]}
+  sitesids = {'ID':[], 'Eng':[]}
 
-  for tweet in list_tweets:
-      todas_urls["ID"].append(tweet.id)
-      todas_urls["Eng"].append(tweet.retweet_count + tweet.favorite_count)
+  for tweet in tweetssites:
+      sitesids["ID"].append(tweet.id)
+      sitesids["Eng"].append(tweet.retweet_count + tweet.favorite_count)
 
-  toptweetsdf = pd.DataFrame(todas_urls).sort_values(by=['Eng'], ascending=False).head(10).reset_index()
+  toptweetsdf = pd.DataFrame(sitesids).sort_values(by=['Eng'], ascending=False).head(10).reset_index()
   toptweets = toptweetsdf["ID"].tolist()
 
   return render_template("economia-tweets-top10.html", toptweets = toptweets)
 
 @app.route("/economia/tweets/fintwit")
-@cached(cache)
 def fintwit():
 
   consumer_key = os.environ["CONSUMER_KEY_TW"]
@@ -204,17 +202,17 @@ def fintwit():
 
   api = tweepy.API(auth)
 
-  list_tweets = api.list_timeline(list_id = '1450084107199844356', count = '50', include_rts = False)
+  fintwittweets = api.list_timeline(list_id = '1450084107199844356', count = '50', include_rts = False)
 
-  todas_urls = {'ID':[], 'Eng':[]}
+  fintwitids = {'ID':[], 'Eng':[]}
 
-  for tweet in list_tweets:
-      todas_urls["ID"].append(tweet.id)
-      todas_urls["Eng"].append(tweet.retweet_count + tweet.favorite_count)
+  for tweet in fintwittweets:
+      fintwitids["ID"].append(tweet.id)
+      fintwitids["Eng"].append(tweet.retweet_count + tweet.favorite_count)
 
-  toptweetsdf = pd.DataFrame(todas_urls).sort_values(by=['Eng'], ascending=False).head(10).reset_index()
-  toptweets = toptweetsdf["ID"].tolist()
+  fintweetsdf = pd.DataFrame(fintwitids).sort_values(by=['Eng'], ascending=False).head(10).reset_index()
+  fintweets = fintweetsdf["ID"].tolist()
 
-  return render_template("economia-tweets-fintwit.html", toptweets = toptweets)
+  return render_template("economia-tweets-fintwit.html", fintweets = fintweets)
 
 Talisman(app, content_security_policy=None)
