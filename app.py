@@ -164,6 +164,7 @@ def economiawebstories():
   return render_template("economia-webstories.html", **sites)
 
 @app.route("/economia/tweets/top10")
+@cached(cache)
 def toptweets():
 
   consumer_key = os.environ["CONSUMER_KEY_TW"]
@@ -187,9 +188,10 @@ def toptweets():
   toptweetsdf = pd.DataFrame(todas_urls).sort_values(by=['Eng'], ascending=False).head(10).reset_index()
   toptweets = toptweetsdf["ID"].tolist()
 
-  return render_template("economia-tweets.html", toptweets = toptweets)
+  return render_template("economia-tweets-top10.html", toptweets = toptweets)
 
 @app.route("/economia/tweets/fintwit")
+@cached(cache)
 def fintwit():
 
   consumer_key = os.environ["CONSUMER_KEY_TW"]
@@ -213,6 +215,6 @@ def fintwit():
   toptweetsdf = pd.DataFrame(todas_urls).sort_values(by=['Eng'], ascending=False).head(10).reset_index()
   toptweets = toptweetsdf["ID"].tolist()
 
-  return render_template("economia-tweets.html", toptweets = toptweets)
+  return render_template("economia-tweets-fintwit.html", toptweets = toptweets)
 
 Talisman(app, content_security_policy=None)

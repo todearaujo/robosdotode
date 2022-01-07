@@ -64,12 +64,8 @@
       }
 {% endblock %}
 
-{% block cabecalho %}
-<a onclick="loading()" href="/"><img alt="Robô" style="vertical-align: middle;" width="40px" height="40px" src="/static/384.png"/></a> /<b>economia</b>
-{% endblock %}
-
 {% block menuinferior %}
-<div class="menuinferior">
+<div id="menuinferior">
     <a class="nao" onclick="loading()" href="/">Página inicial</a>
     <a class="sim" onclick="loading()" href="/economia/destaques">Editor de /economia</a>
     <a class="nao" onclick="loading()" href="/sobre">Sobre o site</a>
@@ -77,10 +73,15 @@
 {% endblock %}
 
 {% block menusuperior %}
-<div class="menusuperior">
-  <a class="nao" onclick="loading()" href="/economia/destaques">/destaques</a>
-  <a class="nao" onclick="loading()" href="/economia/maislidas">/maislidas</a>
+<div id="menusuperior">
+  <span id="economia"><a onclick="loading()" href="/"><img alt="Robô" style="vertical-align: middle;" width="30px" height="30px" src="/static/384.png"/></a> /<b>economia</b></span>
   <a class="sim" onclick="loading()" href="/economia/webstories">/webstories</a>
+  <p id="descricao">Os últimos webstories publicados</p>
+  <div id="menusuperior2">
+    <a class="nao" onclick="loading()" href="/economia/destaques">/destaques</a>
+    <a class="nao" onclick="loading()" href="/economia/maislidas">/maislidas</a>
+    <a class="nao" onclick="loading()" href="/economia/tweets/top10">/tweets</a>
+  </div>
 </div>
 {% endblock %}
 

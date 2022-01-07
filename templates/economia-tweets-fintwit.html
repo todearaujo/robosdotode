@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Editor de /economia - Tweets{% endblock %}
+
+{% block metadescription %}Tweets mais engajados das @contas de economia, investimentos e finanças pessoais do Brasil{% endblock %}
+
+{% block manifest %}economia.webmanifest{% endblock %}
+
+{% block style %}
+    #tweets {
+        margin: auto;
+        width: 90%;
+    }
+
+    #porfavor {
+        z-index: -1;
+        text-align: center;
+        position: fixed;
+    }
+{% endblock %}
+
+{% block menuinferior %}
+<div id="menuinferior">
+    <a class="nao" onclick="loading()" href="/">Página inicial</a>
+    <a class="sim" onclick="loading()" href="/economia/destaques">Editor de /economia</a>
+    <a class="nao" onclick="loading()" href="/sobre">Sobre o site</a>
+</div>
+{% endblock %}
+
+{% block menusuperior %}
+<div id="menusuperior">
+  <span id="economia"><a onclick="loading()" href="/"><img alt="Robô" style="vertical-align: middle;" width="30px" height="30px" src="/static/384.png"/></a> /<b>economia</b></span>
+  <a class="sim" onclick="loading()" href="/economia/tweets/fintwit">/tweets/fintwit</a>
+  <p id="descricao">Maior engajamento nos últimos 50 tweets na #fintwit</p>
+  <div id="menusuperior2">
+    <a class="nao" onclick="loading()" href="/economia/destaques">/destaques</a>
+    <a class="nao" onclick="loading()" href="/economia/maislidas">/maislidas</a>
+    <a class="nao" onclick="loading()" href="/economia/webstories">/webstories</a>
+  </div>
+</div>
+{% endblock %}
+
+{% block conteudo %}
+
+<div id="tweets">
+  {% for ID in toptweets %}
+  <blockquote class="twitter-tweet"><a href="https://twitter.com/x/status/{{ ID }}"></a></blockquote>
+  {% endfor %}
+</div>
+
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+{% endblock %}
