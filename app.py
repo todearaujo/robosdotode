@@ -4,6 +4,9 @@ from urllib.request import urlopen, Request
 from lxml import html
 import lxml.html.clean
 from cachetools import cached, TTLCache
+import tweepy
+import pandas as pd
+import os
 
 cache = TTLCache(maxsize=128, ttl=900)
 
@@ -155,5 +158,57 @@ def economiawebstories():
   sites = dict(investnews = investnews, infomoney = infomoney)
   
   return render_template("economia-webstories.html", **sites)
+
+@app.route("/economia/tweets/top10")
+def toptweets():
+
+  consumer_key = os.environ["CONSUMER_KEY_TW"]
+  consumer_secret = os.environ["CONSUMER_SECRET_TW"]
+  access_token = os.environ["ACCESS_TOKEN_TW"]
+  access_token_secret = os.environ["ACCESS_TOKEN_SECRET_TW"]
+
+  auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+  auth.set_access_token(access_token, access_token_secret)
+
+  api = tweepy.API(auth)
+
+  list_tweets = api.list_timeline(list_id = '1479520610908876806', count = '50')
+
+  todas_urls = {'ID':[], 'Eng':[]}
+
+  for tweet in list_tweets:
+      todas_urls["ID"].append(tweet.id)
+      todas_urls["Eng"].append(tweet.retweet_count + tweet.favorite_count)
+
+  toptweetsdf = pd.DataFrame(todas_urls).sort_values(by=['Eng'], ascending=False).head(10).reset_index()
+  toptweets = toptweetsdf["ID"].tolist()
+
+  return render_template("economia-tweets.html", toptweets = toptweets)
+
+@app.route("/economia/tweets/fintwit")
+def fintwit():
+
+  consumer_key = os.environ["CONSUMER_KEY_TW"]
+  consumer_secret = os.environ["CONSUMER_SECRET_TW"]
+  access_token = os.environ["ACCESS_TOKEN_TW"]
+  access_token_secret = os.environ["ACCESS_TOKEN_SECRET_TW"]
+
+  auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+  auth.set_access_token(access_token, access_token_secret)
+
+  api = tweepy.API(auth)
+
+  list_tweets = api.list_timeline(list_id = '1450084107199844356', count = '50')
+
+  todas_urls = {'ID':[], 'Eng':[]}
+
+  for tweet in list_tweets:
+      todas_urls["ID"].append(tweet.id)
+      todas_urls["Eng"].append(tweet.retweet_count + tweet.favorite_count)
+
+  toptweetsdf = pd.DataFrame(todas_urls).sort_values(by=['Eng'], ascending=False).head(10).reset_index()
+  toptweets = toptweetsdf["ID"].tolist()
+
+  return render_template("economia-tweets.html", toptweets = toptweets)
 
 Talisman(app, content_security_policy=None)

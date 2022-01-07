@@ -2,7 +2,7 @@ flask
 gunicorn
 pandas
 requests
-bs4
 lxml
 cachetools
 flask-talisman
+tweepy
