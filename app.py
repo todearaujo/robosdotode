@@ -85,7 +85,11 @@ def ossuw():
 
 @app.route("/economia")
 def economia():
-    return redirect(url_for('economiadestaques'))
+    return redirect(url_for('economia/destaques'))
+
+@app.route("/tweets")
+def tweets():
+    return redirect(url_for('tweets/top10'))
 
 @app.route("/economia/destaques")
 def economiadestaques():
@@ -172,7 +176,7 @@ def toptweets():
 
   api = tweepy.API(auth)
 
-  list_tweets = api.list_timeline(list_id = '1479520610908876806', count = '50')
+  list_tweets = api.list_timeline(list_id = '1479520610908876806', count = '50', include_rts = False)
 
   todas_urls = {'ID':[], 'Eng':[]}
 
@@ -198,7 +202,7 @@ def fintwit():
 
   api = tweepy.API(auth)
 
-  list_tweets = api.list_timeline(list_id = '1450084107199844356', count = '50')
+  list_tweets = api.list_timeline(list_id = '1450084107199844356', count = '50', include_rts = False)
 
   todas_urls = {'ID':[], 'Eng':[]}
 
