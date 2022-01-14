@@ -1,6 +1,6 @@
 # Todebots: robôs do Tode ![Robô](https://github.com/todearaujo/robosdotode/blob/main/static/favicon-32x32.png)
 
-Olá, pessoal. Por enquanto só temos um robô, o **([editor de Economia](https://robos.todearaujo.com/economia/destaques))** que te conta em tempo real o que é assunto em sites de finanças, investimentos e mercado financeiro. São duas funções: /destaques, para as manchetes nas homes; e /maislidas, para os conteúdos com maior audiência.
+Olá, pessoal. Por enquanto só temos um robô, o **([editor de Economia](https://robos.todearaujo.com/economia/destaques))** que te conta em tempo real o que é assunto em sites de finanças, investimentos e mercado financeiro. São quatro funções: /destaques, para as manchetes nas homes; /maislidas, para os conteúdos com maior audiência; /tweets, com os posts mais engajados entre os veículos e também em uma lista de usuário conhecida como #fintwit (financial twitter); webstories, com a lista dos últimos conteúdos neste formato nos sites.
 
 Outra funcionalidade é a instalação como um aplicativo. É só escolher a opção "Adicionar à tela inicial" ou "Instalar como aplicativo", dependendo do seu navegador e sistema operacional.
 
