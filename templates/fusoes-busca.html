@@ -36,44 +36,20 @@
         background-color: #e0e0e0;
       }
 
-      .inteligenciaf {
-        background: #ec7000;
-      }
-
       .valor {
         background: #37626e;
       }
 
-      .folha {
-        background: #00adef;
+      .neofeed {
+        background: #ec7000;
       }
 
-      .infomoney {
-        background: #212121;
-      }
-
-      .investnews {
-        background: #90067C;
+      .estadao {
+        background: #2d74e7;
       }
 
       .moneytimes {
         background: #00c940;
-      }
-
-      .oglobo {
-        background: #1e4c9a;
-      }
-
-      .exame {
-        background: #ff0000;
-      }
-
-      .oespecialista {
-        background: #000033;
-      }
-
-      .uol {
-        background: #19A39A;
       }
 {% endblock %}
 <!-- End of page specific CSS -->
@@ -105,7 +81,7 @@
 <tbody>
   <tr>
     <th class="valor">
-      <a class="linksite" href="https://www.valor.globo.com/busca/?q=fusão+aquisição" target="_blank">valor.globo.com/busca/?q=fusão+aquisição</a>
+      <a class="linksite" href="https://www.valor.globo.com/busca/?q=fusão+aquisição" target="_blank">valor.globo.com</a>
     </th>
   </tr>
 </tbody>
@@ -120,4 +96,58 @@
   </tbody>
 </table>
 <!-- End of the first table example -->
+<table class="tabela">
+  <tbody>
+    <tr>
+      <th class="moneytimes">
+        <a class="linksite" href="https://www.moneytimes.com.br/?s=fus%C3%B5es+aquisi%C3%A7%C3%B5es" target="_blank">moneytimes.com.br</a>
+      </th>
+    </tr>
+  </tbody>
+  <tbody>
+    {% for k, v in moneytimes.items() %}
+    <tr>
+      <td>
+        <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<table class="tabela">
+  <tbody>
+    <tr>
+      <th class="estadao">
+        <a class="linksite" href="https://busca.estadao.com.br/?q=fus%C3%A3o+aquisi%C3%A7%C3%A3o" target="_blank">estadao.com.br</a>
+      </th>
+    </tr>
+  </tbody>
+  <tbody>
+    {% for k, v in estadao.items() %}
+    <tr>
+      <td>
+        <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<table class="tabela">
+  <tbody>
+    <tr>
+      <th class="neofeed">
+        <a class="linksite" href="https://neofeed.com.br/?s=fus%C3%A3o+aquisi%C3%A7%C3%A3o" target="_blank">neofeed.com.br</a>
+      </th>
+    </tr>
+  </tbody>
+  <tbody>
+    {% for k, v in neofeed.items() %}
+    <tr>
+      <td>
+        <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
 {% endblock %}

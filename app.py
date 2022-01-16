@@ -219,8 +219,14 @@ def fintwit():
 def fusoesbusca():
 
   valor = scrape_h_to_dict('https://valor.globo.com/busca/?q=fus%C3%A3o+aquisi%C3%A7%C3%A3o','//div[contains(@class, "widget--info__title")]','//div[contains(@class, "widget--info__text-container")]//a')
+
+  neofeed = scrape_a_to_dict('https://neofeed.com.br/?s=fus%C3%A3o+aquisi%C3%A7%C3%A3o','//h3[contains(@class, "entry-title td-module-title")]//a')
+
+  moneytimes = scrape_a_to_dict('https://www.moneytimes.com.br/?s=fus%C3%B5es+aquisi%C3%A7%C3%B5es','//h2[contains(@class, "news-item__title")]//a')
+
+  estadao = scrape_h_to_dict('https://busca.estadao.com.br/?q=fus%C3%A3o+aquisi%C3%A7%C3%A3o','//div[contains(@class, "lista")]//h3','//div[contains(@class, "lista")]//a[contains(@class, "link-title")]')
   
-  sites = dict(valor = valor)
+  sites = dict(valor = valor, neofeed = neofeed, moneytimes = moneytimes, estadao = estadao)
   
   return render_template("fusoes-busca.html", **sites)
 
