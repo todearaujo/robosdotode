@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
 
-{% block titulo %}Editor de /economia - Destaques{% endblock %}
+{% block title %}Editor de /economia - Destaques{% endblock %}
 
 {% block metadescription %}O que é assunto em sites de economia, investimentos e finanças pessoais do Brasil{% endblock %}
 
 {% block manifest %}economia.webmanifest{% endblock %}
 
+<!-- Page specific CSS. Render inside base.html <style> -->
 {% block style %}   
       a.linksite {
         text-decoration: none !important;
@@ -75,10 +76,9 @@
         background: #19A39A;
       }
 {% endblock %}
+<!-- End of page specific CSS -->
 
-{% block cabecalho %}
-{% endblock %}
-
+<!-- Menu blocks, declared together, but render separately on final page -->
 {% block menuinferior %}
 <div id="menuinferior">
     <a class="nao" onclick="loading()" href="/">Página inicial</a>
@@ -99,8 +99,10 @@
   </div>
 </div>
 {% endblock %}
+<!-- End of menu blocks -->
 
-{% block conteudo %}
+{% block content %}
+<!-- Here we render dicts inside tables using loops that iterates items -->
 <table class="tabela">
   <tbody>
     <tr>
@@ -119,6 +121,7 @@
     {% endfor %}
     </tbody>
 </table>
+<!-- End of the first table example -->
 
 <table class="tabela">
 <tbody>

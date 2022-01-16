@@ -1,24 +1,21 @@
 {% extends 'base.html' %}
 
-{% block titulo %}Editor de /economia - Tweets{% endblock %}
+{% block title %}Editor de /economia - Tweets{% endblock %}
 
 {% block metadescription %}Tweets mais engajados das @contas de economia, investimentos e finanças pessoais do Brasil{% endblock %}
 
 {% block manifest %}economia.webmanifest{% endblock %}
 
+<!-- Page specific CSS. Render inside base.html <style> -->
 {% block style %}
     #tweets {
         margin: auto;
         width: 90%;
     }
-
-    #porfavor {
-        z-index: -1;
-        text-align: center;
-        position: fixed;
-    }
 {% endblock %}
+<!-- End of page specific CSS -->
 
+<!-- Menu blocks, declared together, but render separately on final page -->
 {% block menuinferior %}
 <div id="menuinferior">
     <a class="nao" onclick="loading()" href="/">Página inicial</a>
@@ -39,14 +36,21 @@
   </div>
 </div>
 {% endblock %}
+<!-- End of menu blocks -->
 
-{% block conteudo %}
+{% block content %}
 
+<!-- Here we render tweets using a loop that exctract tweet's IDs from a dict -->
 <div id="tweets">
   {% for ID in toptweets %}
   <blockquote class="twitter-tweet"><a href="https://twitter.com/x/status/{{ ID }}"></a></blockquote>
   {% endfor %}
 </div>
+<!-- End of the loop -->
 
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<!-- Tweet rendering script -->
+<script src="https://platform.twitter.com/widgets.js" charset="utf-8">
+</script>
+<!-- End of twitter script -->
+
 {% endblock %}

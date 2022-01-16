@@ -33,16 +33,19 @@
     </script>
     <!-- End Service Worker -->
 
-    <title>{% block titulo %}{% endblock %} | Robôs do Tode</title> 
+    <title>{% block title %}{% endblock %} | Robôs do Tode</title> 
 
+    <!-- Metatags -->
     <meta name="description" content="{% block metadescription %}{% endblock %}" />
     <meta name="robots" content="noimageindex, nofollow, nosnippet">
+    
+    <!-- Viewport for responsiveness -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- Icon tags, manifest path e theme color for app/shortcut -->
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
     <link rel="manifest" href="../{% block manifest %}{% endblock %}")">
     <meta name="theme-color" content="#DD2E43">
-
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Editor de /economia">    
@@ -53,10 +56,13 @@
     <link rel="apple-touch-icon" href="/static/192.png" sizes="192x192">
     <link rel="apple-touch-icon" href="/static/384.png" sizes="384x384">
     <link rel="apple-touch-icon" href="/static/512.png" sizes="512x512">
+    <!-- End of metatags -->
    
-   <style>
+   <!-- CSS base stylesheet  -->
+    <style>
       @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap');
       
+      /* Loading circle figure only with CSS */
         #loading {
         position: absolute;
         top: 45%;
@@ -81,6 +87,7 @@
         0% { transform: rotate(0deg); }
         100% { transform: rotate(360deg); }
       }
+      /* End of loading circle figure only with CSS */
 
       body {
         max-width: 600px;
@@ -138,17 +145,17 @@
 
       {% block style %}
       {% endblock %}
+    </style>
+    <!-- End of CSS base stylesheet  -->
 
-</style>
-
-<!-- Loader -->
+<!-- Loading simulation script -->
  <script>
   function loading() {
     document.getElementById("content").style.display = "none";
     document.getElementById("loading").style.display = "block";
   }
 </script>
-<!--Loader -->
+<!-- End of loading simulation script -->
 
 </head>
   
@@ -158,14 +165,18 @@
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PXDDNLD" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
+<!-- Loading figure DIV -->
     <div id="loading"></div>
+<!-- End of loading figure DIV -->
     
+<!-- Content DIV -->
      <div id="content">
-      <h1>{% block cabecalho %}{% endblock %}</h1>
+      <h1>{% block h1 %}{% endblock %}</h1>
       {% block menusuperior %}{% endblock %}
-      {% block conteudo %}{% endblock %}
+      {% block content %}{% endblock %}
       {% block menuinferior %}{% endblock %}
     </div>
+<!-- End of content DIV -->
 
   </body>
 </html>
