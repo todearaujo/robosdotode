@@ -220,7 +220,7 @@ def fusoesbusca():
 
   valor = scrape_h_to_dict('https://valor.globo.com/busca/?q=fus%C3%A3o+aquisi%C3%A7%C3%A3o','//div[contains(@class, "widget--info__title")]','//div[contains(@class, "widget--info__text-container")]//a')
 
-  neofeed = scrape_a_to_dict('https://neofeed.com.br/?s=fus%C3%A3o+aquisi%C3%A7%C3%A3o','//h3[contains(@class, "entry-title td-module-title")]//a')
+  neofeed = scrape_a_to_dict('https://neofeed.com.br/?s=fus%C3%A3o+aquisi%C3%A7%C3%A3o','//div[contains(@class, "td_module_10")]//h3[contains(@class, "entry-title td-module-title")]//a')
 
   moneytimes = scrape_a_to_dict('https://www.moneytimes.com.br/?s=fus%C3%B5es+aquisi%C3%A7%C3%B5es','//h2[contains(@class, "news-item__title")]//a')
 
