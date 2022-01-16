@@ -16,7 +16,7 @@
       (function() {
       if('serviceWorker' in navigator) {
         window.addEventListener('load', function() {
-          navigator.serviceWorker.register('../sw.js', {scope: '/'})
+          navigator.serviceWorker.register('/sw.js', {scope: '/'})
                    .then(function(registration) {
                    console.log('ServiceWorker carregado no escopo: ', registration.scope);
                    return registration;
@@ -44,7 +44,7 @@
 
     <!-- Icon tags, manifest path e theme color for app/shortcut -->
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
-    <link rel="manifest" href="../{% block manifest %}{% endblock %}")">
+    <link rel="manifest" href="/{% block manifest %}{% endblock %}")">
     <meta name="theme-color" content="#DD2E43">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
