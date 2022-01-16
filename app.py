@@ -215,4 +215,13 @@ def fintwit():
 
   return render_template("economia-tweets-fintwit.html", fintweets = fintweets)
 
+@app.route("/fusoes/busca")
+def fusoesbusca():
+
+  valor = scrape_h_to_dict('https://valor.globo.com/busca/?q=fus%C3%A3o+aquisi%C3%A7%C3%A3o','//div[contains(@class, "widget--info__title")]','//div[contains(@class, "widget--info__text-container")]//a')
+  
+  sites = dict(valor = valor)
+  
+  return render_template("fusoes-busca.html", **sites)
+
 Talisman(app, content_security_policy=None)

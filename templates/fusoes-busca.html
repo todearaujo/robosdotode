@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+
+{% block title %}Editor de /fusoes - Busca{% endblock %}
+
+{% block metadescription %}Descrição busca Fusões{% endblock %}
+
+{% block manifest %}economia.webmanifest{% endblock %}
+
+<!-- Page specific CSS. Render inside base.html <style> -->
+{% block style %}   
+      a.linksite {
+        text-decoration: none !important;
+        color: #FFFFFF !important;
+        margin-inline-start: 10px;
+        font-size: 25px;
+      }
+
+      a.conteudo {
+        color: #000000;
+        text-decoration: none;
+      }
+
+      a.conteudo:visited {
+        color: #CCCCCC;
+      }
+
+      td{
+        padding:10px;
+      }
+
+      tr:nth-child(odd) {
+        background-color: #eeeeee;
+      }
+
+      tr:nth-child(even) {
+        background-color: #e0e0e0;
+      }
+
+      .inteligenciaf {
+        background: #ec7000;
+      }
+
+      .valor {
+        background: #37626e;
+      }
+
+      .folha {
+        background: #00adef;
+      }
+
+      .infomoney {
+        background: #212121;
+      }
+
+      .investnews {
+        background: #90067C;
+      }
+
+      .moneytimes {
+        background: #00c940;
+      }
+
+      .oglobo {
+        background: #1e4c9a;
+      }
+
+      .exame {
+        background: #ff0000;
+      }
+
+      .oespecialista {
+        background: #000033;
+      }
+
+      .uol {
+        background: #19A39A;
+      }
+{% endblock %}
+<!-- End of page specific CSS -->
+
+<!-- Menu blocks, declared together, but render separately on final page -->
+{% block menuinferior %}
+<div id="menuinferior">
+    <a class="nao" onclick="loading()" href="/">Página inicial</a>
+    <a class="sim" onclick="loading()" href="/economia/destaques">Editor de /economia</a>
+    <a class="nao" onclick="loading()" href="/sobre">Sobre o site</a>
+</div>
+{% endblock %}
+
+{% block menusuperior %}
+<div id="menusuperior">
+  <span id="economia"><a onclick="loading()" href="/"><img alt="Robô" style="vertical-align: middle;" width="30px" height="30px" src="/static/384.png"/></a> /<b>fusoes</b></span>
+  <a class="sim" onclick="loading()" href="/fusoes/busca">/busca</a>
+  <p id="descricao">Últimos conteúdos com busca 'fusões'</p>
+</div>
+<div id="menusuperior2">
+</div>
+
+{% endblock %}
+<!-- End of menu blocks -->
+
+{% block content %}
+<!-- Here we render dicts inside tables using loops that iterates items -->
+<table class="tabela">
+<tbody>
+  <tr>
+    <th class="valor">
+      <a class="linksite" href="https://www.valor.globo.com/busca/?q=fusão+aquisição" target="_blank">valor.globo.com/busca/?q=fusão+aquisição</a>
+    </th>
+  </tr>
+</tbody>
+<tbody>
+  {% for k, v in valor.items() %}
+  <tr>
+    <td>
+      <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
+    </td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+<!-- End of the first table example -->
+{% endblock %}
