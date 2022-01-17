@@ -1,18 +1,17 @@
 {% extends 'base.html' %}
 
-{% block title %}Editor de /fusoes - Busca{% endblock %}
+{% block title %}/fusoes - Busca{% endblock %}
 
-{% block metadescription %}Últimos conteúdos com busca 'fusão' + 'aquisição'{% endblock %}
+{% block metadescription %}Últimos conteúdos listados nas buscas 'fusão' + 'aquisição'{% endblock %}
 
-{% block manifest %}economia.webmanifest{% endblock %}
+{% block manifest %}fusoes.webmanifest{% endblock %}
 
 <!-- Page specific CSS. Render inside base.html <style> -->
 {% block style %}   
       a.linksite {
         text-decoration: none !important;
         color: #FFFFFF !important;
-        margin-inline-start: 10px;
-        font-size: 25px;
+        font-size: 20px;
       }
 
       a.conteudo {
@@ -54,20 +53,11 @@
 {% endblock %}
 <!-- End of page specific CSS -->
 
-<!-- Menu blocks, declared together, but render separately on final page -->
-{% block menuinferior %}
-<div id="menuinferior">
-    <a class="nao" onclick="loading()" href="/">Página inicial</a>
-    <a class="sim" onclick="loading()" href="/economia/destaques">Editor de /economia</a>
-    <a class="nao" onclick="loading()" href="/sobre">Sobre o site</a>
-</div>
-{% endblock %}
-
 {% block menusuperior %}
 <div id="menusuperior">
   <span id="economia"><a onclick="loading()" href="/"><img alt="Robô" style="vertical-align: middle;" width="30px" height="30px" src="/static/384.png"/></a> /<b>fusoes</b></span>
   <a class="sim" onclick="loading()" href="/fusoes/busca">/busca</a>
-  <p id="descricao">Últimos conteúdos com busca 'fusão' + 'aquisição'</p>
+  <p id="descricao">Últimos conteúdos listados nas buscas 'fusão' + 'aquisição'</p>
 </div>
 <div id="menusuperior2">
 </div>

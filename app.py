@@ -64,6 +64,10 @@ def offline():
 def economiamanifest():
     return render_template("economia.webmanifest")
 
+@app.route("/fusoes.webmanifest")
+def fusoesmanifest():
+    return render_template("fusoes.webmanifest")
+
 @app.route('/sw.js')
 def sw():
     response=make_response(send_from_directory(path='templates',directory='templates',filename='sw.js'))

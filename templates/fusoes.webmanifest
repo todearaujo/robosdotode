@@ -1,0 +1,52 @@
+{"name":"Todebot: Fusões e Aquições",
+"short_name":"/fusoes",
+"start_url": "/fusoes/busca?utm_source=iconepwa",
+"id": "/?app",
+"scope": "/fusoes",
+"theme_color":"#6c00ff",
+"background_color":"#6c00ff",
+"display":"standalone",
+"description": "Últimos conteúdos listados nas buscas 'fusão' + 'aquisição'",
+"lang": "pt-BR",
+"icons":[{
+    "src":"../static/favicon-16x16.png",
+    "sizes":"16x16",
+    "type": "image/png",
+    "purpose": "any"
+  },{
+    "src":"../static/favicon-32x32.png",
+    "sizes":"32x32",
+    "type": "image/png",
+    "purpose": "any"
+  },{
+    "src":"../static/48.png",
+    "sizes":"48x48",
+    "type": "image/png",
+    "purpose": "maskable"
+  },{
+    "src":"../static/72.png",
+    "sizes":"72x72",
+    "type": "image/png",
+    "purpose": "maskable"
+  },{
+    "src":"../static/96.png",
+    "sizes":"96x96",
+    "type": "image/png",
+    "purpose": "maskable"
+  },{
+    "src":"../static/128.png",
+    "sizes":"128x128",
+    "type": "image/png",
+    "purpose": "maskable"
+  },{
+    "src":"../static/192.png",
+    "sizes":"192x192",
+    "type": "image/png",
+    "purpose": "any"
+  },{
+    "src":"../static/512.png",
+    "sizes":"512x512",
+    "type":"image/png",
+    "purpose": "any"
+  }]
+}
