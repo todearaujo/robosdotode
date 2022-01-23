@@ -9,20 +9,26 @@
 {% block style %}
 {% endblock %}
 
-{% block h1 %}Robôs do Tode{% endblock %}
+
 
 {% block menuinferior %}
-<div id="menuinferior">
-    <a class="sim" onclick="loading()" href="/">Página inicial</a>
-    <a class="nao" onclick="loading()" href="/economia/destaques">Editor de /economia</a>
-    <a class="nao" onclick="loading()" href="/sobre">Sobre o site</a>
-</div>
+<table id="menuinferior">
+    <tbody>
+      <tr><td colspan="3" class="tdroboimg"><img alt="Robô" style="vertical-align: middle;" width="100px" height="100px" src="/static/384.png"></td></tr>
+      <tr>
+        <td class="sim item">Página inicial</td>
+        <td class="nao item"><a onclick="loading()" href="/economia/destaques">Editor de /economia</a></td>
+        <td class="nao nao2 item"><a onclick="loading()" href="/sobre">Sobre o site</a></td>
+      </tr>
+    </tbody>
+  </table>
 {% endblock %}
+
 
 {% block content %}
 <div id="main">
+    <h1>Robôs do Tode</h1>
     <p>Olá, tudo bem?! Eu sou o <b><a href="https://twitter.com/todearaujo">Tode</a></b> e este site é a casa dos meus robôs.</p>
     <p>Por enquanto só temos um: o <b><a href="/economia/destaques">Editor de /economia</a></b> que te conta em tempo real o que é assunto em sites de finanças, investimentos e mercado financeiro. Clica aí!</p>
-    <div id="robo"><a onclick="loading()" href="/economia/destaques"><img alt="Robô" width="128px" height="128px" src="../static/384.png"/></a></div>
 </div>
 {% endblock %}
