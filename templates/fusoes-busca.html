@@ -23,18 +23,6 @@
         color: #CCCCCC;
       }
 
-      td{
-        padding:10px;
-      }
-
-      tr:nth-child(odd) {
-        background-color: #eeeeee;
-      }
-
-      tr:nth-child(even) {
-        background-color: #e0e0e0;
-      }
-
       .valor {
         background: #37626e;
       }
@@ -54,12 +42,20 @@
 <!-- End of page specific CSS -->
 
 {% block menusuperior %}
-<div id="menusuperior">
-  <span id="economia"><a onclick="loading()" href="/"><img alt="Robô" style="vertical-align: middle;" width="30px" height="30px" src="/static/384.png"/></a> /<b>fusoes</b></span>
-  <a class="sim" onclick="loading()" href="/fusoes/busca">/busca</a>
-  <p id="descricao">Últimos conteúdos listados nas buscas 'fusão' + 'aquisição'</p>
-</div>
-
+<table id="menusuperior">
+  <tbody>
+    <tr class="tdroboimg">
+      <td class="item">
+      <span id="economia"><a onclick="loading()" href="/"><img alt="Robô" style="vertical-align: middle;" width="30px" height="30px" src="/static/384.png"></a></span>/<b>fusoes/busca</b>
+      </td>
+    </tr>
+    <tr id="descricao">
+      <td class="item">
+        Últimos conteúdos listados nas buscas 'fusão' + 'aquisição'
+      </td>
+    </tr>
+  </tbody>
+</table>
 {% endblock %}
 <!-- End of menu blocks -->
 

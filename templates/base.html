@@ -162,6 +162,10 @@
         top: 0;
       }
 
+      .sticky + .content {
+      padding-top: 60px;
+      }
+
       .tabela {width: 100%; margin:auto; border-collapse: collapse;}
 
       .tabela td {
@@ -243,11 +247,10 @@
   window.onscroll = function() {myFunction()};
   
   var navbar = document.getElementById("navbar");
-  var navsticky = navbar.offsetTop;
+  var sticky = navbar.offsetTop;
   
   function myFunction() {
-    if (window.pageYOffset >= navsticky) {
-      navbar.classList.add("sticky")
+    if (window.pageYOffset >= sticky) {
       navbar.classList.add("sticky")
     } else {
       navbar.classList.remove("sticky");
