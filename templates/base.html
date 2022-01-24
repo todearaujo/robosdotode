@@ -103,6 +103,8 @@
       
       h1 {color: #DD2E43; text-align: center; font-weight: 500;}
 
+      .fadein {animation:opac 2s;}@keyframes opac{from{opacity:0} to{opacity:1}}
+
       #menuinferior {
         text-align: center;
         font-size: 12px;
@@ -152,7 +154,7 @@
       #navbar {
         z-index: 2;
         overflow: hidden;
-        background-color: #DD2E43;
+        background-color: #CCCCCC;
         width: 100%;
         max-width: 500px;
         border-collapse: collapse;
@@ -183,7 +185,6 @@
         position: sticky;
         top: 42px;
       }
-
 
       .tabela tr:nth-child(odd) {
         background-color: #eeeeee;
@@ -222,6 +223,15 @@
         border-top: #CCCCCC solid 5px;
       }
 
+      .nao:hover {
+        background-color: #EEEEEE;
+        border-top: #CCCCCC solid 5px;
+      }
+
+      .nao:active {
+        transform: translateY(2px);
+      }      
+
       {% block style %}{% endblock %}
     </style>
     <!-- End of CSS base stylesheet  -->
@@ -249,19 +259,19 @@
     
 <!-- Content DIV -->
      {% block menusuperior %}{% endblock %}
-     <div id="content">
+     <div id="content" class="fadein">
       {% block content %}{% endblock %}
       {% block menuinferior %}{% endblock %}
     </div>
 <!-- End of content DIV -->
 
 <script>
-  window.onscroll = function() {myFunction()};
+  window.onscroll = function() {stickyfunction()};
   
   var navbar = document.getElementById("navbar");
   var sticky = navbar.offsetTop;
   
-  function myFunction() {
+  function stickyfunction() {
     if (window.pageYOffset >= sticky) {
       navbar.classList.add("sticky")
     } else {
