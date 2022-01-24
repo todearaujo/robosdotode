@@ -37,7 +37,6 @@
 
     <!-- Metatags -->
     <meta name="description" content="{% block metadescription %}{% endblock %}" />
-    <meta name="robots" content="noimageindex, nofollow, nosnippet">
     
     <!-- Viewport for responsiveness -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -209,8 +208,7 @@
         border-top: #CCCCCC solid 5px;
       }
 
-      {% block style %}
-      {% endblock %}
+      {% block style %}{% endblock %}
     </style>
     <!-- End of CSS base stylesheet  -->
 
