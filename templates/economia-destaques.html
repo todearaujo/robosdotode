@@ -149,40 +149,40 @@
 </table>
 
 <table class="tabela">
-  <tbody>
-   <tr>
-     <th class="infomoney">
-       <a class="linksite" href="https://www.infomoney.com.br/" target="_blank">infomoney.com.br</a>
-     </th>
-   </tr>
+ <tbody>
+  <tr>
+    <th class="infomoney">
+      <a class="linksite" href="https://www.infomoney.com.br/" target="_blank">infomoney.com.br</a>
+    </th>
+  </tr>
+ </tbody>
+ <tbody>
+  {% for k, v in infomoney.items() %}
+  <tr>
+    <td>
+      <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
+    </td>
+  </tr>
+  {% endfor %}
   </tbody>
+</table>
+
+<table class="tabela">
+  <tr>
+    <th class="investnews">
+      <a class="linksite" href="https://www.investnews.com.br/" target="_blank">investnews.com.br</a>
+    </th>
+  </tr>
   <tbody>
-   {% for k, v in infomoney.items() %}
-   <tr>
-     <td>
-       <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
-     </td>
-   </tr>
-   {% endfor %}
-   </tbody>
- </table>
- 
- <table class="tabela">
-   <tr>
-     <th class="investnews">
-       <a class="linksite" href="https://www.investnews.com.br/" target="_blank">investnews.com.br</a>
-     </th>
-   </tr>
-   <tbody>
-   {% for k, v in investnews.items() %}
-   <tr>
-     <td>
-       <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
-     </td>
-   </tr>
-   {% endfor %}
-   </tbody>
- </table>
+  {% for k, v in investnews.items() %}
+  <tr>
+    <td>
+      <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
+    </td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
 
   <table class="tabela">
     <tbody>

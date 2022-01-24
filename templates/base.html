@@ -138,7 +138,7 @@
         background-color: #55acee;
         color: #FFFFFF;
         font-size: 25px;
-        height: 125px;
+        height: 120px;
       }
 
       #descricao {
@@ -150,6 +150,7 @@
       }
 
       #navbar {
+        z-index: 2;
         overflow: hidden;
         background-color: #DD2E43;
         width: 100%;
@@ -158,6 +159,7 @@
         font-size: 14px;
         text-align: center;
         font-weight: bold;
+        height: 42px;
       }
 
       .sticky {
@@ -175,6 +177,13 @@
       .tabela td {
         padding:10px;
       }
+
+      .tabela th {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 42px;
+      }
+
 
       .tabela tr:nth-child(odd) {
         background-color: #eeeeee;
