@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for, make_response, send_from_directory
+from flask import Flask, render_template, redirect, make_response, send_from_directory
 from flask_talisman import Talisman
 from urllib.request import urlopen, Request
 from lxml import html
@@ -89,11 +89,19 @@ def ossuw():
 
 @app.route("/economia")
 def economia():
-    return redirect(url_for('economia/destaques'))
+    return redirect('/economia/destaques')
 
-@app.route("/tweets")
+@app.route("/economia/")
+def economiabarra():
+    return redirect('/economia/destaques')
+
+@app.route("/economia/tweets")
 def tweets():
-    return redirect(url_for('tweets/top10'))
+    return redirect('/economia/tweets/fintwit')
+
+@app.route("/economia/tweets/")
+def tweetsbarra():
+    return redirect('/economia/tweets/fintwit')
 
 @app.route("/economia/destaques")
 def economiadestaques():
@@ -115,13 +123,8 @@ def economiadestaques():
 
     moneytimes = {**moneytimes1, **moneytimes2, **moneytimes3}
     
-    exame1 = scrape_h_to_dict('https://minha.exame.com/','//div[contains(@class, "Section__HighlightSection")]//a//h3','//div[contains(@class, "Section__HighlightSection")]//a')
-    exame2 = scrape_h_to_dict('https://exame.com/','//div[@class="hide_thumb widget-home-box-item-info"]//a//h2','//div[@class="hide_thumb widget-home-box-item-info"]//a[@class="widget-home-box-list-item-title"]')
-    exame3 = scrape_a_to_dict('https://exame.com/','//div[@class="highlight-infos"]//span[@class="full-widget-title"]//a')
-    exame4 = scrape_a_to_dict('https://exame.com/','//div[@class="highlight-infos"]//li[@class="highlight-bullet"]//a')
-
-    exame = {**exame1, **exame2, **exame3, **exame4}
-
+    exame = scrape_h_to_dict('https://minha.exame.com/','//div[contains(@class, "Section__HighlightSection")]//a//h3','//div[contains(@class, "Section__HighlightSection")]//a')
+    
     oglobo = scrape_a_to_dict('https://oglobo.globo.com/economia/','//section[@class="block five-teasers"]//div/div/div/article/div/h1/a') 
 
     oespecialista = scrape_a_to_dict('https://oespecialista.com.br/','//div[@id="front-page-top"]//h3//a')
@@ -218,6 +221,14 @@ def fintwit():
   fintweets = fintweetsdf["ID"].tolist()
 
   return render_template("economia-tweets-fintwit.html", fintweets = fintweets)
+
+@app.route("/fusoes")
+def fusoes():
+    return redirect('/fusoes/busca')
+
+@app.route("/fusoes/")
+def fusoesbarra():
+    return redirect('/fusoes/busca')
 
 @app.route("/fusoes/busca")
 def fusoesbusca():
