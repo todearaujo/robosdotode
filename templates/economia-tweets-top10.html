@@ -4,6 +4,8 @@
 
 {% block metadescription %}10 tweets com maior engajmento entre os perfis no Twitter de veículos de mídia do mercado financeiro do Brasil{% endblock %}
 
+{% block metatags %}<link rel="preconnect" href="https://platform.twitter.com/">{% endblock %}
+
 {% block manifest %}economia.webmanifest{% endblock %}
 
 <!-- Page specific CSS. Render inside base.html <style> -->
@@ -39,7 +41,7 @@
     </tr>
     <tr id="descricao">
       <td class="item">
-        Maior engajmento entre @sites do mercado financeiro;</br> veja também a <b><a onclick="loading()" href="/economia/tweets/fintwit">#fintwit</a></b>
+        Maior engajamento entre @sites do mercado financeiro; veja também a <b><a onclick="loading()" href="/economia/tweets/fintwit">#fintwit</a></b>
       </td>
     </tr>
     <tr>
@@ -49,7 +51,7 @@
         <tr>
           <td class="destaques nao nao2 item"><a onclick="loading()" href="/economia/destaques">/destaques</a></td>
           <td class="maislidas nao item"><a onclick="loading()" href="/economia/maislidas">/maislidas</a></td>
-          <td class="tweets sim item">/#fintwitbr</td>
+          <td class="tweets sim item">/tweets</td>
           <td class="webstories nao item"><a onclick="loading()" href="/economia/webstories">/webstories</a></td>
         </tr>
       </tbody>
@@ -72,7 +74,8 @@
 <!-- End of the loop -->
 
 <!-- Tweet rendering script -->
-<script src="https://platform.twitter.com/widgets.js" charset="utf-8">
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
+  twttr.widgets.load(document.getElementById("tweets"));
 </script>
 <!-- End of twitter script -->
 

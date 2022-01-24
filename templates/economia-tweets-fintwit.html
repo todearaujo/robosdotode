@@ -4,6 +4,8 @@
 
 {% block metadescription %}20 tweets mais engajados na #fintwitbr{% endblock %}
 
+{% block metatags %}<link rel="preconnect" href="https://platform.twitter.com/">{% endblock %}
+
 {% block manifest %}economia.webmanifest{% endblock %}
 
 <!-- Page specific CSS. Render inside base.html <style> -->
@@ -72,7 +74,8 @@
 <!-- End of the loop -->
 
 <!-- Tweet rendering script -->
-<script async="false" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
+</script>
 <!-- End of twitter script -->
 
 {% endblock %}

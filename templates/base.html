@@ -55,6 +55,7 @@
     <link rel="apple-touch-icon" href="/static/192.png" sizes="192x192">
     <link rel="apple-touch-icon" href="/static/384.png" sizes="384x384">
     <link rel="apple-touch-icon" href="/static/512.png" sizes="512x512">
+    {% block metatags %}{% endblock %}
     <!-- End of metatags -->
    
    <!-- CSS base stylesheet  -->
@@ -89,7 +90,7 @@
       /* End of loading circle figure only with CSS */
 
       body {
-        max-width: 600px;
+        max-width: 400px;
         margin: auto;
         background-color: #FFFFFF;
         font-family: 'Roboto', sans-serif; 
@@ -151,7 +152,7 @@
       #navbar {
         background-color: #DD2E43;
         width: 100%;
-        max-width: 600px;
+        max-width: 400px;
         border-collapse: collapse;
       }
 
