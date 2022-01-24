@@ -123,7 +123,7 @@ def economiadestaques():
 
     moneytimes = {**moneytimes1, **moneytimes2, **moneytimes3}
     
-    exame = scrape_h_to_dict('https://minha.exame.com/','//div[contains(@class, "Section__HighlightSection")]//a//h3','//div[contains(@class, "Section__HighlightSection")]//a')
+    exame = scrape_h_to_dict('https://minha.exame.com/','//div[contains(@class, "Section__HighlightSection")]//a//h2','//div[contains(@class, "Section__HighlightSection")]//a')
     
     oglobo = scrape_a_to_dict('https://oglobo.globo.com/economia/','//section[@class="block five-teasers"]//div/div/div/article/div/h1/a') 
 
