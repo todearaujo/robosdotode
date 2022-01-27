@@ -108,6 +108,8 @@ def economiadestaques():
     
     valor = scrape_a_to_dict('https://valor.globo.com/','//div[@class="container-topo-3-colunas grid-x"]//div[@class="highlight__title theme-title-element "]//a')
 
+    valorinveste = scrape_a_to_dict('https://valorinveste.globo.com/','//div[@class="container-topo-3-colunas grid-x"]//div[@class="highlight__title theme-title-element "]//a')
+
     folha1 = scrape_h_to_dict('https://www1.folha.uol.com.br/mercado/','//div[contains(@class, "c-main-headline")]//a[contains(@class, "c-main-headline")]//h2','//div[contains(@class, "c-main-headline")]//a[contains(@class, "c-main-headline")]')
     folha2 = scrape_h_to_dict('https://www1.folha.uol.com.br/mercado/','//div[contains(@class, "c-headline")]//div[contains(@class, "c-headline__wrapper")]//div[contains(@class, "c-headline__content")]//a//h2[contains(@class, "c-headline__title")]','//div[contains(@class, "c-headline")]//div[contains(@class, "c-headline__wrapper")]//div[contains(@class, "c-headline__content")]//a[contains(@class, "c-headline__url")]')
     
@@ -138,7 +140,7 @@ def economiadestaques():
 
     sites = dict(infomoney = infomoney, folha = folha,  investnews = investnews,
                 moneytimes = moneytimes,  exame = exame,  oglobo = oglobo, 
-                valor = valor, oespecialista = oespecialista, uol = uol, inteligenciaf = inteligenciaf)
+                valor = valor, valorinveste = valorinveste, oespecialista = oespecialista, uol = uol, inteligenciaf = inteligenciaf)
 
     return render_template("economia-destaques.html", **sites)
 
@@ -152,10 +154,12 @@ def economiamaislidas():
   exame = scrape_h_to_dict('https://exame.com/','//div[@class="widget-popular-posts-info"]//h3','//div[@class="widget-popular-posts-info"]//a')
   
   valor = scrape_a_to_dict('https://valor.globo.com/','//div[@data-component-type="card-mais-lidas"]//a')
+
+  valorinveste = scrape_a_to_dict('https://valorinveste.globo.com/','//div[@data-component-type="card-mais-lidas"]//a')
   
   oespecialista = scrape_a_to_dict('https://oespecialista.com.br/','//div[@id="popular-posts"]//li//a')
   
-  sites = dict(investnews = investnews, moneytimes = moneytimes, exame = exame, valor = valor, oespecialista = oespecialista)
+  sites = dict(investnews = investnews, moneytimes = moneytimes, exame = exame, valor = valor, valorinveste = valorinveste, oespecialista = oespecialista)
   
   return render_template("economia-maislidas.html", **sites)
 

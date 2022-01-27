@@ -31,6 +31,10 @@
         background: #37626e;
       }
 
+      .valorinveste {
+        background: #472f92;
+      }
+
       .folha {
         background: #00adef;
       }
@@ -133,7 +137,7 @@
 <tbody>
   <tr>
     <th class="valor">
-      <a class="linksite" href="https://www.valor.com.br/" target="_blank">valor.com.br</a>
+      <a class="linksite" href="https://valor.globo.com/" target="_blank">valor.globo.com</a>
     </th>
   </tr>
 </tbody>
@@ -147,6 +151,25 @@
   {% endfor %}
   </tbody>
 </table>
+
+<table class="tabela">
+  <tbody>
+    <tr>
+      <th class="valorinveste">
+        <a class="linksite" href="https://valorinveste.globo.com/" target="_blank">valorinveste.globo.com</a>
+      </th>
+    </tr>
+  </tbody>
+  <tbody>
+    {% for k, v in valorinveste.items() %}
+    <tr>
+      <td>
+        <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
+      </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+  </table>
 
 <table class="tabela">
  <tbody>

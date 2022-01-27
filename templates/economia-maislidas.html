@@ -27,6 +27,10 @@
         background: #37626e;
       }
 
+      .valorinveste {
+        background: #472f92;
+      }
+
       .infomoney {
         background: #212121;
       }
@@ -118,6 +122,40 @@
 
 <table class="tabela">
   <tr>
+    <th  class="valor">
+      <a class="linksite" href="https://valor.globo.com/" target="_blank">valor.globo.com</a>
+    </th>
+  </tr>
+<tbody>
+{% for k, v in valor.items() %}
+  <tr>
+    <td>
+      <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
+    </td>
+  </tr>
+{% endfor %}
+</tbody>
+</table>
+
+<table class="tabela">
+  <tr>
+    <th  class="valorinveste">
+      <a class="linksite" href="https://valorinveste.globo.com/" target="_blank">valorinveste.globo.com</a>
+    </th>
+  </tr>
+<tbody>
+{% for k, v in valorinveste.items() %}
+  <tr>
+    <td>
+      <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
+    </td>
+  </tr>
+{% endfor %}
+</tbody>
+</table>
+
+<table class="tabela">
+  <tr>
     <th  class="moneytimes">
       <a class="linksite" href="https://www.moneytimes.com.br/" target="_blank">moneytimes.com.br</a>
     </th>
@@ -141,23 +179,6 @@
   </tr>
 <tbody>
 {% for k, v in exame.items() %}
-  <tr>
-    <td>
-      <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
-    </td>
-  </tr>
-{% endfor %}
-</tbody>
-</table>
-
-<table class="tabela">
-  <tr>
-    <th  class="valor">
-      <a class="linksite" href="https://www.valor.com.br/" target="_blank">valor.com.br</a>
-    </th>
-  </tr>
-<tbody>
-{% for k, v in valor.items() %}
   <tr>
     <td>
       <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
