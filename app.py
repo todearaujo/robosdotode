@@ -110,11 +110,6 @@ def economiadestaques():
 
     valorinveste = scrape_a_to_dict('https://valorinveste.globo.com/','//div[@class="container-topo-3-colunas grid-x"]//div[@class="highlight__title theme-title-element "]//a')
 
-    folha1 = scrape_h_to_dict('https://www1.folha.uol.com.br/mercado/','//div[contains(@class, "c-main-headline")]//a[contains(@class, "c-main-headline")]//h2','//div[contains(@class, "c-main-headline")]//a[contains(@class, "c-main-headline")]')
-    folha2 = scrape_h_to_dict('https://www1.folha.uol.com.br/mercado/','//div[contains(@class, "c-headline")]//div[contains(@class, "c-headline__wrapper")]//div[contains(@class, "c-headline__content")]//a//h2[contains(@class, "c-headline__title")]','//div[contains(@class, "c-headline")]//div[contains(@class, "c-headline__wrapper")]//div[contains(@class, "c-headline__content")]//a[contains(@class, "c-headline__url")]')
-    
-    folha = {**folha1,**folha2}
-    
     infomoney = scrape_a_to_dict('https://www.infomoney.com.br/','//div[@class="row mt-5 default_Big"]//div//div//div//span//a')
     
     investnews = scrape_h_to_dict('https://investnews.com.br/','//div[@class="mvp-feat1-left-wrap relative"]//h2','//div[@class="mvp-feat1-left-wrap relative"]//a')
@@ -138,8 +133,7 @@ def economiadestaques():
 
     inteligenciaf = {**inteligenciaf1,**inteligenciaf2}
 
-    sites = dict(infomoney = infomoney, folha = folha,  investnews = investnews,
-                moneytimes = moneytimes,  exame = exame,  oglobo = oglobo, 
+    sites = dict(infomoney = infomoney, investnews = investnews, moneytimes = moneytimes,  exame = exame,  oglobo = oglobo, 
                 valor = valor, valorinveste = valorinveste, oespecialista = oespecialista, uol = uol, inteligenciaf = inteligenciaf)
 
     return render_template("economia-destaques.html", **sites)
