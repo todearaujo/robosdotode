@@ -6,58 +6,37 @@
 
 {% block manifest %}fusoes.webmanifest{% endblock %}
 
+{% block metatags %}
+<link href="/static/sites.css" rel="stylesheet">
+{% endblock %}
+
 <!-- Page specific CSS. Render inside base.html <style> -->
 {% block style %}   
-      a.linksite {
-        text-decoration: none !important;
-        color: #FFFFFF !important;
-        font-size: 20px;
-      }
+.neofeed {
+  background: #ec7000;
+}
 
-      a.conteudo {
-        color: #000000;
-        text-decoration: none;
-      }
-
-      a.conteudo:visited {
-        color: #CCCCCC;
-      }
-
-      .valor {
-        background: #37626e;
-      }
-
-      .neofeed {
-        background: #ec7000;
-      }
-
-      .estadao {
-        background: #2d74e7;
-      }
-
-      .moneytimes {
-        background: #00c940;
-      }
+.estadao {
+  background: #2d74e7;
+}
 {% endblock %}
-<!-- End of page specific CSS -->
+<!-- End of page specific CSS -->e
 
-{% block menusuperior %}
-<table id="menusuperior">
-  <tbody>
-    <tr class="tdroboimg">
-      <td class="item">
-      <span id="economia"><a onclick="loading()" href="/"><img alt="Robô" style="vertical-align: middle;" width="30px" height="30px" src="/static/384.png"></a></span>/<b>fusoes/busca</b>
-      </td>
-    </tr>
-    <tr id="descricao">
-      <td class="item">
-        Últimos conteúdos listados nas buscas 'fusão' + 'aquisição'
-      </td>
-    </tr>
-  </tbody>
-</table>
+{% block superior %}
+<div id="superior" class="tab">
+  <div class="imgrobo lin">
+    <div class="cel">
+      <span id="economia">
+        <a onclick="loading()" href="/"><img alt="Robô" style="vertical-align: middle;" width="30px" height="30px" src="/static/384.png"></a></span>/fusoes/busca</span>
+    </div>
+  </div>
+  <div id="descricao" class="lin">
+    <div class="cel">
+      Últimos conteúdos listados nas buscas 'fusão' + 'aquisição'
+    </div>
+  </div>
+</div>
 {% endblock %}
-<!-- End of menu blocks -->
 
 {% block content %}
 <!-- Here we render dicts inside tables using loops that iterates items -->

@@ -6,101 +6,37 @@
 
 {% block manifest %}economia.webmanifest{% endblock %}
 
+{% block metatags %}
+<link href="/static/sites.css" rel="stylesheet">
+{% endblock %}
+
 <!-- Page specific CSS. Render inside base.html <style> -->
 {% block style %}   
-      a.linksite {
-        text-decoration: none !important;
-        color: #FFFFFF !important;
-        font-size: 20px;
-      }
-
-      a.conteudo {
-        color: #000000;
-        text-decoration: none;
-      }
-
-      a.conteudo:visited {
-        color: #CCCCCC;
-      }
-      
-      .valor {
-        background: #37626e;
-      }
-
-      .valorinveste {
-        background: #472f92;
-      }
-
-      .infomoney {
-        background: #212121;
-      }
-
-      .investnews {
-        background: #90067C;
-      }
-
-      .moneytimes {
-        background: #00c940;
-      }
-
-      .oglobo {
-        background: #1e4c9a;
-      }
-
-      .exame {
-        background: #ff0000;
-      }
-
-      .oespecialista {
-        background: #000033;
-      }
+.inferior {
+  visibility: visible !important;
+}
 {% endblock %}
-<!-- End of page specific CSS -->
+<!-- End of page specific CSS -->e
 
 <!-- Menu blocks, declared together, but render separately on final page -->
-{% block menuinferior %}
-<table id="menuinferior">
-  <tbody>
-    <tr><td colspan="3" class="tdroboimg"><img alt="Robô" style="vertical-align: middle;" width="100px" height="100px" src="/static/384.png"></td></tr>
-    <tr>
-      <td class="nao item"><a onclick="loading()" href="/">Apresentação</a></td>
-      <td class="sim item">Editor de /economia</td>
-      <td class="nao nao2 item"><a onclick="loading()" href="/sobre">Sobre o site</a></td>
-    </tr>
-  </tbody>
-</table>
+{% block inferioreconomia %}
 {% endblock %}
 
-{% block menusuperior %}
-<table id="menusuperior">
-  <tbody>
-    <tr class="tdroboimg">
-      <td class="item">
-      <span id="economia"><a onclick="loading()" href="/"><img alt="Robô" style="vertical-align: middle;" width="30px" height="30px" src="/static/384.png"></a></span>/<b>economia/<span class="fadein">maislidas</span></b>
-      </td>
-    </tr>
-    <tr id="descricao" class="fadein">
-      <td class="item">
-        Maior audiência segundo os próprios sites
-      </td>
-    </tr>
-  </tbody>
-</table>
-<table id="navbar">
-  <tbody>
-    <tr>
-      <td class="destaques nao nao2 item"><a onclick="loading()" href="/economia/destaques">/destaques</a></td>
-      <td class="maislidas sim item">/maislidas</td>
-      <td class="tweets nao nao2 item"><a onclick="loading()" href="/economia/tweets/fintwit">/#fintwitbr</a></td>
-      <td class="webstories nao item"><a onclick="loading()" href="/economia/webstories">/webstories</a></td>
-    </tr>
-  </tbody>
-</table>
+{% block superior %}
+<div class="imgrobo">
+  <a onclick="loading()" href="/"><img alt="Robô" width="30px" height="30px" src="/static/384.png"></a>/economia/maislidas
+</div>
+<div id="descricao">Maior audiência segundo os próprios sites</div>
+<div id="barra">
+  <a onclick="loading()" class="item inativo" href="/economia/destaques">/destaques</a>
+  <a onclick="loading()" class="item ativo" href="/economia/maislidas">/maislidas</a>
+  <a onclick="loading()" class="item inativo" href="/economia/tweets/fintwit">/tweets</a>
+  <a onclick="loading()" class="item inativo" href="/economia/webstories">/webstories</a>
+</div>
 {% endblock %}
 <!-- End of menu blocks -->
 
 {% block content %}
-
 <!-- Here we render dicts inside tables using loops that iterates items -->
 <table class="tabela">
     <tr>
@@ -162,23 +98,6 @@
   </tr>
 <tbody>
 {% for k, v in moneytimes.items() %}
-  <tr>
-    <td>
-      <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
-    </td>
-  </tr>
-{% endfor %}
-</tbody>
-</table>
-
-<table class="tabela">
-  <tr>
-    <th  class="exame">
-      <a class="linksite" href="https://www.exame.com.br/" target="_blank">exame.com.br</a>
-    </th>
-  </tr>
-<tbody>
-{% for k, v in exame.items() %}
   <tr>
     <td>
       <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>

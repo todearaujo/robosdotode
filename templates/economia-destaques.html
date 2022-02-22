@@ -6,274 +6,96 @@
 
 {% block manifest %}economia.webmanifest{% endblock %}
 
-<!-- Page specific CSS. Render inside base.html <style> -->
-{% block style %}   
-      a.linksite {
-        text-decoration: none !important;
-        color: #FFFFFF !important;
-        font-size: 20px;
-      }
-
-      a.conteudo {
-        color: #000000;
-        text-decoration: none;
-      }
-
-      a.conteudo:visited {
-        color: #CCCCCC;
-      }
-
-      .inteligenciaf {
-        background: #ec7000;
-      }
-
-      .valor {
-        background: #37626e;
-      }
-
-      .valorinveste {
-        background: #472f92;
-      }
-
-      .folha {
-        background: #00adef;
-      }
-
-      .infomoney {
-        background: #212121;
-      }
-
-      .investnews {
-        background: #90067C;
-      }
-
-      .moneytimes {
-        background: #00c940;
-      }
-
-      .oglobo {
-        background: #1e4c9a;
-      }
-
-      .exame {
-        background: #ff0000;
-      }
-
-      .oespecialista {
-        background: #000033;
-      }
-
-      .uol {
-        background: #19A39A;
-      }
+{% block metatags %}
+<link href="/static/sites.css" rel="stylesheet">
 {% endblock %}
+
+<!-- Page specific CSS. Render inside base.html <style> -->
+{% block style %}.inferioreconomia {visibility: visible;}{% endblock %}
 <!-- End of page specific CSS -->
 
 <!-- Menu blocks, declared together, but render separately on final page -->
-{% block menuinferior %}
-<table id="menuinferior">
-  <tbody>
-    <tr><td colspan="3" class="tdroboimg"><img alt="Robô" style="vertical-align: middle;" width="100px" height="100px" src="/static/384.png"></td></tr>
-    <tr>
-      <td class="nao item"><a onclick="loading()" href="/">Apresentação</a></td>
-      <td class="sim item">Editor de /economia</td>
-      <td class="nao nao2 item"><a onclick="loading()" href="/sobre">Sobre o site</a></td>
-    </tr>
-  </tbody>
-</table>
+{% block inferior %}
 {% endblock %}
 
-{% block menusuperior %}
-<table id="menusuperior">
-  <tbody>
-    <tr class="tdroboimg">
-      <td class="item">
-      <span id="economia"><a onclick="loading()" href="/"><img alt="Robô" style="vertical-align: middle;" width="30px" height="30px" src="/static/384.png"></a></span>/<b>economia/<span class="fadein">destaques</span></b>
-      </td>
-    </tr>
-    <tr id="descricao" class="fadein">
-      <td class="item">
-        Em destaque agora nas homes
-      </td>
-    </tr>
-  </tbody>
-</table>
-<table id="navbar">
-  <tbody>
-    <tr>
-      <td class="destaques sim item">/destaques</td>
-      <td class="maislidas nao item"><a onclick="loading()" href="/economia/maislidas">/maislidas</a></td>
-      <td class="tweets nao nao2 item"><a onclick="loading()" href="/economia/tweets/fintwit">/#fintwitbr</a></td>
-      <td class="webstories nao item"><a onclick="loading()" href="/economia/webstories">/webstories</a></td>
-    </tr>
-  </tbody>
-</table>
+{% block superior %}
+<div class="imgrobo">
+  <a onclick="loading()" href="/"><img alt="Robô" width="30px" height="30px" src="/static/384.png"></a>/economia/destaques
+</div>
+<div id="descricao">Em destaque agora nas homes</div>
+<div id="barra">
+  <a onclick="loading()" class="item ativo" href="/economia/destaques">/destaques</a>
+  <a onclick="loading()" class="item inativo" href="/economia/maislidas">/maislidas</a>
+  <a onclick="loading()" class="item inativo" href="/economia/tweets/fintwit">/tweets</a>
+  <a onclick="loading()" class="item inativo" href="/economia/webstories">/webstories</a>
+</div>
 {% endblock %}
 <!-- End of menu blocks -->
 
 {% block content %}
-<!-- Here we render dicts inside tables using loops that iterates items -->
-<table class="tabela">
-  <tbody>
-    <tr>
-      <th class="inteligenciaf">
-        <a class="linksite" href="https://www.inteligenciafinanceira.com.br/" target="_blank">inteligenciafinanceira.com.br</a>
-      </th>
-    </tr>
-  </tbody>
-  <tbody>
-    {% for k, v in inteligenciaf.items() %}
-    <tr>
-      <td>
-        <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
-      </td>
-    </tr>
-    {% endfor %}
-    </tbody>
-</table>
-<!-- End of the first table example -->
+<!-- Here we render dicts inside div using loops that iterates items -->
+<a class="inteligenciaf linksite item" href="https://www.inteligenciafinanceira.com.br/" target="_blank">inteligenciafinanceira.com.br</a>
+<div class="itenssite">
+  {% for k, v in inteligenciaf.items() %}
+  <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
+  {% endfor %}
+</div>
+<!-- End of the first div example -->
 
-<table class="tabela">
-<tbody>
-  <tr>
-    <th class="valor">
-      <a class="linksite" href="https://valor.globo.com/" target="_blank">valor.globo.com</a>
-    </th>
-  </tr>
-</tbody>
-<tbody>
+<a class="valor linksite item" href="https://valor.globo.com/" target="_blank">valor.globo.com</a>
+<div class="itenssite">
   {% for k, v in valor.items() %}
-  <tr>
-    <td>
-      <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
-    </td>
-  </tr>
+  <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
   {% endfor %}
-  </tbody>
-</table>
+</div>
 
-<table class="tabela">
-  <tbody>
-    <tr>
-      <th class="valorinveste">
-        <a class="linksite" href="https://valorinveste.globo.com/" target="_blank">valorinveste.globo.com</a>
-      </th>
-    </tr>
-  </tbody>
-  <tbody>
-    {% for k, v in valorinveste.items() %}
-    <tr>
-      <td>
-        <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
-      </td>
-    </tr>
-    {% endfor %}
-    </tbody>
-  </table>
+<a class="valorinveste linksite item" href="https://valorinveste.globo.com/" target="_blank">valorinveste.globo.com</a>
+<div class="itenssite">
+  {% for k, v in valorinveste.items() %}
+  <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
+  {% endfor %}
+</div>
 
-<table class="tabela">
- <tbody>
-  <tr>
-    <th class="infomoney">
-      <a class="linksite" href="https://www.infomoney.com.br/" target="_blank">infomoney.com.br</a>
-    </th>
-  </tr>
- </tbody>
- <tbody>
+<a class="infomoney linksite item" href="https://www.infomoney.com.br/" target="_blank">infomoney.com.br</a>
+<div class="itenssite">
   {% for k, v in infomoney.items() %}
-  <tr>
-    <td>
-      <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
-    </td>
-  </tr>
+  <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
   {% endfor %}
-  </tbody>
-</table>
+</div>
 
-<table class="tabela">
-  <tr>
-    <th class="investnews">
-      <a class="linksite" href="https://www.investnews.com.br/" target="_blank">investnews.com.br</a>
-    </th>
-  </tr>
-  <tbody>
-  {% for k, v in investnews.items() %}
-  <tr>
-    <td>
-      <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
-    </td>
-  </tr>
-  {% endfor %}
-  </tbody>
-</table>
-
-<table class="tabela">
-<tbody>
-  <tr>
-    <th class="oglobo">
-      <a class="linksite" href="https://oglobo.globo.com/" target="_blank">oglobo.globo.com/economia</a>
-    </th>
-  </tr>
-</tbody>
-<tbody>
-{% for k, v in oglobo.items() %}
-  <tr>
-    <td>
-      <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
-    </td>
-  </tr>
-{% endfor %}
-</tbody>
-</table>
-
-<table class="tabela">
-<tr>
-  <th class="moneytimes">
-    <a class="linksite" href="https://www.moneytimes.com.br/" target="_blank">moneytimes.com.br</a>
-  </th>
-</tr>
-<tbody>
-{% for k, v in moneytimes.items() %}
-<tr>
-  <td>
+<a class="investnews linksite item" href="https://www.investnews.com.br/" target="_blank">investnews.com.br</a>
+  <div class="itenssite">
+    {% for k, v in investnews.items() %}
     <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
-  </td>
-</tr>
-{% endfor %}
-</tbody>
-</table>
+    {% endfor %}
+</div>
 
-<table class="tabela">
-<tr>
-  <th class="exame">
-    <a class="linksite" href="https://www.exame.com.br/" target="_blank">exame.com.br</a>
-  </th>
-</tr>
-<tbody>
-{% for k, v in exame.items() %}
-<tr>
-  <td>
+<a class="oglobo linksite item" href="https://oglobo.globo.com/" target="_blank">oglobo.globo.com/economia</a>
+  <div class="itenssite">
+    {% for k, v in oglobo.items() %}
     <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
-  </td>
-</tr>
-{% endfor %}
-</tbody>
-</table>
+    {% endfor %}
+</div>
+   
+<a class="moneytimes linksite item" href="https://www.moneytimes.com.br/" target="_blank">moneytimes.com.br</a>
+  <div class="itenssite">
+    {% for k, v in moneytimes.items() %}
+    <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
+    {% endfor %}
+</div>
 
-<table class="tabela">
-<tr>
-  <th class="oespecialista">
-    <a class="linksite" href="https://www.oespecialista.com.br/" target="_blank">oespecialista.com.br</a>
-  </th>
-</tr>
-<tbody>
-{% for k, v in oespecialista.items() %}
-<tr>
-  <td>
+<a class="exame linksite item" href="https://www.exame.com.br/" target="_blank">exame.com.br</a>
+  <div class="itenssite">
+    {% for k, v in exame.items() %}
     <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
-  </td>
-</tr>
-{% endfor %}
-</tbody>
-</table>
+    {% endfor %}
+</div>
+
+<a class="oespecialista linksite item" href="https://www.oespecialista.com.br/" target="_blank">oespecialista.com.br</a>
+  <div class="itenssite">
+    {% for k, v in oespecialista.items() %}
+    <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
+    {% endfor %}
+</div>
+
 {% endblock %}

@@ -7,44 +7,9 @@ from cachetools import cached, TTLCache
 import tweepy
 import pandas as pd
 import os
+from todescrapers import *
 
 cache = TTLCache(maxsize=128, ttl=900)
-
-@cached(cache)
-def scrape_a_to_dict(page,xpathexp):
-  resp = Request(page, headers={'User-Agent': 'Mozilla/5.0'})
-  conteudo = urlopen(resp).read().decode("utf-8")
-  ohtml = html.fromstring(conteudo)
-  
-  tagxpath = ohtml.xpath(xpathexp)
-
-  conteudos = []
-  links = []
-  dic = {}
-  for a in tagxpath:
-    conteudos.append(lxml.html.fromstring(a.xpath("text()")[0]).text_content().strip())
-    links.append(a.xpath("@href")[0])
-    dic = dict(zip(conteudos, links))
-  return dic
-
-@cached(cache)
-def scrape_h_to_dict(page,xpathexph2,xpathexpa):
-  resp = Request(page, headers={'User-Agent': 'Mozilla/5.0'})
-  conteudo = urlopen(resp).read().decode("utf-8")
-  ohtml = html.fromstring(conteudo)
-  
-  tagxpathh2 = ohtml.xpath(xpathexph2)
-  tagxpatha = ohtml.xpath(xpathexpa)
-  
-  conteudos = []
-  links = []
-  dic = {}
-  for h2 in tagxpathh2:
-    conteudos.append(lxml.html.fromstring(h2.xpath("text()")[0]).text_content().strip())
-  for a in tagxpatha:
-    links.append(a.xpath("@href")[0])
-  dic = dict(zip(conteudos, links))
-  return dic
 
 app = Flask(__name__)
 
@@ -87,6 +52,18 @@ def ossuw():
     response.headers['Content-Type'] = 'application/javascript'
     return response
 
+@app.route('/static/base.css')
+def basecss():
+    response=make_response(send_from_directory(path='static',directory='static',filename='base.css'))
+    response.headers['Content-Type'] = 'text/css'
+    return response
+
+@app.route('/static/sites.css')
+def sitescss():
+    response=make_response(send_from_directory(path='static',directory='static',filename='sites.css'))
+    response.headers['Content-Type'] = 'text/css'
+    return response
+
 @app.route("/economia")
 def economia():
     return redirect('/economia/destaques')
@@ -120,7 +97,7 @@ def economiadestaques():
 
     moneytimes = {**moneytimes1, **moneytimes2, **moneytimes3}
     
-    exame = scrape_h_to_dict('https://minha.exame.com/','//div[contains(@class, "Section__HighlightSection")]//a//h2','//div[contains(@class, "Section__HighlightSection")]//a')
+    exame = scrape_h_to_dict('https://exame.com/','//div[contains(@class, "Section__HighlightSection")]//a//h2','//div[contains(@class, "Section__HighlightSection")]//a')
     
     oglobo = scrape_a_to_dict('https://oglobo.globo.com/economia/','//section[@class="block five-teasers"]//div/div/div/article/div/h1/a') 
 
@@ -145,15 +122,13 @@ def economiamaislidas():
   
   moneytimes = scrape_a_to_dict('https://www.moneytimes.com.br/ultimas-noticias/','//div[@class="widget widget-maislidas widget-mt-mais-lidas"]//a')
   
-  exame = scrape_h_to_dict('https://exame.com/','//div[@class="widget-popular-posts-info"]//h3','//div[@class="widget-popular-posts-info"]//a')
-  
   valor = scrape_a_to_dict('https://valor.globo.com/','//div[@data-component-type="card-mais-lidas"]//a')
 
   valorinveste = scrape_a_to_dict('https://valorinveste.globo.com/','//div[@data-component-type="card-mais-lidas"]//a')
   
   oespecialista = scrape_a_to_dict('https://oespecialista.com.br/','//div[@id="popular-posts"]//li//a')
   
-  sites = dict(investnews = investnews, moneytimes = moneytimes, exame = exame, valor = valor, valorinveste = valorinveste, oespecialista = oespecialista)
+  sites = dict(investnews = investnews, moneytimes = moneytimes, valor = valor, valorinveste = valorinveste, oespecialista = oespecialista)
   
   return render_template("economia-maislidas.html", **sites)
 

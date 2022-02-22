@@ -6,93 +6,30 @@
 
 {% block manifest %}economia.webmanifest{% endblock %}
 
+{% block metatags %}
+<link href="/static/sites.css" rel="stylesheet">
+{% endblock %}
+
 <!-- Page specific CSS. Render inside base.html <style> -->
 {% block style %}   
-      a.linksite {
-        text-decoration: none !important;
-        color: #FFFFFF !important;
-        font-size: 20px;
-      }
-
-      a.conteudo {
-        color: #000000;
-        text-decoration: none;
-      }
-
-      a.conteudo:visited {
-        color: #CCCCCC;
-      }
-      
-      .valor {
-        background: #37626e;
-      }
-
-      .infomoney {
-        background: #212121;
-      }
-
-      .investnews {
-        background: #90067C;
-      }
-
-      .moneytimes {
-        background: #00c940;
-      }
-
-      .oglobo {
-        background: #1e4c9a;
-      }
-
-      .exame {
-        background: #ff0000;
-      }
-
-      .oespecialista {
-        background: #000033;
-      }
 {% endblock %}
-<!-- End of page specific CSS -->
+<!-- End of page specific CSS -->e
 
 <!-- Menu blocks, declared together, but render separately on final page -->
-{% block menuinferior %}
-<table id="menuinferior">
-  <tbody>
-    <tr><td colspan="3" class="tdroboimg"><img alt="Robô" style="vertical-align: middle;" width="100px" height="100px" src="/static/384.png"></td></tr>
-    <tr>
-      <td class="nao item"><a onclick="loading()" href="/">Apresentação</a></td>
-      <td class="sim item">Editor de /economia</td>
-      <td class="nao nao2 item"><a onclick="loading()" href="/sobre">Sobre o site</a></td>
-    </tr>
-  </tbody>
-</table>
+{% block inferioreconomia %}
 {% endblock %}
 
-{% block menusuperior %}
-<table id="menusuperior">
-  <tbody>
-    <tr class="tdroboimg">
-      <td class="item">
-      <span id="economia"><a onclick="loading()" href="/"><img alt="Robô" style="vertical-align: middle;" width="30px" height="30px" src="/static/384.png"></a></span>/<b>economia/<span class="fadein">webstories</span></b>
-      </td>
-    </tr>
-    <tr id="descricao" class="fadein">
-      <td class="item">
-        Webstories mais recentes dos veículos
-      </td>
-    </tr>
-  </tbody>
-</table>
-<table id="navbar">
-  <tbody>
-    <tr>
-      <td class="destaques nao nao2 item"><a onclick="loading()" href="/economia/destaques">/destaques</a></td>
-      <td class="maislidas nao item"><a onclick="loading()" href="/economia/maislidas">/maislidas</a></td>
-      <td class="tweets nao nao2 item"><a onclick="loading()" href="/economia/tweets/fintwit">/#fintwitbr</a></td>
-      <td class="webstories sim item">/webstories</td>
-    </tr>
-  </tbody>
-</table>
-</table>
+{% block superior %}
+<div class="imgrobo">
+  <a onclick="loading()" href="/"><img alt="Robô" width="30px" height="30px" src="/static/384.png"></a>/economia/maislidas
+</div>
+<div id="descricao">Webstories mais recentes dos veículos</div>
+<div id="barra">
+  <a onclick="loading()" class="item inativo" href="/economia/destaques">/destaques</a>
+  <a onclick="loading()" class="item inativo" href="/economia/maislidas">/maislidas</a>
+  <a onclick="loading()" class="item inativo" href="/economia/tweets/fintwit">/tweets</a>
+  <a onclick="loading()" class="item ativo" href="/economia/webstories">/webstories</a>
+</div>
 {% endblock %}
 <!-- End of menu blocks -->
 

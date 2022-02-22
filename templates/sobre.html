@@ -6,20 +6,14 @@
 
 {% block manifest %}economia.webmanifest{% endblock %}
 
-{% block style %}
-{% endblock %}
+{% block style %}.economia {visibility: hidden;}{% endblock %}
 
-{% block menuinferior %}
-<table id="menuinferior">
-    <tbody>
-      <tr><td colspan="3" class="tdroboimg"><img alt="Robô" style="vertical-align: middle;" width="100px" height="100px" src="/static/384.png"></td></tr>
-      <tr>
-        <td class="nao item"><a onclick="loading()" href="/">Apresentação</a></td>
-        <td class="nao nao2 item"><a onclick="loading()" href="/economia/destaques">Editor de /economia</a></td>
-        <td class="sim item">Sobre o site</td>
-      </tr>
-    </tbody>
-  </table>
+{% block inferior %}
+<div class="inferior">
+  <a onclick="loading()" class="item inativo" href="/">Apresentação</a></td>
+  <a onclick="loading()" class="item inativo" href="/economia/destaques">Editor de /economia</td>
+  <a onclick="loading()" class="item ativo" href="/sobre">Sobre o site</a></td>
+</div>
 {% endblock %}
 
 {% block content %}

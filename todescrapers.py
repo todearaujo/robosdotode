@@ -3,7 +3,7 @@ from lxml import html
 import lxml.html.clean
 from cachetools import cached, TTLCache
 
-cache = TTLCache(maxsize=10, ttl=900)
+cache = TTLCache(maxsize=128, ttl=900)
 
 @cached(cache)
 def scrape_a_to_dict(page,xpathexp):
@@ -13,11 +13,14 @@ def scrape_a_to_dict(page,xpathexp):
   
   tagxpath = ohtml.xpath(xpathexp)
 
-  dict = {"Destaque":[], "Link":[]}
+  conteudos = []
+  links = []
+  dic = {}
   for a in tagxpath:
-    dict["Destaque"].append(lxml.html.fromstring(a.xpath("text()")[0]).text_content().strip())
-    dict["Link"].append(a.xpath("@href")[0])
-  return dict
+    conteudos.append(lxml.html.fromstring(a.xpath("text()")[0]).text_content().strip())
+    links.append(a.xpath("@href")[0])
+    dic = dict(zip(conteudos, links))
+  return dic
 
 @cached(cache)
 def scrape_h_to_dict(page,xpathexph2,xpathexpa):
@@ -28,9 +31,12 @@ def scrape_h_to_dict(page,xpathexph2,xpathexpa):
   tagxpathh2 = ohtml.xpath(xpathexph2)
   tagxpatha = ohtml.xpath(xpathexpa)
   
-  dict = {"Destaque":[], "Link":[]}
+  conteudos = []
+  links = []
+  dic = {}
   for h2 in tagxpathh2:
-    dict["Destaque"].append(lxml.html.fromstring(h2.xpath("text()")[0]).text_content().strip())
+    conteudos.append(lxml.html.fromstring(h2.xpath("text()")[0]).text_content().strip())
   for a in tagxpatha:
-    dict["Link"].append(a.xpath("@href")[0])
-  return dict
+    links.append(a.xpath("@href")[0])
+  dic = dict(zip(conteudos, links))
+  return dic

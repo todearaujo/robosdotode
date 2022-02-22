@@ -44,6 +44,7 @@
     <!-- Icon tags, manifest path e theme color for app/shortcut -->
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
     <link rel="manifest" href="/{% block manifest %}{% endblock %}")">
+    <link href="/static/base.css" rel="stylesheet" >
     <meta name="theme-color" content="#DD2E43">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -58,182 +59,11 @@
     {% block metatags %}{% endblock %}
     <!-- End of metatags -->
    
-   <!-- CSS base stylesheet  -->
+   <!-- CSS base stylesheet block  -->
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap');
-      
-      /* Loading circle figure only with CSS */
-        #loading {
-        position: absolute;
-        top: 50%;
-        left: 45%;
-        border: 10px solid #FFFFFF;
-        border-radius: 50%;
-        border-top: 10px solid #DD2E43;
-        width: 30px;
-        height: 30px;
-        -webkit-animation: spin 1s linear infinite; /* Safari */
-        animation: spin 1s linear infinite;
-        display: none;
-      }
-
-      /* Safari */
-      @-webkit-keyframes spin {
-        0% { -webkit-transform: rotate(0deg); }
-        100% { -webkit-transform: rotate(360deg); }
-      }
-
-      @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-      }
-      /* End of loading circle figure only with CSS */
-
-      body {
-        max-width: 500px;
-        margin: auto;
-        background-color: #FFFFFF;
-        font-family: 'Roboto', sans-serif; 
-        font-size: 18px;
-      }
-      
-      #main {padding: 0 20px; margin: auto; }
-
-      #robo {text-align: center;}
-      
-      h1 {color: #DD2E43; text-align: center; font-weight: 500;}
-
-      .fadein {animation:opac 2s;}@keyframes opac{from{opacity:0} to{opacity:1}}
-
-      #menuinferior {
-        text-align: center;
-        font-size: 12px;
-        font-weight: bold;
-        border-collapse: collapse;
-        width: 100%;
-      }
-
-      #menusuperior {
-        font-size: 14px;
-        font-weight: bold;
-        text-align: center;
-        border-collapse: collapse;
-        width: 100%;
-      }
-
-      #menuinferior td.item {
-        padding: 10px;
-        width: 33%;
-      }
-
-      #menusuperior td.item {
-        padding: 10px;
-      }
-
-      #navbar td.item {
-        padding: 10px;
-        width: 25%;
-      }
-
-      .tdroboimg {
-        background-color: #55acee;
-        color: #FFFFFF;
-        font-size: 25px;
-        height: 120px;
-      }
-
-      #descricao {
-        font-weight: normal;
-        background-color: #FFFFFF;
-        color: #000000;
-        height: 75px;
-        font-size: 16px;
-      }
-
-      #navbar {
-        z-index: 2;
-        overflow: hidden;
-        background-color: #CCCCCC;
-        width: 100%;
-        max-width: 500px;
-        border-collapse: collapse;
-        font-size: 14px;
-        text-align: center;
-        font-weight: bold;
-        height: 42px;
-      }
-
-      .sticky {
-        position: fixed;
-        margin: auto;
-        top: 0;
-      }
-
-      .sticky + .content {
-      padding-top: 60px;
-      }
-
-      .tabela {width: 100%; margin:auto; border-collapse: collapse;}
-
-      .tabela td {
-        padding:10px;
-      }
-
-      .tabela th {
-        position: -webkit-sticky;
-        position: sticky;
-        top: 42px;
-      }
-
-      .tabela tr:nth-child(odd) {
-        background-color: #eeeeee;
-      }
-
-      .tabela tr:nth-child(even) {
-        background-color: #e0e0e0;
-      }
-
-      th {height: 50px;}
-
-      a {color: #000000; text-decoration: none;}
-      a:visited {color: #000000;}
-
-      #menusuperior a {color: #000000; text-decoration: none;}
-      #menusuperior a:visited {color: #000000;}
-      
-      .sim {
-        border-top: #DD2E43 solid 5px !important;
-        background-color: #FFFFFF !important;
-        color: #DD2E43;
-      }
-
-      .nao {
-        background-color: #FFFFFF;
-        border-top: #CCCCCC solid 5px;
-      }
-
-      .nao2 {
-        background-color: #FFFFFF;
-        border-top: #CCCCCC solid 5px;
-      }
-
-      .nao:hover {
-        background-color: #EEEEEE;
-        border-top: #CCCCCC solid 5px;
-      }
-
-      .nao:hover {
-        background-color: #EEEEEE;
-        border-top: #CCCCCC solid 5px;
-      }
-
-      .nao:active {
-        transform: translateY(2px);
-      }      
-
       {% block style %}{% endblock %}
     </style>
-    <!-- End of CSS base stylesheet  -->
+    <!-- End of CSS base stylesheet block  -->
 
 <!-- Loading simulation script -->
  <script>
@@ -257,27 +87,36 @@
 <!-- End of loading figure DIV -->
     
 <!-- Content DIV -->
-     {% block menusuperior %}{% endblock %}
+    {% block superior %}{% endblock %}
      <div id="content" class="fadein">
       {% block content %}{% endblock %}
-      {% block menuinferior %}{% endblock %}
+      <div class="imgrobo">
+        <img alt="Robô" style="vertical-align: middle;" width="100px" height="100px" src="/static/384.png">
+      </div>
+      {% block inferior %}
+      {% endblock %}
+      <div class="inferior economia">
+        <a onclick="loading()" class="item inativo" href="/">Apresentação</a></td>
+        <a onclick="loading()" class="item ativo" href="/economia/destaques">Editor de /economia</td>
+        <a onclick="loading()" class="item inativo" href="/sobre">Sobre o site</a></td>
+      </div>
     </div>
 <!-- End of content DIV -->
 
-<script>
-  window.onscroll = function() {stickyfunction()};
-  
-  var navbar = document.getElementById("navbar");
-  var sticky = navbar.offsetTop;
-  
-  function stickyfunction() {
-    if (window.pageYOffset >= sticky) {
-      navbar.classList.add("sticky")
-    } else {
-      navbar.classList.remove("sticky");
-    }
-  }
-</script>
+    <script>
+      window.onscroll = function() {stickyfunction()};
+      
+      var barra = document.getElementById("barra");
+      var sticky = barra.offsetTop;
+      
+      function stickyfunction() {
+        if (window.pageYOffset >= sticky) {
+          barra.classList.add("sticky")
+        } else {
+          barra.classList.remove("sticky");
+        }
+      }
+    </script>
 
   </body>
 </html>

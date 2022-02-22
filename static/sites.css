@@ -1,0 +1,106 @@
+.tabela {width: 100%; margin:0 auto; border-collapse: collapse;}
+
+.tabela td {
+    padding:10px;
+}
+
+.tabela th {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 35px;
+}
+
+.tabela tr:nth-child(even) {
+    background-color: #e0e0e0;
+}
+
+.tabela tr:nth-child(odd) {
+    background-color: #eeeeee;
+}
+
+.itenssite {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.itenssite a{
+    display: flex;
+    flex: auto;
+    align-items: center;
+    justify-content: left;
+    padding: 12px 10px;
+}
+
+.itenssite a:nth-child(even) {
+    background-color: #e0e0e0;
+}
+
+.itenssite a:nth-child(odd) {
+    background-color: #eeeeee;
+}
+
+th {height: 50px;}
+
+a.linksite {
+color: #FFFFFF !important;
+font-size: 20px;
+height: 55px !important;
+position: -webkit-sticky;
+position: sticky;
+top: 35px;
+}
+
+a.conteudo {
+color: #000000;
+text-decoration: none;
+}
+
+a.conteudo:visited {
+color: #CCCCCC;
+}
+
+.inteligenciaf {
+background: #ec7000;
+}
+
+.valor {
+background: #37626e;
+}
+
+.valorinveste {
+background: #472f92;
+}
+
+.folha {
+background: #00adef;
+}
+
+.infomoney {
+background: #212121;
+}
+
+.investnews {
+background: #90067C;
+}
+
+.moneytimes {
+background: #00c940;
+}
+
+.oglobo {
+background: #1e4c9a;
+}
+
+.exame {
+background: #ff0000;
+}
+
+.oespecialista {
+background: #000033;
+}
+
+.uol {
+background: #19A39A;
+}
