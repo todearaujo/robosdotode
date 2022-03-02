@@ -182,7 +182,7 @@ def fintwit():
 
   api = tweepy.API(auth)
 
-  fintwittweets = api.list_timeline(list_id = '1450084107199844356', count = '100', include_rts = False)
+  fintwittweets = api.list_timeline(list_id = '1450084107199844356', count = '150', include_rts = False)
 
   fintwitids = {'ID':[], 'Eng':[]}
 
@@ -190,7 +190,7 @@ def fintwit():
       fintwitids["ID"].append(tweet.id)
       fintwitids["Eng"].append(tweet.retweet_count + tweet.favorite_count)
 
-  fintweetsdf = pd.DataFrame(fintwitids).sort_values(by=['Eng'], ascending=False).head(20).reset_index()
+  fintweetsdf = pd.DataFrame(fintwitids).sort_values(by=['Eng'], ascending=False).head(30).reset_index()
   fintweets = fintweetsdf["ID"].tolist()
 
   return render_template("economia-tweets-fintwit.html", fintweets = fintweets)

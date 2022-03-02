@@ -77,7 +77,7 @@ h1 {color: #DD2E43; text-align: center; font-weight: 500;}
     background-color: #55acee;  
     color: #FFFFFF;
     font-size: 25px;
-    height: 120px;
+    height: 70px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -85,7 +85,7 @@ h1 {color: #DD2E43; text-align: center; font-weight: 500;}
 }
 
 #descricao {
-    height: 75px;
+    height: 50px;
     font-size: 16px;
     font-weight: normal;
     display: flex;
@@ -106,7 +106,7 @@ h1 {color: #DD2E43; text-align: center; font-weight: 500;}
 
 .item{
     display: flex;
-    min-height: 30px;
+    min-height: 35px;
     flex: auto;
     align-items: center;
     justify-content: center;
@@ -120,9 +120,15 @@ h1 {color: #DD2E43; text-align: center; font-weight: 500;}
 
 .semiativo {
     border-top: #DD2E43 solid 5px !important;
-    background-color: #FFFFFF !important;
-    color: #000000 !important;
+    background-color: #FFFFFF;
 }
+
+.semiativo:hover {
+    background-color: #EEEEFF;
+    border-top: #CCCCCC solid 5px;
+}
+
+.semiativo:active {transform: translateY(1px);}  
 
 .inativo {
     background-color: #FFFFFF;
@@ -134,8 +140,8 @@ h1 {color: #DD2E43; text-align: center; font-weight: 500;}
     border-top: #CCCCCC solid 5px;
 }
 
-.inativo:active {transform: translateY(2px);}      
-
+.inativo:active {transform: translateY(1px);}  
+    
 .sticky {
     position: fixed;
     margin: auto;
