@@ -38,90 +38,40 @@
 
 {% block content %}
 <!-- Here we render dicts inside tables using loops that iterates items -->
-<table class="tabela">
-    <tr>
-      <th  class="investnews">
-        <a class="linksite" href="https://www.investnews.com.br/" target="_blank">investnews.com.br</a>
-      </th>
-    </tr>
-  <tbody>
+<a class="investnews linksite item" href="https://www.investnews.com.br/" target="_blank">investnews.com.br</a>
+<div class="itenssite">
   {% for k, v in investnews.items() %}
-    <tr>
-      <td>
-        <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
-      </td>
-    </tr>
+  <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
   {% endfor %}
-  </tbody>
-</table>
+</div>
 <!-- End of the first table example -->
 
-<table class="tabela">
-  <tr>
-    <th  class="valor">
-      <a class="linksite" href="https://valor.globo.com/" target="_blank">valor.globo.com</a>
-    </th>
-  </tr>
-<tbody>
-{% for k, v in valor.items() %}
-  <tr>
-    <td>
-      <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
-    </td>
-  </tr>
-{% endfor %}
-</tbody>
-</table>
+<a class="valor linksite item" href="https://valor.globo.com/" target="_blank">valor.globo.com</a>
+<div class="itenssite">
+  {% for k, v in valor.items() %}
+  <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
+  {% endfor %}
+</div>
 
-<table class="tabela">
-  <tr>
-    <th  class="valorinveste">
-      <a class="linksite" href="https://valorinveste.globo.com/" target="_blank">valorinveste.globo.com</a>
-    </th>
-  </tr>
-<tbody>
-{% for k, v in valorinveste.items() %}
-  <tr>
-    <td>
-      <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
-    </td>
-  </tr>
-{% endfor %}
-</tbody>
-</table>
+<a class="valorinveste linksite item" href="https://valorinveste.globo.com/" target="_blank">valorinveste.globo.com</a>
+<div class="itenssite">
+  {% for k, v in valorinveste.items() %}
+  <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
+  {% endfor %}
+</div>
 
-<table class="tabela">
-  <tr>
-    <th  class="moneytimes">
-      <a class="linksite" href="https://www.moneytimes.com.br/" target="_blank">moneytimes.com.br</a>
-    </th>
-  </tr>
-<tbody>
-{% for k, v in moneytimes.items() %}
-  <tr>
-    <td>
-      <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
-    </td>
-  </tr>
-{% endfor %}
-</tbody>
-</table>
+<a class="moneytimes linksite item" href="https://www.moneytimes.com.br/" target="_blank">moneytimes.com.br</a>
+<div class="itenssite">
+  {% for k, v in moneytimes.items() %}
+  <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
+  {% endfor %}
+</div>
 
-<table class="tabela">
-  <tr>
-    <th  class="oespecialista">
-      <a class="linksite" href="https://www.oespecialista.com.br/" target="_blank">oespecialista.com.br</a>
-    </th>
-  </tr>
-<tbody>
-{% for k, v in oespecialista.items() %}
-  <tr>
-    <td>
-      <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
-    </td>
-  </tr>
-{% endfor %}
-</tbody>
-</table>
+<a class="oespecialista linksite item" href="https://www.oespecialista.com.br/" target="_blank">oespecialista.com.br</a>
+<div class="itenssite">
+  {% for k, v in oespecialista.items() %}
+  <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
+  {% endfor %}
+</div>
 
 {% endblock %}

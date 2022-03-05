@@ -34,40 +34,20 @@
 <!-- End of menu blocks -->
 
 {% block content %}
-<!-- Here we render dicts inside tables using loops that iterates items -->
-<table class="tabela">
-    <tr>
-      <th class="investnews">
-        <a class="linksite" href="https://www.investnews.com.br/" target="_blank">investnews.com.br</a>
-      </th>
-    </tr>
-  <tbody>
-  {% for k, v in investnews.items() %}
-    <tr>
-      <td>
-        <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
-      </td>
-    </tr>
-  {% endfor %}
-  </tbody>
-</table>
-<!-- End of the first table example -->
 
-<table class="tabela">
-  <tr>
-    <th class="infomoney">
-      <a class="linksite" href="https://infomoney.com.br/web-stories" target="_blank">infomoney.com.br</a>
-    </th>
-  </tr>
-<tbody>
-{% for k, v in infomoney.items() %}
-  <tr>
-    <td>
-      <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
-    </td>
-  </tr>
-{% endfor %}
-</tbody>
-</table>
+<!-- Here we render dicts inside tables using loops that iterates items -->
+<a class="investnews linksite item" href="https://www.investnews.com.br/" target="_blank">investnews.com.br</a>
+<div class="itenssite">
+  {% for k, v in investnews.items() %}
+  <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
+  {% endfor %}
+</div>
+
+<a class="infomoney linksite item" href="https://infomoney.com.br/web-stories" target="_blank">infomoney.com.br</a>
+<div class="itenssite">
+  {% for k, v in infomoney.items() %}
+  <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
+  {% endfor %}
+</div>
 
 {% endblock %}

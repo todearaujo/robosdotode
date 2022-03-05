@@ -83,7 +83,7 @@ def tweetsbarra():
 @app.route("/economia/destaques")
 def economiadestaques():
     
-    valor = scrape_a_to_dict('https://valor.globo.com/','//div[@class="container-topo-3-colunas grid-x"]//div[@class="highlight__title theme-title-element "]//a')
+    valor = scrape_a_to_dict('https://valor.globo.com/','//div[@class="container-topo-centralizado grid-x"]//div[@class="highlight__content"]//div[@class="highlight__title theme-title-element "]//a')
 
     valorinveste = scrape_a_to_dict('https://valorinveste.globo.com/','//div[@class="container-topo-3-colunas grid-x"]//div[@class="highlight__title theme-title-element "]//a')
 
@@ -143,7 +143,7 @@ def economiawebstories():
   
   return render_template("economia-webstories.html", **sites)
 
-@app.route("/economia/tweets/top10")
+@app.route("/economia/tweets/top30")
 def toptweets():
 
   consumer_key = os.environ["CONSUMER_KEY_TW"]
@@ -164,10 +164,10 @@ def toptweets():
       sitesids["ID"].append(tweet.id)
       sitesids["Eng"].append(tweet.retweet_count + tweet.favorite_count)
 
-  toptweetsdf = pd.DataFrame(sitesids).sort_values(by=['Eng'], ascending=False).head(10).reset_index()
+  toptweetsdf = pd.DataFrame(sitesids).sort_values(by=['Eng'], ascending=False).head(30).reset_index()
   toptweets = toptweetsdf["ID"].tolist()
 
-  return render_template("economia-tweets-top10.html", toptweets = toptweets)
+  return render_template("economia-tweets-top30.html", toptweets = toptweets)
 
 @app.route("/economia/tweets/fintwit")
 def fintwit():

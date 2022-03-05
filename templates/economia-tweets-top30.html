@@ -8,6 +8,7 @@
 
 {% block metatags %}
 <link rel="preconnect" href="https://platform.twitter.com/">
+<link href="/static/sites.css" rel="stylesheet">
 {% endblock %}
 
 <!-- Page specific CSS. Render inside base.html <style> -->
@@ -28,7 +29,7 @@
   <a onclick="loading()" class="item inativo" href="/economia/destaques">/destaques</a>
   <a onclick="loading()" class="item inativo" href="/economia/maislidas">/maislidas</a>
   <a onclick="loading()" class="item semiativo" href="/economia/tweets/fintwit">/#fintwitbr</a>
-  <a onclick="loading()" class="item ativo" href="/economia/tweets/top10">/top10</a>
+  <a onclick="loading()" class="item ativo" href="/economia/tweets/top30">/top30</a>
   <a onclick="loading()" class="item inativo" href="/economia/webstories">/webstories</a>
 </div>
 {% endblock %}
@@ -37,7 +38,7 @@
 {% block content %}
 
 <!-- Here we render tweets using a loop that exctract tweet's IDs from a dict -->
-<div id="tweets">
+<div id="tweetscontainer">
   {% for ID in toptweets %}
   <blockquote class="twitter-tweet"><a href="https://twitter.com/x/status/{{ ID }}"></a></blockquote>
   {% endfor %}
