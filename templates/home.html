@@ -9,19 +9,20 @@
 {% block style %}.economia {visibility: hidden;}{% endblock %}
 
 {% block inferior %}
-<div class="inferior">
-  <a onclick="loading()" class="item ativo" href="/">Apresentação</a></td>
+<navbar class="inferior">
   <a onclick="loading()" class="item inativo" href="/economia/destaques">Editor de /economia</td>
-  <a onclick="loading()" class="item inativo" href="/sobre">Sobre o site</a></td>
-</div>
+  <a onclick="loading()" class="item ativo" href="/">Sobre o site</a></td>
+</navbar>
 {% endblock %}
 
 {% block content %}
 <div id="main">
   <h1 class="fadein">Robôs do Tode</h1>
   <p>Olá, tudo bem?!</p>
-  <p>Eu sou o <b><a href="https://twitter.com/todearaujo">Tode</a></b> e esta é a casa dos meus robôs. Iniciei seu desenvolvimento como parte dos <b><a href="/sobre">meus estudos no MBA</a></b>.</p>
+  <p>Eu sou o <b><a href="https://twitter.com/todearaujo">Tode</a></b> e esta é a casa dos meus robôs. Iniciei seu desenvolvimento como parte dos meus estudos no MBA.</p>
   <p>Por enquanto temos o <b><a href="/economia/destaques">Editor de /economia</a></b>; que te conta em tempo real o que é assunto no mundo das finanças pessoais, investimentos e do mercado financeiro.</p>
   <p>Clica aí!</p>
+  <p>Esta aplicação/site roda em Flask, biblioteca do Python, compilando funções que aprendi ou desenvolvi durante o <b><a href="https://www.insper.edu.br/pos-graduacao/master-em-jornalismo-de-dados-automacao-e-data-storytelling/">Master de Jornalismo de dados e Automação do Insper.</a></b></p>
+  <p>Seu desenvolvimeno foi iniciado na disciplina de <b>Algoritmos de automação</b> com o professor <a href="https://github.com/turicas"><b>Álvaro Justen</b></a> no segundo trimestre da primeira certificação, entre outubro e dezembro de 2021.</p>
 </div>
 {% endblock %}
