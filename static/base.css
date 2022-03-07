@@ -28,7 +28,7 @@
 /* End of loading circle figure only with CSS */
 
 body {
-    max-width: 820px;
+    max-width: 1250px;
     margin: auto;
     background-color: #FFFFFF;
     font-family: 'Roboto', sans-serif; 
@@ -99,7 +99,7 @@ h1 {color: #DD2E43; text-align: center; font-weight: 500;}
     font-size: 14px;
     font-weight: bold;
     width: 100%;
-    max-width: 820px;
+    max-width: 1;
     display: flex;
     flex-flow: row nowrap;
 }

@@ -7,7 +7,6 @@
 {% block manifest %}economia.webmanifest{% endblock %}
 
 {% block metatags %}
-<link rel="preconnect" href="https://platform.twitter.com/">
 <link href="/static/sites.css" rel="stylesheet">
 {% endblock %}
 
@@ -38,17 +37,18 @@
 {% block content %}
 
 <!-- Here we render tweets using a loop that exctract tweet's IDs from a dict -->
-<div id="tweetscontainer">
+<div id="tweetscontainer"> 
   {% for ID in toptweets %}
-  <blockquote class="twitter-tweet"><a href="https://twitter.com/x/status/{{ ID }}"></a></blockquote>
+  <div id="{{ ID }}"></div>
   {% endfor %}
+  <script sync src="https://platform.twitter.com/widgets.js"></script>
+  <script>
+  function tweetsfunc() {
+    {% for ID in toptweets %}twttr.widgets.createTweet('{{ ID }}',document.getElementById('{{ ID }}'),{});{% endfor %}
+  };
+  tweetsfunc();
+  </script>
 </div>
 <!-- End of the loop -->
-
-<!-- Tweet rendering script -->
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
-  twttr.widgets.load(document.getElementById("tweets"));
-</script>
-<!-- End of twitter script -->
 
 {% endblock %}
