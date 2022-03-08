@@ -98,8 +98,8 @@ h1 {color: #DD2E43; text-align: center; font-weight: 500;}
     overflow: hidden;
     font-size: 14px;
     font-weight: bold;
-    width: 1250px;
-    max-width: 1;
+    width: 100%;
+    max-width: 1250px;
     display: flex;
     flex-flow: row nowrap;
 }
