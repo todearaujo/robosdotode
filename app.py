@@ -83,7 +83,7 @@ def tweetsbarra():
 @app.route("/economia/destaques")
 def economiadestaques():
     
-    valor = scrape_a_to_dict('https://valor.globo.com/','//div[@class="container-topo-centralizado grid-x"]//div[@class="highlight__content"]//div[@class="highlight__title theme-title-element "]//a')
+    valor = scrape_a_to_dict('https://valor.globo.com/','//div[contains(@class, "container-topo")]//div[contains(@class, "highlight")]//div[@class="highlight__content"]//div[contains(@class, "highlight__title")]//a')
 
     valorinveste = scrape_a_to_dict('https://valorinveste.globo.com/','//div[@class="container-topo-3-colunas grid-x"]//div[@class="highlight__title theme-title-element "]//a')
 
