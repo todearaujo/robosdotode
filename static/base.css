@@ -32,7 +32,7 @@ body {
     margin: auto;
     background-color: #FFFFFF;
     font-family: 'Roboto', sans-serif; 
-    font-size: 18px;
+    font-size: 22px;
 }
 
 a {color: #000000; text-decoration: none;}
@@ -86,7 +86,7 @@ h1 {color: #DD2E43; text-align: center; font-weight: 500;}
 
 #descricao {
     height: 50px;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: normal;
     display: flex;
     align-items: center;
