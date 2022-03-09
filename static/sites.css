@@ -104,7 +104,7 @@ background: #19A39A;
 
 #tweetscontainer {
     display: block;
-    padding: 5px;
+    padding: 10px;
 }
 
 @media only screen and (min-width: 780px) {
