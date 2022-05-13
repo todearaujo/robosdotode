@@ -38,40 +38,55 @@
 
 {% block content %}
 <!-- Here we render dicts inside tables using loops that iterates items -->
-<a class="investnews linksite item" href="https://www.investnews.com.br/" target="_blank">investnews.com.br</a>
-<div class="itenssite">
-  {% for k, v in investnews.items() %}
-  <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
-  {% endfor %}
-</div>
-<!-- End of the first table example -->
 
-<a class="valor linksite item" href="https://valor.globo.com/" target="_blank">valor.globo.com</a>
-<div class="itenssite">
-  {% for k, v in valor.items() %}
-  <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
-  {% endfor %}
-</div>
+<div class="maislidas">
 
-<a class="valorinveste linksite item" href="https://valorinveste.globo.com/" target="_blank">valorinveste.globo.com</a>
-<div class="itenssite">
-  {% for k, v in valorinveste.items() %}
-  <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
-  {% endfor %}
-</div>
+  <div class="destaques">
+    <a class="investnews linksite item" href="https://www.investnews.com.br/" target="_blank">investnews.com.br</a>
+    <div class="itenssite">
+      {% for k, v in investnews.items() %}
+      <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
+      {% endfor %}
+    </div>
+  </div>
+  <!-- End of the first table example -->
 
-<a class="moneytimes linksite item" href="https://www.moneytimes.com.br/" target="_blank">moneytimes.com.br</a>
-<div class="itenssite">
-  {% for k, v in moneytimes.items() %}
-  <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
-  {% endfor %}
-</div>
+  <div class="destaques">
+    <a class="valor linksite item" href="https://valor.globo.com/" target="_blank">valor.globo.com</a>
+    <div class="itenssite">
+      {% for k, v in valor.items() %}
+      <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
+      {% endfor %}
+    </div>
+  </div>
 
-<a class="oespecialista linksite item" href="https://www.oespecialista.com.br/" target="_blank">oespecialista.com.br</a>
-<div class="itenssite">
-  {% for k, v in oespecialista.items() %}
-  <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
-  {% endfor %}
+  <div class="destaques">
+    <a class="moneytimes linksite item" href="https://www.moneytimes.com.br/" target="_blank">moneytimes.com.br</a>
+    <div class="itenssite">
+      {% for k, v in moneytimes.items() %}
+      <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="destaques">
+    <a class="valorinveste linksite item" href="https://valorinveste.globo.com/" target="_blank">valorinveste.globo.com</a>
+    <div class="itenssite">
+      {% for k, v in valorinveste.items() %}
+      <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="destaques">
+    <a class="oespecialista linksite item" href="https://www.oespecialista.com.br/" target="_blank">oespecialista.com.br</a>
+    <div class="itenssite">
+      {% for k, v in oespecialista.items() %}
+      <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
+      {% endfor %}
+    </div>
+  </div>
+
 </div>
 
 {% endblock %}

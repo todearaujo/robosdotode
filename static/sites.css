@@ -23,7 +23,6 @@
     max-width: 100%;
     display: grid;
     grid-template-columns: 100%;
-    gap: 1px;
 }
 
 .itenssite a{
@@ -38,73 +37,86 @@
     background-color: #eeeeee;
 }
 
-th {height: 50px;}
+.destaques {
+    display: block;
+}
 
 a.linksite {
-color: #FFFFFF !important;
-font-size: 24px;
-height: 52px !important;
-position: -webkit-sticky;
-position: sticky;
-top: 48px;
+    color: #FFFFFF !important;
+    font-size: 24px;
+    height: 50px !important;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 48px;
 }
 
 a.conteudo {
-color: #000000;
-text-decoration: none;
-}
+    color: #000000;
+    text-decoration: none;
+    height: 110px;
+    }
 
 a.conteudo:visited {
-color: #CCCCCC;
+    color: #CCCCCC;
 }
 
 .inteligenciaf {
-background: #ec7000;
+    background: #ec7000;
 }
 
 .valor {
-background: #37626e;
+    background: #37626e;
 }
 
 .valorinveste {
-background: #472f92;
+    background: #472f92;
 }
 
 .folha {
-background: #00adef;
+    background: #00adef;
 }
 
 .infomoney {
-background: #212121;
+    background: #212121;
 }
 
 .investnews {
-background: #90067C;
+    background: #90067C;
 }
 
 .moneytimes {
-background: #00c940;
+    background: #00c940;
 }
 
 .oglobo {
-background: #1e4c9a;
+    background: #1e4c9a;
 }
 
 .exame {
-background: #ff0000;
+    background: #ff0000;
 }
 
 .oespecialista {
-background: #000033;
+    background: #000033;
 }
 
 .uol {
-background: #19A39A;
+    background: #19A39A;
 }
 
 #tweetscontainer {
     display: block;
     padding: 10px;
+}
+
+.homes {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.maislidas {
+    display: grid;
+    grid-template-columns: 1fr;
 }
 
 @media only screen and (min-width: 780px) {
@@ -114,6 +126,16 @@ background: #19A39A;
         gap: 5px;
         justify-content: center;
     }
+
+    .homes {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .maislidas {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
 @media only screen and (min-width: 1300px) {
@@ -122,5 +144,27 @@ background: #19A39A;
         grid-template-columns: auto auto auto auto auto;
         gap: 5px;
         justify-content: center;
+    }
+
+    .homes {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .maislidas {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(25%, 1fr));;
+    }
+}
+
+@media only screen and (min-width: 2000px) {
+    .homes {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    .maislidas {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
     }
 }
