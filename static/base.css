@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap');
 
+*{
+    box-sizing: border-box;
+}
+
 /* Loading circle figure only with CSS */
 #loading {
     position: absolute;
@@ -63,7 +67,7 @@ h1 {color: #DD2E43; text-align: center; font-weight: 500;}
 #superior {
     font-size: 14px;
     font-weight: bold;
-    text-align: center;w
+    text-align: center;
 }
 
 .inferior {

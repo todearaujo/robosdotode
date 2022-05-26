@@ -41,6 +41,10 @@
     display: block;
 }
 
+#webstories {
+    display: flex;
+}
+
 a.linksite {
     color: #FFFFFF !important;
     font-size: 24px;
@@ -61,47 +65,47 @@ a.conteudo:visited {
 }
 
 .inteligenciaf {
-    background: #ec7000;
+    background: #ec7000 !important;
 }
 
 .valor {
-    background: #37626e;
+    background: #37626e !important;
 }
 
 .valorinveste {
-    background: #472f92;
+    background: #472f92 !important;
 }
 
 .folha {
-    background: #00adef;
+    background: #00adef !important;
 }
 
 .infomoney {
-    background: #212121;
+    background: #212121 !important;
 }
 
 .investnews {
-    background: #90067C;
+    background: #90067C !important;
 }
 
 .moneytimes {
-    background: #00c940;
+    background: #00c940 !important;
 }
 
 .oglobo {
-    background: #1e4c9a;
+    background: #1e4c9a !important;
 }
 
 .exame {
-    background: #ff0000;
+    background: #ff0000 !important;
 }
 
 .oespecialista {
-    background: #000033;
+    background: #000033 !important;
 }
 
 .uol {
-    background: #19A39A;
+    background: #19A39A !important;
 }
 
 #tweetscontainer {

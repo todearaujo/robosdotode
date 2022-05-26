@@ -98,20 +98,16 @@ def economiadestaques():
     moneytimes = {**moneytimes1, **moneytimes2, **moneytimes3}
     
     exame = scrape_h_to_dict('https://exame.com/','//div[contains(@class, "Section__HighlightSection")]//a//h2','//div[contains(@class, "Section__HighlightSection")]//a')
-    
-    oglobo = scrape_a_to_dict('https://oglobo.globo.com/economia/','//section[@class="block five-teasers"]//div/div/div/article/div/h1/a') 
 
     oespecialista = scrape_a_to_dict('https://oespecialista.com.br/','//div[@id="front-page-top"]//h3//a')
-
-    # uol = scrape_h_to_dict('https://uol.com.br/economia/','//div[contains(@class, "highlights")]//h2','//section[contains(@class, "highlights-with-photo")]//a')
 
     inteligenciaf1 = scrape_a_to_dict('https://inteligenciafinanceira.com.br/','//div[contains(@class, "main-feed__feature")]//h2[contains(@class, "main-feed__title")]//a')
     inteligenciaf2 = scrape_a_to_dict('https://inteligenciafinanceira.com.br/','//a[contains(@class, "list_needtoknow__link")]')
 
     inteligenciaf = {**inteligenciaf1,**inteligenciaf2}
 
-    sites = dict(infomoney = infomoney, investnews = investnews, moneytimes = moneytimes,  exame = exame,  oglobo = oglobo, 
-                valor = valor, valorinveste = valorinveste, oespecialista = oespecialista, inteligenciaf = inteligenciaf)
+    sites = dict(infomoney = infomoney, investnews = investnews, moneytimes = moneytimes,  exame = exame, valor = valor,
+    valorinveste = valorinveste, oespecialista = oespecialista, inteligenciaf = inteligenciaf)
 
     return render_template("economia-destaques.html", **sites)
 

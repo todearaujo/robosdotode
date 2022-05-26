@@ -36,18 +36,19 @@
 {% block content %}
 
 <!-- Here we render dicts inside tables using loops that iterates items -->
-<a class="investnews linksite item" href="https://www.investnews.com.br/" target="_blank">investnews.com.br</a>
+<section id="webstories">
 <div class="itenssite">
+  <a class="investnews linksite item" href="https://www.investnews.com.br/" target="_blank">investnews.com.br</a>
   {% for k, v in investnews.items() %}
   <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
   {% endfor %}
 </div>
 
-<a class="infomoney linksite item" href="https://infomoney.com.br/web-stories" target="_blank">infomoney.com.br</a>
 <div class="itenssite">
+  <a class="infomoney linksite item" href="https://infomoney.com.br/web-stories" target="_blank">infomoney.com.br</a>
   {% for k, v in infomoney.items() %}
   <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
   {% endfor %}
 </div>
-
+</section>
 {% endblock %}
