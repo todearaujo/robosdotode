@@ -7,15 +7,26 @@
 {% block manifest %}economia.webmanifest{% endblock %}
 
 {% block style %}
+  #content {
+    background-color: white;
+    transition: box-shadow 0.5s ease-out;
+  }
+  
   .economia {
-    visibility: hidden;
+    display: none;
   }
 
   body {
-    max-width: 700px !important;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    max-width: 600px;
+    height: 100vh;
+    padding: 20px;
+    background-color: #dd2e44;
   }
 
-  @media (min-width: 380px) {
+  @media (min-width: 600px) {
     #main {
       column-count: 2;
     }
@@ -39,4 +50,35 @@
   <p>Esta aplicação/site roda em Flask, biblioteca do Python, compilando funções que aprendi ou desenvolvi durante o <b><a href="https://www.insper.edu.br/pos-graduacao/master-em-jornalismo-de-dados-automacao-e-data-storytelling/">Master de Jornalismo de dados e Automação do Insper.</a></b></p>
   <p>Seu desenvolvimeno foi iniciado na disciplina de <b>Algoritmos de automação</b> com o professor <a href="https://github.com/turicas"><b>Álvaro Justen</b></a> no segundo trimestre da primeira certificação, entre outubro e dezembro de 2021.</p>
 </div>
+
+<script type="text/javascript">
+  function changeShadow(evt) {  
+        var gamma = evt.gamma*2; // multiplied by 2 to make the shadow move a bit faster
+        var beta = evt.beta*2;
+        
+        if (gamma > 0 && gamma > 30) { // defined the upper limit of the shadow offset
+        gamma = 30;
+      }
+       
+       if (gamma < 0 && gamma < -30) {
+           gamma = -30;
+         }
+         
+        if (beta > 0 && beta > 30) {
+           beta = 30;
+         }
+       
+       if (beta < 0 && beta < -30) {
+           beta = -30;
+         }
+       
+        
+        var values = Math.round(gamma) +'px ' + Math.round(beta) + 'px ' + '8px rgba(50, 25, 25, 0.8)'; // This constructs the box-shadow CSS value.    
+        document.getElementById("content").style.boxShadow=values;
+        document.getElementById("content").style.MozBoxShadow=values;
+        document.getElementById("content").style.WebkitBoxShadow=values; 
+      }
+    
+    window.addEventListener("deviceorientation", changeShadow);
+</script>
 {% endblock %}
