@@ -5,10 +5,18 @@
 }
 
 /* Loading circle figure only with CSS */
+#loader {
+    position: absolute;
+    z-index: -1;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 #loading {
     position: absolute;
-    top: 50%;
-    left: 45%;
     border: 10px solid #FFFFFF;
     border-radius: 50%;
     border-top: 10px solid #DD2E43;
@@ -85,6 +93,7 @@ h1 {color: #DD2E43; text-align: center; font-weight: 500;}
     align-items: center;
     justify-content: center;
     font-weight: bold;
+    width: 100%;
 }
 
 #descricao {
@@ -93,7 +102,8 @@ h1 {color: #DD2E43; text-align: center; font-weight: 500;}
     font-weight: normal;
     display: flex;
     align-items: center;
-    justify-content: center
+    justify-content: center;
+    width: 100%;
 }
 
 #barra {
@@ -109,7 +119,7 @@ h1 {color: #DD2E43; text-align: center; font-weight: 500;}
 
 .item{
     display: flex;
-    min-height: 44px;
+    min-height: 48px;
     flex: auto;
     align-items: center;
     justify-content: center;

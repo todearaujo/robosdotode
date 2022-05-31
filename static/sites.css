@@ -23,6 +23,7 @@
     max-width: 100%;
     display: grid;
     grid-template-columns: 100%;
+    gap: 1px;
 }
 
 .itenssite a{
@@ -42,7 +43,7 @@
 }
 
 #webstories {
-    display: flex;
+    display: grid;
 }
 
 a.linksite {
@@ -113,14 +114,16 @@ a.conteudo:visited {
     padding: 10px;
 }
 
-.homes {
+#homes {
     display: grid;
     grid-template-columns: 1fr;
+    gap: 1px;
 }
 
-.maislidas {
+#maislidas {
     display: grid;
     grid-template-columns: 1fr;
+    gap: 1px;
 }
 
 @media only screen and (min-width: 780px) {
@@ -131,12 +134,12 @@ a.conteudo:visited {
         justify-content: center;
     }
 
-    .homes {
+    #homes {
         display: grid;
         grid-template-columns: 1fr 1fr;
     }
 
-    .maislidas {
+    #maislidas {
         display: grid;
         grid-template-columns: 1fr 1fr;
     }
@@ -150,25 +153,37 @@ a.conteudo:visited {
         justify-content: center;
     }
 
-    .homes {
+    #homes {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
     }
 
-    .maislidas {
+    #maislidas {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(25%, 1fr));;
+        grid-template-columns: repeat(auto-fill, minmax(25%, 1fr));
+    }
+
+    #webstories {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
+        gap: 1px;
     }
 }
 
 @media only screen and (min-width: 2000px) {
-    .homes {
+    body{
+        max-width: 1200px;
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        justify-items: center;
     }
 
-    .maislidas {
+    #homes {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    #maislidas {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
     }
 }
