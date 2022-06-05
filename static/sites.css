@@ -69,7 +69,7 @@ a.conteudo:visited {
     background: #ec7000 !important;
 }
 
-.valor {
+.valor{
     background: #37626e !important;
 }
 
@@ -109,6 +109,30 @@ a.conteudo:visited {
     background: #19A39A !important;
 }
 
+.neofeed {
+    background: orangered !important;
+}
+
+.estadao {
+    background: darkblue !important;
+}
+
+#newsfusoes > * > .val {
+    border-left: 5px solid #37626e;
+}
+
+#newsfusoes > * >  .neo {
+    border-left: 5px solid orangered;
+}
+
+#newsfusoes > * >  .est {
+    border-left: 5px solid darkblue;
+}
+
+#newsfusoes > * >  .mon {
+    border-left: 5px solid #00c940;
+}
+
 #tweetscontainer {
     display: block;
     padding: 10px;
@@ -126,6 +150,34 @@ a.conteudo:visited {
     gap: 1px;
 }
 
+#newsfusoes {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1px;
+}
+
+#newsfusoes > .itenssite {
+    grid-template-columns: 1fr;
+    gap: 0px;
+}
+
+#newsfusoes > .itenssite > a {
+    height: 150px;
+    align-items: center;
+    justify-content: center;
+    align-self: end;
+}
+
+.itenssite > a > .linhafina{
+    margin: 0;
+    font-size: 0.75rem;
+}
+
+.itenssite > a > .linhafina{
+    margin: 0;
+    font-size: 0.75rem;
+}
+
 @media only screen and (min-width: 780px) {
     #tweetscontainer {
         display: grid;
@@ -141,6 +193,10 @@ a.conteudo:visited {
 
     #maislidas {
         display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    #newsfusoes > .itenssite {
         grid-template-columns: 1fr 1fr;
     }
 }
@@ -167,6 +223,10 @@ a.conteudo:visited {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
         gap: 1px;
+    }
+
+    #newsfusoes > .itenssite {
+        grid-template-columns: 1fr 1fr 1fr;
     }
 }
 

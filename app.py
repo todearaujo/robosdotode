@@ -7,6 +7,7 @@ from cachetools import cached, TTLCache
 import tweepy
 import pandas as pd
 import os
+from GoogleNews import GoogleNews as gn
 from todescrapers import *
 
 cache = TTLCache(maxsize=128, ttl=900)
@@ -213,5 +214,33 @@ def fusoesbusca():
   sites = dict(valor = valor, neofeed = neofeed, moneytimes = moneytimes, estadao = estadao)
   
   return render_template("fusoes-busca.html", **sites)
+
+@app.route("/fusoes/gnews")
+def fusoesgnews():
+
+    termos = "fusões e aquisições"
+    periodo = '7d'
+
+    gnews = gn(lang='pt',encode='utf-8',period=periodo)
+    gnews.get_news(termos)
+    manchetes = gnews.results(sort=True)
+
+    ndict = dict(manchetes=manchetes)
+
+    return render_template("fusoes-gnews.html", **ndict)
+
+@app.route("/fusoes/gbusca")
+def fusoesgbusca():
+
+    termos = "fusões e aquisições"
+    periodo = '7d'
+
+    gbusca = gn(lang='pt',encode='utf-8',period=periodo)
+    gbusca.search(termos)
+    manchetes = gbusca.results(sort=True)
+
+    ndict = dict(manchetes=manchetes)
+
+    return render_template("fusoes-gbusca.html", **ndict)
 
 Talisman(app, content_security_policy=None)

@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 
-{% block title %}/fusoes - Busca{% endblock %}
+{% block title %}Editor de /economia - Webstories{% endblock %}
 
-{% block metadescription %}Últimos conteúdos listados nas buscas 'fusão' + 'aquisição'{% endblock %}
+{% block metadescription %}Últimos webstories em sites de economia, investimentos e finanças pessoais do Brasil{% endblock %}
 
-{% block manifest %}fusoes.webmanifest{% endblock %}
+{% block manifest %}economia.webmanifest{% endblock %}
 
 {% block metatags %}
 <link href="/static/sites.css" rel="stylesheet">
@@ -12,105 +12,58 @@
 
 <!-- Page specific CSS. Render inside base.html <style> -->
 {% block style %}   
-.neofeed {
-  background: #ec7000;
-}
-
-.estadao {
-  background: #2d74e7;
-}
 {% endblock %}
 <!-- End of page specific CSS -->e
 
-{% block superior %}
-<div id="superior" class="tab">
-  <div class="imgrobo lin">
-    <div class="cel">
-      <span id="economia">
-        <a onclick="loading()" href="/"><img alt="Robô" style="vertical-align: middle;" width="30px" height="30px" src="/static/384.png"></a></span>/fusoes/busca</span>
-    </div>
-  </div>
-  <div id="descricao" class="lin">
-    <div class="cel">
-      Últimos conteúdos listados nas buscas 'fusão' + 'aquisição'
-    </div>
-  </div>
-</div>
+<!-- Menu blocks, declared together, but render separately on final page -->
+{% block inferioreconomia %}
 {% endblock %}
 
+{% block superior %}
+<div class="imgrobo">
+  <a onclick="loading()" href="/"><img alt="Robô" width="30px" height="30px" src="/static/384.png"></a>/economia/fusoes/gnews
+</div>
+<div id="descricao">Resultados de busca por "fusões e aquisições"</div>
+<div id="barra">
+  <a onclick="loading()" class="item inativo" href="/fusoes/busca">/busca</a>
+  <a onclick="loading()" class="item inativo" href="/fusoes/gbusca">/gbusca</a>
+  <a onclick="loading()" class="item inativo" href="/fusoes/gnews">/gnews</a>
+</div>
+{% endblock %}
+<!-- End of menu blocks -->
+
 {% block content %}
+
 <!-- Here we render dicts inside tables using loops that iterates items -->
-<table class="tabela">
-<tbody>
-  <tr>
-    <th class="valor">
-      <a class="linksite" href="https://valor.globo.com/busca/?q=fusão+aquisição" target="_blank">valor.globo.com</a>
-    </th>
-  </tr>
-</tbody>
-<tbody>
-  {% for k, v in valor.items() %}
-  <tr>
-    <td>
-      <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
-    </td>
-  </tr>
-  {% endfor %}
-  </tbody>
-</table>
-<!-- End of the first table example -->
-<table class="tabela">
-  <tbody>
-    <tr>
-      <th class="moneytimes">
-        <a class="linksite" href="https://www.moneytimes.com.br/?s=fus%C3%B5es+aquisi%C3%A7%C3%B5es" target="_blank">moneytimes.com.br</a>
-      </th>
-    </tr>
-  </tbody>
-  <tbody>
-    {% for k, v in moneytimes.items() %}
-    <tr>
-      <td>
-        <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
-      </td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
-<table class="tabela">
-  <tbody>
-    <tr>
-      <th class="estadao">
-        <a class="linksite" href="https://busca.estadao.com.br/?q=fus%C3%A3o+aquisi%C3%A7%C3%A3o" target="_blank">estadao.com.br</a>
-      </th>
-    </tr>
-  </tbody>
-  <tbody>
-    {% for k, v in estadao.items() %}
-    <tr>
-      <td>
-        <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
-      </td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
-<table class="tabela">
-  <tbody>
-    <tr>
-      <th class="neofeed">
-        <a class="linksite" href="https://neofeed.com.br/?s=fus%C3%A3o+aquisi%C3%A7%C3%A3o" target="_blank">neofeed.com.br</a>
-      </th>
-    </tr>
-  </tbody>
-  <tbody>
-    {% for k, v in neofeed.items() %}
-    <tr>
-      <td>
-        <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
-      </td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
+<section id="newsfusoes">
+
+    <div class="itenssite">
+        <a class="valor linksite item" href="https://valor.globo.com/busca/?q=fusão+aquisição" target="_blank">valor.globo.com</a>
+        {% for k, v in valor.items() %}
+        <a target="_blank" class="val conteudo" href="https://{{ v }}">{{ k }}</a>
+        {% endfor %}
+    </div>
+
+    <div class="itenssite">
+        <a class="neofeed linksite item" href="https://neofeed.com.br/?s=fus%C3%A3o+aquisi%C3%A7%C3%A3o" target="_blank">neofeed.com.br</a>
+        {% for k, v in neofeed.items() %}
+        <a target="_blank" class="neo conteudo" href="{{ v }}">{{ k }}</a>
+        {% endfor %}
+    </div>
+
+    <div class="itenssite">
+        <a class="estadao linksite item" href="https://busca.estadao.com.br/?q=fus%C3%A3o+aquisi%C3%A7%C3%A3o" target="_blank">estadao.com.br</a>
+        {% for k, v in estadao.items() %}
+        <a target="_blank" class="est conteudo" href="{{ v }}">{{ k }}</a>
+        {% endfor %}
+    </div>
+
+    <div class="itenssite">
+        <a class="moneytimes linksite item" href="https://www.moneytimes.com.br/?s=fus%C3%B5es+aquisi%C3%A7%C3%B5es" target="_blank">moneytimes.com.br</a>
+        {% for k, v in moneytimes.items() %}
+        <a target="_blank" class="mon conteudo" href="{{ v }}">{{ k }}</a>
+        {% endfor %}
+    </div>
+
+</section>
 {% endblock %}

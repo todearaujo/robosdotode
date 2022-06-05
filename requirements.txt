@@ -6,3 +6,4 @@ lxml
 cachetools
 flask-talisman
 tweepy
+GoogleNews
