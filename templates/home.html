@@ -81,4 +81,10 @@
     
     window.addEventListener("deviceorientation", changeShadow);
 </script>
+<script>
+  window.onload = function() {
+    document.querySelector("#loader").style.display = "none";
+    document.querySelector("#content").classList.add("fadein");
+  }
+</script>
 {% endblock %}

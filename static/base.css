@@ -7,16 +7,19 @@
 /* Loading circle figure only with CSS */
 #loader {
     position: absolute;
-    z-index: -1;
+    z-index: 3;
     height: 100%;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: white;
 }
 
+#loadtext{padding-right: 10px}
+
 #loading {
-    position: absolute;
+    position: relative;
     border: 10px solid #FFFFFF;
     border-radius: 50%;
     border-top: 10px solid #DD2E43;
@@ -24,8 +27,9 @@
     height: 30px;
     -webkit-animation: spin 1s linear infinite; /* Safari */
     animation: spin 1s linear infinite;
-    display: none;
 }
+
+#content{transition: all 2s ease-in forwards 2s; opacity: 0;}
 
 /* Safari */
 @-webkit-keyframes spin {
@@ -55,7 +59,7 @@ a:visited {color: #000000;}
 
 h1 {color: #DD2E43; text-align: center;}
 
-.fadein {animation:opac 2s;}@keyframes opac{from{opacity:0} to{opacity:1}}
+.fadein {opacity: 1 !important;}
 
 .tab {
     display: table;
@@ -165,3 +169,6 @@ h1 {color: #DD2E43; text-align: center;}
 .sticky + .content {
     padding-top: 60px;
 }
+
+#tweetscontainer{padding: 10px;}
+

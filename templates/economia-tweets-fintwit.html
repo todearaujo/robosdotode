@@ -16,6 +16,9 @@
 <!-- End of page specific CSS -->
 
 <!-- Menu blocks -->
+{% block inferioreconomia %}
+{% endblock %}
+
 {% block superior %}
 <div class="imgrobo">
   <a onclick="loading()" href="/"><img alt="Robô" width="30px" height="30px" src="/static/384.png"></a>/economia/tweets/fintwit
@@ -32,20 +35,37 @@
 <!-- End of menu blocks -->
 
 {% block content %}
-
 <!-- Here we render tweets using a loop that exctract tweet's IDs from a dict -->
-<div id="tweetscontainer"> 
+<div id="tweetscontainer">
   {% for ID in fintweets %}
   <div id="{{ ID }}"></div>
   {% endfor %}
-  <script sync src="https://platform.twitter.com/widgets.js"></script>
-  <script>
-  function tweetsfunc() {
-    {% for ID in fintweets %}twttr.widgets.createTweet('{{ ID }}',document.getElementById('{{ ID }}'),{});{% endfor %}
-  };
-  tweetsfunc();
-  </script>
-  </div>
-<!-- End of the loop -->
+</div>
 
+<script sync src="https://platform.twitter.com/widgets.js"></script>
+
+<script>
+
+  function tweetsfunc(){
+    {% for ID in fintweets %}
+    twttr.widgets.createTweet('{{ ID }}',document.getElementById('{{ ID }}'),{lang:'pt'});
+    {% endfor %}
+  };
+    
+  tweetsfunc();
+
+  let ntweets = 0
+
+  twttr.events.bind('rendered',function (event) {
+    ntweets++
+    document.querySelector("#loadtext").innerHTML = ("Carregando " + ntweets + "/30");
+    if (ntweets == 30){
+      console.log('Rolou!', event.target.id);
+      document.querySelector("#loader").style.display = "none";
+      document.querySelector("#content").classList.add("fadein");
+    }
+  });
+
+</script>
+<!-- End of the loop -->
 {% endblock %}

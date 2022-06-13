@@ -2,6 +2,8 @@
 <html lang="pt-BR">
   <head>
 
+    {% block head %}{% endblock %}
+
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
       new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -37,6 +39,7 @@
 
     <!-- Metatags -->
     <meta name="description" content="{% block metadescription %}{% endblock %}" />
+    <meta name="robots" content="nofollow">
     
     <!-- Viewport for responsiveness -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -65,14 +68,15 @@
     </style>
     <!-- End of CSS base stylesheet block  -->
 
-<!-- Loading simulation script -->
+<!-- Loading loading script -->
  <script>
   function loading() {
-    document.getElementById("content").style.display = "none";
-    document.getElementById("loading").style.display = "block";
+    document.querySelector("#content").style.display = "none";
+    document.querySelector("#loadtext").innerHTML = "Carregando... ";
+    document.querySelector("#loader").style.display = "flex";
   }
 </script>
-<!-- End of loading simulation script -->
+<!-- End of loading script -->
 
 </head>
   
@@ -83,12 +87,12 @@
 <!-- End Google Tag Manager (noscript) -->
 
 <!-- Loading figure DIV -->
-    <div id="loader"><div id="loading"></div></div>
+    <div id="loader"><div id="loadtext">Carregando...</div><div id="loading"></div></div>
 <!-- End of loading figure DIV -->
     
 <!-- Content DIV -->
     {% block superior %}{% endblock %}
-  <section id="content" class="fadein">
+  <section id="content">
     {% block content %}{% endblock %}
     <div class="imgrobo">
       <img alt="Robô" style="vertical-align: middle;" width="50px" height="50px" src="/static/384.png">

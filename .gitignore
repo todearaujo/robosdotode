@@ -4,3 +4,9 @@ todescrapers.py
 .vscode
 .vscode/launch.json
 templates/backup
+robosv1/base.css
+robosv1/home.html
+robosv1/sites.css
+robosv1/economia-maislidas.html
+robosv1/economia-destaques.html
+robosv1/base.html

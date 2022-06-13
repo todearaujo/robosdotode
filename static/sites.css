@@ -133,11 +133,6 @@ a.conteudo:visited {
     border-left: 5px solid #00c940;
 }
 
-#tweetscontainer {
-    display: block;
-    padding: 10px;
-}
-
 #homes {
     display: grid;
     grid-template-columns: 1fr;
