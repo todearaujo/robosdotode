@@ -60,12 +60,15 @@
     ntweets++
     document.querySelector("#loadtext").innerHTML = ("Carregando " + ntweets + "/30");
     if (ntweets == 30){
-      console.log('Rolou!', event.target.id);
-      document.querySelector("#loader").style.display = "none";
-      document.querySelector("#content").classList.add("fadein");
+      console.log('Status: Tweets carregados', event.target.id);
+      carregada();
+      console.log("Status: Página completa");
     }
   });
 
 </script>
 <!-- End of the loop -->
 {% endblock %}
+
+{% block interactive %}{% endblock %}
+{% block complete %}console.log("Status: Tweets carregando");{% endblock %}

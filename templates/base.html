@@ -4,6 +4,23 @@
 
     {% block head %}{% endblock %}
 
+    <script>
+      function carregada(){
+        document.querySelector("#loader").style.display = "none";
+        document.querySelector("#content").classList.add("fadein");
+      }
+
+      document.addEventListener('readystatechange', event => {
+        if (event.target.readyState === 'interactive') {
+          {% block interactive %}{% endblock %}
+          console.log("Status: Página interativa")
+        }
+        else if (event.target.readyState === 'complete') {
+          {% block complete %}{% endblock %}
+        }
+      });
+    </script>
+
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
       new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -68,42 +85,46 @@
     </style>
     <!-- End of CSS base stylesheet block  -->
 
-<!-- Loading loading script -->
- <script>
-  function loading() {
-    document.querySelector("#content").style.display = "none";
-    document.querySelector("#loadtext").innerHTML = "Carregando... ";
-    document.querySelector("#loader").style.display = "flex";
-  }
-</script>
-<!-- End of loading script -->
+  <!-- Loading loading script -->
+  <script>
+    function loading() {
+      document.querySelector("#content").style.display = "none";
+      document.querySelector("#loadtext").innerHTML = "Carregando... ";
+      document.querySelector("#loader").style.display = "flex";
+    }
+  </script>
+  <!-- End of loading script -->
 
 </head>
   
   <body>
 
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PXDDNLD" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PXDDNLD" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
 
-<!-- Loading figure DIV -->
-    <div id="loader"><div id="loadtext">Carregando...</div><div id="loading"></div></div>
-<!-- End of loading figure DIV -->
-    
-<!-- Content DIV -->
-    {% block superior %}{% endblock %}
-  <section id="content">
-    {% block content %}{% endblock %}
-    <div class="imgrobo">
-      <img alt="Robô" style="vertical-align: middle;" width="50px" height="50px" src="/static/384.png">
-    </div>
-    {% block inferior %}
-    {% endblock %}
-    <navbar class="inferior economia">
-      <a onclick="loading()" class="item inativo" href="/">Sobre o site</a></td>
-    </navbar>
-  </section>
-<!-- End of content DIV -->
+  <!-- Loading figure DIV -->
+      <div id="loader">
+        <!-- <label>Carregando... <progress indeterminate role="progressbar" aria-describedby="content" tabindex="-1"></progress></label> -->
+        <div id="loadtext">Carregando...</div>
+        <div id="loading"></div>
+      </div>
+  <!-- End of loading figure DIV -->
+      
+  <!-- Content DIV -->
+      {% block superior %}{% endblock %}
+    <section id="content" aria-busy="true">
+      {% block content %}{% endblock %}
+      <div class="imgrobo">
+        <img alt="Robô" style="vertical-align: middle;" width="50px" height="50px" src="/static/384.png">
+      </div>
+      {% block inferior %}
+      {% endblock %}
+      <navbar class="inferior economia">
+        <a onclick="loading()" class="item inativo" href="/">Sobre o site</a></td>
+      </navbar>
+    </section>
+  <!-- End of content DIV -->
 
     <script>
       window.onscroll = function() {stickyfunction()};

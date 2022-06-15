@@ -88,11 +88,11 @@
   </div>
 
 </div>
-<script>
-  window.onload = function() {
-    document.querySelector("#loader").style.display = "none";
-    document.querySelector("#content").classList.add("fadein");
-  }
-</script>
+
+{% endblock %}
+
+{% block complete %}
+carregada();
+console.log("Status: Página completa");
 {% endblock %}
 
