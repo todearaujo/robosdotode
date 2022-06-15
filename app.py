@@ -100,8 +100,6 @@ def economiadestaques():
     
     exame = scrape_h_to_dict('https://exame.com/','//div[contains(@class, "Section__HighlightSection")]//a//h2','//div[contains(@class, "Section__HighlightSection")]//a')
 
-    # oespecialista = scrape_a_to_dict('https://oespecialista.com.br/','//div[@id="front-page-top"]//h3//a')
-
     inteligenciaf1 = scrape_a_to_dict('https://inteligenciafinanceira.com.br/','//div[contains(@class, "main-feed__feature")]//h2[contains(@class, "main-feed__title")]//a')
     inteligenciaf2 = scrape_a_to_dict('https://inteligenciafinanceira.com.br/','//a[contains(@class, "list_needtoknow__link")]')
 
@@ -122,8 +120,6 @@ def economiamaislidas():
   valor = scrape_a_to_dict('https://valor.globo.com/','//div[@data-component-type="card-mais-lidas"]//a')
 
   valorinveste = scrape_a_to_dict('https://valorinveste.globo.com/','//div[@data-component-type="card-mais-lidas"]//a')
-  
-#   oespecialista = scrape_a_to_dict('https://oespecialista.com.br/','//div[@id="popular-posts"]//li//a')
   
   sites = dict(investnews = investnews, moneytimes = moneytimes, valor = valor, valorinveste = valorinveste)
   
