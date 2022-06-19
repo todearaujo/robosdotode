@@ -4,7 +4,7 @@
 
 {% block metadescription %}Últimos webstories em sites de economia, investimentos e finanças pessoais do Brasil{% endblock %}
 
-{% block manifest %}economia.webmanifest{% endblock %}
+{% set manifest = "fusoes.webmanifest" %}
 
 {% block metatags %}
 <link href="/static/sites.css" rel="stylesheet">
@@ -13,10 +13,15 @@
 <!-- Page specific CSS. Render inside base.html <style> -->
 {% block style %}   
 {% endblock %}
-<!-- End of page specific CSS -->e
+<!-- End of page specific CSS -->
+
+{% block complete %}
+carregada();
+console.log("Status: Página completa");
+{% endblock %}
 
 <!-- Menu blocks, declared together, but render separately on final page -->
-{% block inferioreconomia %}
+{% block inferior %}
 {% endblock %}
 
 {% block superior %}
@@ -25,9 +30,9 @@
 </div>
 <div id="descricao">Resultados no Google por "fusões e aquisições"</div>
 <div id="barra">
-  <a onclick="loading()" class="item inativo" href="/fusoes/busca">/busca</a>
-  <a onclick="loading()" class="item inativo" href="/fusoes/gbusca">/gbusca</a>
-  <a onclick="loading()" class="item inativo" href="/fusoes/gnews">/gnews</a>
+  <a onclick="loading()" class="item inativo" href="{{ url_for('fusoes', secao='busca') }}">/busca</a>
+  <a onclick="loading()" class="item ativo" href="{{ url_for('fusoes', secao='gbusca') }}">/gbusca</a>
+  <a onclick="loading()" class="item inativo" href="{{ url_for('fusoes', secao='gnews') }}">/gnews</a>
 </div>
 {% endblock %}
 <!-- End of menu blocks -->
@@ -37,14 +42,9 @@
 <!-- Here we render dicts inside tables using loops that iterates items -->
 <section id="newsfusoes">
 <div class="itenssite">
-  {% for manchete in manchetes %}
+  {% for manchete in conteudo %}
   <a target="_blank" class="conteudo" href="{{ manchete.link }}"><p class="nomesite"><b>{{ manchete.media }}</b></p>{{ manchete.title }}</a>
   {% endfor %}
 </div>
 
-{% endblock %}
-
-{% block complete %}
-carregada();
-console.log("Status: Página completa");
 {% endblock %}

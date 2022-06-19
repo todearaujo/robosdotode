@@ -2,8 +2,9 @@
 <html lang="pt-BR">
   <head>
 
-    {% block head %}{% endblock %}
+    {% block head %}{% endblock head%}
 
+    <!-- Page loader script -->
     <script>
       function carregada(){
         document.querySelector("#loader").style.display = "none";
@@ -13,13 +14,14 @@
       document.addEventListener('readystatechange', event => {
         if (event.target.readyState === 'interactive') {
           {% block interactive %}{% endblock %}
-          console.log("Status: Página interativa")
+          console.log("Página > Interativa")
         }
         else if (event.target.readyState === 'complete') {
           {% block complete %}{% endblock %}
         }
       });
     </script>
+    <!-- End of Page loader script -->
 
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -31,28 +33,28 @@
     <!-- End Google Tag Manager -->
 
     <!-- Service Worker -->
-    <script type="text/javascript">
-      (function() {
-      if('serviceWorker' in navigator) {
-        window.addEventListener('load', function() {
-          navigator.serviceWorker.register('/sw.js', {scope: '/'})
-                   .then(function(registration) {
-                   console.log('ServiceWorker carregado no escopo: ', registration.scope);
-                   return registration;
-          })
-          .catch(function(err) {
-            console.error('ServiceWorker não carregado: ', err);
-          });
-          navigator.serviceWorker.ready.then(function(registration) {
-            console.log('Service Worker Pronto');
-          });
-        });
-      }
-    })();
+    <script>
+    if('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js', {scope: '/'})
+          .then(registration => {
+            console.log('Workbox > Escopo: ', registration.scope)
+            return registration})
+          .catch(err => {
+            console.warn('Workbox > Erro: ', err)})
+        navigator.serviceWorker.ready.then(registration => {
+             console.log('Workbox > Registrado')})
+      })
+    }
     </script>
+
+
+
+      
+
     <!-- End Service Worker -->
 
-    <title>{% block title %}{% endblock %} | Robôs do Tode</title> 
+    <title>{% block title %}{% endblock title%} | Robôs do Tode</title> 
 
     <!-- Metatags -->
     <meta name="description" content="{% block metadescription %}{% endblock %}" />
@@ -61,10 +63,22 @@
     <!-- Viewport for responsiveness -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- Material Design -->
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet" >
+    <link href="{{ url_for('static', filename='colors.css') }}" rel="stylesheet" >
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script>
+      const foos = [].map.call(document.querySelectorAll('.mdc-foo'), function (el) {
+        return new MDCFoo(el);
+      });
+    </script>
+    <!-- End of Material Design -->
+
     <!-- Icon tags, manifest path e theme color for app/shortcut -->
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
-    <link rel="manifest" href="/{% block manifest %}{% endblock %}")">
-    <link href="/static/base.css" rel="stylesheet" >
+    <link rel="manifest" href="{{ url_for('buildmanifest', manifest=manifest)}}")>
+    <link href="{{ url_for('static', filename='base.css') }}" rel="stylesheet" >
     <meta name="theme-color" content="#DD2E43">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -76,7 +90,7 @@
     <link rel="apple-touch-icon" href="/static/192.png" sizes="192x192">
     <link rel="apple-touch-icon" href="/static/384.png" sizes="384x384">
     <link rel="apple-touch-icon" href="/static/512.png" sizes="512x512">
-    {% block metatags %}{% endblock %}
+    {% block metatags %}{% endblock metatags%}
     <!-- End of metatags -->
    
    <!-- CSS base stylesheet block  -->
@@ -104,28 +118,27 @@
   <!-- End Google Tag Manager (noscript) -->
 
   <!-- Loading figure DIV -->
-      <div id="loader">
-        <!-- <label>Carregando... <progress indeterminate role="progressbar" aria-describedby="content" tabindex="-1"></progress></label> -->
-        <div id="loadtext">Carregando...</div>
-        <div id="loading"></div>
-      </div>
+    <div id="loader">
+      <div id="loadtext">Carregando...</div>
+      <div id="loading"></div>
+    </div>
   <!-- End of loading figure DIV -->
       
   <!-- Content DIV -->
-      {% block superior %}{% endblock %}
+    {% block superior %}{% endblock %}
     <section id="content" aria-busy="true">
       {% block content %}{% endblock %}
-      <div class="imgrobo">
-        <img alt="Robô" style="vertical-align: middle;" width="50px" height="50px" src="/static/384.png">
-      </div>
-      {% block inferior %}
-      {% endblock %}
-      <navbar class="inferior economia">
-        <a onclick="loading()" class="item inativo" href="/">Sobre o site</a></td>
-      </navbar>
+    <div class="imgrobo">
+      <img alt="Robô" style="vertical-align: middle;" width="50px" height="50px" src="/static/384.png">
+    </div>
+    {% block inferior %}{% endblock %}
     </section>
   <!-- End of content DIV -->
 
+    <aside id="installprompt">
+
+    </section>
+  <!-- Sticky Navbar Script -->
     <script>
       window.onscroll = function() {stickyfunction()};
       
@@ -140,6 +153,7 @@
         }
       }
     </script>
+<!--  End of Sticky Navbar Script -->
 
   </body>
 </html>

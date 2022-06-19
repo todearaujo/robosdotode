@@ -4,15 +4,20 @@
 
 {% block metadescription %}O que é assunto nos portais e sites de economia, mercado financeiro, investimentos e finanças pessoais do Brasil{% endblock %}
 
-{% block manifest %}economia.webmanifest{% endblock %}
+{% set manifest = "economia.webmanifest" %}
 
 {% block metatags %}
-<link href="/static/sites.css" rel="stylesheet">
+<link href="{{ url_for('static', filename='sites.css') }}" rel="stylesheet">
 {% endblock %}
 
 <!-- Page specific CSS. Render inside base.html <style> -->
-{% block style %}.inferioreconomia {visibility: visible;}{% endblock %}
+{% block style %}{% endblock %}
 <!-- End of page specific CSS -->
+
+{% block complete %}
+carregada();
+console.log("Status: Página completa");
+{% endblock %}
 
 <!-- Menu blocks, declared together, but render separately on final page -->
 {% block inferior %}
@@ -24,16 +29,15 @@
 </div>
 <div id="descricao">Em destaque agora nas homes</div>
 <div id="barra">
-  <a onclick="loading()" class="item ativo" href="/economia/destaques">/destaques</a>
-  <a onclick="loading()" class="item inativo" href="/economia/maislidas">/maislidas</a>
-  <a onclick="loading()" class="item inativo" href="/economia/tweets/fintwit">/tweets</a>
-  <a onclick="loading()" class="item inativo" href="/economia/webstories">/webstories</a>
+  <a onclick="loading()" class="item ativo" href="{{ url_for('economia', secao='destaques') }}">/destaques</a>
+  <a onclick="loading()" class="item inativo" href="{{ url_for('economia', secao='maislidas') }}">/maislidas</a>
+  <a onclick="loading()" class="item inativo" href="{{ url_for('tweetsr', secao='top30') }}">/tweets</a>
+  <a onclick="loading()" class="item inativo" href="{{ url_for('economia', secao='webstories') }}">/webstories</a>
 </div>
 {% endblock %}
 <!-- End of menu blocks -->
 
 {% block content %}
-
 <section id="homes">
   
     <div class="destaques">
@@ -80,10 +84,5 @@
         {% endfor %}
       </div>
     </div>
-{% endblock %}
-
-{% block complete %}
-carregada();
-console.log("Status: Página completa");
-{% endblock %}
-
+</section>
+{% endblock content %}

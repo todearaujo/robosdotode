@@ -4,20 +4,18 @@
 
 {% block metadescription %}30 tweets com maior engajmento entre os perfis no Twitter de veículos de mídia do mercado financeiro do Brasil{% endblock %}
 
-{% block manifest %}economia.webmanifest{% endblock %}
+{% set manifest = "economia.webmanifest" %}
 
 {% block metatags %}
 <link href="/static/sites.css" rel="stylesheet">
 {% endblock %}
 
 <!-- Page specific CSS. Render inside base.html <style> -->
-{% block style %}
-   
-{% endblock %}
-<!-- End of page specific CSS -->e
+{% block style %}{% endblock %}
+<!-- End of page specific CSS -->
 
 <!-- Menu blocks, declared together, but render separately on final page -->
-{% block inferioreconomia %}
+{% block inferior %}
 {% endblock %}
 
 {% block superior %}
@@ -26,11 +24,11 @@
 </div>
 <div id="descricao">Maior engajamento entre @sites</div>
 <div id="barra">
-  <a onclick="loading()" class="item inativo" href="/economia/destaques">/destaques</a>
-  <a onclick="loading()" class="item inativo" href="/economia/maislidas">/maislidas</a>
-  <a onclick="loading()" class="item semiativo" href="/economia/tweets/fintwit">/#fintwitbr</a>
-  <a onclick="loading()" class="item ativo" href="/economia/tweets/top30">/top30</a>
-  <a onclick="loading()" class="item inativo" href="/economia/webstories">/webstories</a>
+  <a onclick="loading()" class="item inativo" href="{{ url_for('economia', secao='destaques') }}">/destaques</a>
+  <a onclick="loading()" class="item inativo" href="{{ url_for('economia', secao='maislidas') }}">/maislidas</a>
+  <a onclick="loading()" class="item semiativo" href="{{ url_for('tweetsr', secao='fintwit') }}">/#fintwitbr</a>
+  <a onclick="loading()" class="item ativo" href="{{ url_for('tweetsr', secao='top30') }}">/top30</a>
+  <a onclick="loading()" class="item inativo" href="{{ url_for('economia', secao='webstories') }}">/webstories</a>
 </div>
 {% endblock %}
 <!-- End of menu blocks -->
@@ -40,7 +38,7 @@
 <!-- Here we render tweets using a loop that exctract tweet's IDs from a dict -->
 
 <div id="tweetscontainer">
-  {% for ID in toptweets %}
+  {% for ID in tweets %}
   <div id="{{ ID }}"></div>
   {% endfor %}
   <script sync src="https://platform.twitter.com/widgets.js"></script>
@@ -49,7 +47,7 @@
 <script>
     
   function tweetsfunc(){
-    {% for ID in toptweets %}
+    {% for ID in tweets %}
     twttr.widgets.createTweet('{{ ID }}',document.getElementById('{{ ID }}'),{lang:'pt'});
     {% endfor %}
   };
@@ -73,4 +71,4 @@
 {% endblock %}
 
 {% block interactive %}{% endblock %}
-{% block complete %}console.log("Status: Tweets carregando");console.log("Status: Página completa");{% endblock %}
+{% block complete %}console.log("Status: Tweets carregando");{% endblock %}
