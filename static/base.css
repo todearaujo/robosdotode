@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
+/* @import url('https://fonts.googleapis.com/icon?family=Material+Icons'); */
 
 *{
     box-sizing: border-box;
@@ -110,7 +112,7 @@ progress:indeterminate::-moz-progress-bar {
     animation: var(--_indeterminate-track-animation);
 }
 
-#content{transition: all 2s ease-in forwards 2s; opacity: 0;}
+#content{animation: fadein 1s ease-in forwards 0s;}
 
 /* Safari */
 @-webkit-keyframes spin {
@@ -140,7 +142,14 @@ a:visited {color: #000000;}
 
 h1 {color: #DD2E43; text-align: center;}
 
-.fadein {opacity: 1 !important;}
+.material-symbols-outlined {font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 48;vertical-align: middle;font-size: 24px;}
+
+.fadein {animation: fadein 1s ease-in forwards 0s;}
+
+@keyframes fadein{
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
 
 .tab {
     display: table;
@@ -253,3 +262,60 @@ h1 {color: #DD2E43; text-align: center;}
 
 #tweetscontainer{padding: 10px;}
 
+#promptInstall{
+    position: fixed;
+    padding: 10px;
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #00000025;
+    border-radius: 10px;
+    font-size: 16px;
+    z-index: 3;
+    text-align: center;
+    height: 100px;
+    width: 95vw;
+    max-width: 400px;
+    align-content: space-evenly;
+    grid-template-areas:
+        "ins ins"
+        "dow dep";
+    grid-template-columns: 50% 50%;
+    gap: 5px;
+    box-shadow: 0px 11px 15px -7px rgb(0 0 0 / 20%), 0px 24px 38px 3px rgb(0 0 0 / 14%), 0px 9px 46px 8px rgb(0 0 0 / 12%);
+    bottom: 10px;
+    right: 10px;
+}
+
+#promptInstall > p{
+    text-align: center;
+    grid-area: ins;
+    font-size: 20px;
+    color: #dd2e44;
+    line-height: 0;
+}
+
+#butInstall{
+    padding: 7px;
+    border-radius: 10px;
+    font-weight: bold;
+    background-color: #5088ee;
+    color: white;
+    border: 0;
+    cursor: pointer;
+    font-size: 14px;
+    vertical-align: middle;
+    grid-area: dow;
+}
+
+#butLater{
+    padding: 7px;
+    border-radius: 10px;
+    font-weight: bold;
+    background-color: #eeeeee;
+    color: #555;
+    border: 0;
+    cursor: pointer;
+    font-size: 14px;
+    vertical-align: middle;
+    grid-area: dep;
+}

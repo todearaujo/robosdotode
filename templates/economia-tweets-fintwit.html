@@ -36,9 +36,7 @@
 {% block content %}
 <!-- Here we render tweets using a loop that extract tweet's IDs from a dict -->
 <div id="tweetscontainer">
-  {% for ID in tweets %}
-  <div id="{{ ID }}"></div>
-  {% endfor %}
+{% for ID in tweets %}<div id="{{ ID }}"></div>{% endfor %}
 </div>
 
 <script sync src="https://platform.twitter.com/widgets.js"></script>

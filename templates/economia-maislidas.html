@@ -11,17 +11,13 @@
 {% endblock %}
 
 <!-- Page specific CSS. Render inside base.html <style> -->
-{% block style %}{% endblock %}
+{% block style %}{% endblock style %}
 <!-- End of page specific CSS -->
 
 {% block complete %}
 carregada();
 console.log("Status: Página completa");
-{% endblock %}
-
-<!-- Menu blocks, declared together, but render separately on final page -->
-{% block inferior %}
-{% endblock %}
+{% endblock complete %}
 
 {% block superior %}
 <div class="imgrobo">
@@ -29,13 +25,15 @@ console.log("Status: Página completa");
 </div>
 <div id="descricao">Maior audiência segundo os próprios sites</div>
 <div id="barra">
-  <a onclick="loading()" class="item inativo" href="/economia/destaques">/destaques</a>
-  <a onclick="loading()" class="item ativo" href="/economia/maislidas">/maislidas</a>
-  <a onclick="loading()" class="item inativo" href="/economia/tweets/fintwit">/tweets</a>
-  <a onclick="loading()" class="item inativo" href="/economia/webstories">/webstories</a>
+  <a onclick="loading()" class="item inativo" href="{{ url_for('economia', secao='destaques') }}">/destaques</a>
+  <a onclick="loading()" class="item ativo" href="{{ url_for('economia', secao='maislidas') }}">/maislidas</a>
+  <a onclick="loading()" class="item inativo" href="{{ url_for('tweetsr', secao='top30') }}">/tweets</a>
+  <a onclick="loading()" class="item inativo" href="{{ url_for('economia', secao='webstories') }}">/webstories</a>
 </div>
 {% endblock superior %}
-<!-- End of menu blocks -->
+
+{% block inferior %}
+{% endblock %}
 
 {% block content %}
 <!-- Here we render dicts inside tables using loops that iterates items -->

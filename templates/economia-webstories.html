@@ -21,20 +21,20 @@ console.log("Status: Página completa");
 {% endblock %}
 
 <!-- Menu blocks, declared together, but render separately on final page -->
-{% block inferior %}
-{% endblock %}
-
 {% block superior %}
 <div class="imgrobo">
   <a onclick="loading()" href="/"><img alt="Robô" width="30px" height="30px" src="/static/384.png"></a>/economia/webstories
 </div>
 <div id="descricao">Webstories mais recentes dos veículos</div>
 <div id="barra">
-  <a onclick="loading()" class="item inativo" href="/economia/destaques">/destaques</a>
-  <a onclick="loading()" class="item inativo" href="/economia/maislidas">/maislidas</a>
-  <a onclick="loading()" class="item inativo" href="/economia/tweets/fintwit">/tweets</a>
-  <a onclick="loading()" class="item ativo" href="/economia/webstories">/webstories</a>
+  <a onclick="loading()" class="item inativo" href="{{ url_for('economia', secao='destaques') }}">/destaques</a>
+  <a onclick="loading()" class="item inativo" href="{{ url_for('economia', secao='maislidas') }}">/maislidas</a>
+  <a onclick="loading()" class="item inativo" href="{{ url_for('tweetsr', secao='top30') }}">/tweets</a>
+  <a onclick="loading()" class="item ativo" href="{{ url_for('economia', secao='webstories') }}">/webstories</a>
 </div>
+{% endblock %}
+
+{% block inferior %}
 {% endblock %}
 <!-- End of menu blocks -->
 

@@ -1,9 +1,6 @@
 from flask import Flask, render_template, redirect, make_response, send_from_directory
 from flask_talisman import Talisman
-from cachetools import cached, TTLCache
 from todescrapers import *
-
-cache = TTLCache(maxsize=100, ttl=60)
 
 app = Flask(__name__)
 
@@ -23,15 +20,12 @@ def offline():
 def buildmanifest(manifest):
     return render_template(manifest)
 
-@app.route('/<arquivo>')
-def converter(arquivo, tipo):
-    return render_template(arquivo + '.' + tipo)
-
-@app.route('/sw.js')
-def sw():
-    response=make_response(send_from_directory(path='templates',directory='templates',filename='sw.js'))
+@app.route('/<arquivo>.js')
+def js(arquivo):
+    response=make_response(send_from_directory(path='templates',directory='templates',filename=arquivo + '.js'))
     response.headers['Content-Type'] = 'application/javascript'
     response.headers['Cache-Control'] = 'no-cache'
+    response.headers['Charset'] = 'utf-8'
     return response
 
 @app.route('/push/ossw.js')

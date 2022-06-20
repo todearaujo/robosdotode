@@ -4,6 +4,7 @@ pandas
 requests
 lxml
 cachetools
-flask-talisman
+flask_talisman
 tweepy
 GoogleNews
+urlopen

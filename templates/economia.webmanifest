@@ -27,7 +27,8 @@
   }],
 "theme_color":"#DD2E42",
 "background_color":"#DD2E42",
-"display":"standalone",
+"display_override": ["standalone"],
+"display": "standalone",
 "description": "O que é assunto em sites de economia, investimentos e finanças pessoais do Brasil",
 "lang": "pt-BR",
 "icons":[{

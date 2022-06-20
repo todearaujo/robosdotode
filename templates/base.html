@@ -47,11 +47,6 @@
       })
     }
     </script>
-
-
-
-      
-
     <!-- End Service Worker -->
 
     <title>{% block title %}{% endblock title%} | Robôs do Tode</title> 
@@ -64,15 +59,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Material Design -->
-    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
-    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet" >
-    <link href="{{ url_for('static', filename='colors.css') }}" rel="stylesheet" >
+    <!-- <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet" > -->
+    <!-- <link href="{{ url_for('static', filename='colors.css') }}" rel="stylesheet" > -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <script>
+    <!-- <script>
       const foos = [].map.call(document.querySelectorAll('.mdc-foo'), function (el) {
         return new MDCFoo(el);
       });
-    </script>
+    </script> -->
     <!-- End of Material Design -->
 
     <!-- Icon tags, manifest path e theme color for app/shortcut -->
@@ -123,6 +118,12 @@
       <div id="loading"></div>
     </div>
   <!-- End of loading figure DIV -->
+
+    <div id="promptInstall" style="display: none;">
+      <p>Baixe nosso app!</p>
+      <button id="butInstall" onclick="pwaInstall()" type="button">Download <span class="material-symbols-outlined">download_for_offline</span></button>
+      <button id="butLater" onclick="pwaDismiss()"type="button">Depois <span class="material-symbols-outlined">cancel</span></button>
+    </div>
       
   <!-- Content DIV -->
     {% block superior %}{% endblock %}
@@ -135,9 +136,6 @@
     </section>
   <!-- End of content DIV -->
 
-    <aside id="installprompt">
-
-    </section>
   <!-- Sticky Navbar Script -->
     <script>
       window.onscroll = function() {stickyfunction()};
@@ -154,6 +152,8 @@
       }
     </script>
 <!--  End of Sticky Navbar Script -->
+
+    <script src="{{ url_for('js', arquivo='pwafunc')}}"></script>
 
   </body>
 </html>

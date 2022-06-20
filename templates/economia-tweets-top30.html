@@ -6,6 +6,9 @@
 
 {% set manifest = "economia.webmanifest" %}
 
+{% block interactive %}{% endblock %}
+{% block complete %}console.log("Status: Tweets carregando");{% endblock %}
+
 {% block metatags %}
 <link href="/static/sites.css" rel="stylesheet">
 {% endblock %}
@@ -14,10 +17,7 @@
 {% block style %}{% endblock %}
 <!-- End of page specific CSS -->
 
-<!-- Menu blocks, declared together, but render separately on final page -->
-{% block inferior %}
-{% endblock %}
-
+<!-- Menu blocks -->
 {% block superior %}
 <div class="imgrobo">
   <a onclick="loading()" href="/"><img alt="Robô" width="30px" height="30px" src="/static/384.png"></a>/economia/tweets/fintwit
@@ -31,11 +31,12 @@
   <a onclick="loading()" class="item inativo" href="{{ url_for('economia', secao='webstories') }}">/webstories</a>
 </div>
 {% endblock %}
-<!-- End of menu blocks -->
 
+{% block inferior %}
+{% endblock %}
+
+<!-- Conteúdo -->
 {% block content %}
-
-<!-- Here we render tweets using a loop that exctract tweet's IDs from a dict -->
 
 <div id="tweetscontainer">
   {% for ID in tweets %}
@@ -67,8 +68,7 @@
   });
 
 </script>
-<!-- End of the loop -->
-{% endblock %}
 
-{% block interactive %}{% endblock %}
-{% block complete %}console.log("Status: Tweets carregando");{% endblock %}
+{% endblock content %}
+
+<!-- Conteúdo -->
