@@ -68,16 +68,13 @@ def economiadestaques():
     moneytimes3 = scrape_a_to_dict('https://www.moneytimes.com.br/','//div[@class="home-list"]/div/h3/a')
 
     moneytimes = {**moneytimes1, **moneytimes2, **moneytimes3}
-    
-    exame = scrape_h_to_dict('https://exame.com/','//div[contains(@class, "Section__HighlightSection")]//a//h2','//div[contains(@class, "Section__HighlightSection")]//a')
 
     inteligenciaf1 = scrape_a_to_dict('https://inteligenciafinanceira.com.br/','//span[contains(@class, "title-h1")]//a')
     inteligenciaf2 = scrape_a_to_dict('https://inteligenciafinanceira.com.br/','//span[contains(@class, "title-h2")]//a')
 
     inteligenciaf = {**inteligenciaf1,**inteligenciaf2}
 
-    sites = dict(infomoney = infomoney, investnews = investnews, moneytimes = moneytimes,  exame = exame, valor = valor,
-    valorinveste = valorinveste, inteligenciaf = inteligenciaf)
+    sites = dict(infomoney = infomoney, investnews = investnews, moneytimes = moneytimes,  valor = valor, valorinveste = valorinveste, inteligenciaf = inteligenciaf)
 
     return render_template("economia-destaques.html", **sites)
 
