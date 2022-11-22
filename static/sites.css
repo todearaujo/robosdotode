@@ -191,9 +191,17 @@ a.conteudo:visited {
         grid-template-columns: 1fr 1fr;
     }
 
+    #webstories {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1px;
+        align-items: start;
+    }
+
     #newsfusoes > .itenssite {
         grid-template-columns: 1fr 1fr;
     }
+
 }
 
 @media only screen and (min-width: 1300px) {
@@ -216,8 +224,9 @@ a.conteudo:visited {
 
     #webstories {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
+        grid-template-columns: 1fr 1fr 1fr;
         gap: 1px;
+        align-items: start;
     }
 
     #newsfusoes > .itenssite {

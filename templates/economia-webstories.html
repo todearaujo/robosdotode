@@ -42,6 +42,14 @@ console.log("Status: Página completa");
 
 <!-- Here we render dicts inside tables using loops that iterates items -->
 <section id="webstories">
+
+<div class="itenssite">
+  <a class="inteligenciaf linksite item" href="https://www.inteligenciafinanceira.com.br/" target="_blank">inteligenciafinanceira.com.br</a>
+  {% for k, v in inteligenciaf.items() %}
+  <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
+  {% endfor %}
+</div>
+
 <div class="itenssite">
   <a class="investnews linksite item" href="https://www.investnews.com.br/" target="_blank">investnews.com.br</a>
   {% for k, v in investnews.items() %}

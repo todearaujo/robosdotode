@@ -69,8 +69,8 @@ def economiadestaques():
 
     moneytimes = {**moneytimes1, **moneytimes2, **moneytimes3}
 
-    inteligenciaf1 = scrape_a_to_dict('https://inteligenciafinanceira.com.br/','//span[contains(@class, "title-h1")]//a')
-    inteligenciaf2 = scrape_a_to_dict('https://inteligenciafinanceira.com.br/','//span[contains(@class, "title-h2")]//a')
+    inteligenciaf1 = scrape_a_to_dict('https://inteligenciafinanceira.com.br/','//span[contains(@class, "home-new__featured-article")]//a')
+    inteligenciaf2 = scrape_a_to_dict('https://inteligenciafinanceira.com.br/','//span[contains(@class, "home-new__articles__article-card")]//a')
 
     inteligenciaf = {**inteligenciaf1,**inteligenciaf2}
 
@@ -88,8 +88,10 @@ def economiamaislidas():
   valor = scrape_a_to_dict('https://valor.globo.com/','//div[@data-component-type="card-mais-lidas"]//a')
 
   valorinveste = scrape_a_to_dict('https://valorinveste.globo.com/','//div[@data-component-type="card-mais-lidas"]//a')
-  
-  sites = dict(investnews = investnews, moneytimes = moneytimes, valor = valor, valorinveste = valorinveste)
+
+  inteligenciaf = scrape_a_to_dict('https://inteligenciafinanceira.com.br/saiba/','//div[contains(@class, "most-viewed")]//li[contains(@class, "list_mostviewed")]//div//div//a')
+ 
+  sites = dict(investnews = investnews, moneytimes = moneytimes, valor = valor, valorinveste = valorinveste, inteligenciaf = inteligenciaf)
   
   return render_template("economia-maislidas.html", **sites)
 
@@ -99,8 +101,10 @@ def economiawebstories():
   investnews = scrape_h_to_dict('https://investnews.com.br/web-stories/','//li[contains(@class, "mvp-blog-story")]//h2','//li[contains(@class, "mvp-blog-story")]//a')
   
   infomoney = scrape_a_to_dict('https://www.infomoney.com.br/web-stories/','//span[contains(@class, "hl-title")]//a')
-  
-  sites = dict(investnews = investnews, infomoney = infomoney)
+
+  inteligenciaf = scrape_a_to_dict('https://inteligenciafinanceira.com.br/web-stories/','//div[contains(@class, "main-feed__title-area")]//span[contains(@class, "main-feed")]//a')
+ 
+  sites = dict(investnews = investnews, infomoney = infomoney, inteligenciaf = inteligenciaf)
   
   return render_template("economia-webstories.html", **sites)
 
