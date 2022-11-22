@@ -19,11 +19,11 @@
 }
 
 .itenssite {
-    width: 100%;
     max-width: 100%;
     display: grid;
     grid-template-columns: 100%;
     gap: 1px;
+    align-content: baseline;
 }
 
 .itenssite a{
@@ -42,13 +42,9 @@
     display: block;
 }
 
-#webstories {
-    display: grid;
-}
-
 a.linksite {
     color: #FFFFFF !important;
-    font-size: 24px;
+    font-size: 20px;
     height: 50px !important;
     position: -webkit-sticky;
     position: sticky;
@@ -117,6 +113,10 @@ a.conteudo:visited {
     background: darkblue !important;
 }
 
+.suno {
+    background: #d72650 !important;
+}
+
 #newsfusoes > * > .val {
     border-left: 5px solid #37626e;
 }
@@ -140,6 +140,12 @@ a.conteudo:visited {
 }
 
 #maislidas {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1px;
+}
+
+#webstories {
     display: grid;
     grid-template-columns: 1fr;
     gap: 1px;
@@ -182,20 +188,15 @@ a.conteudo:visited {
     }
 
     #homes {
-        display: grid;
         grid-template-columns: 1fr 1fr;
     }
 
     #maislidas {
-        display: grid;
         grid-template-columns: 1fr 1fr;
     }
 
     #webstories {
-        display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 1px;
-        align-items: start;
     }
 
     #newsfusoes > .itenssite {
@@ -206,27 +207,21 @@ a.conteudo:visited {
 
 @media only screen and (min-width: 1300px) {
     #tweetscontainer {
-        display: grid;
         grid-template-columns: auto auto auto auto;
         gap: 5px;
         justify-content: center;
     }
 
     #homes {
-        display: grid;
         grid-template-columns: 1fr 1fr 1fr;
     }
 
     #maislidas {
-        display: grid;
         grid-template-columns: repeat(auto-fill, minmax(25%, 1fr));
     }
 
     #webstories {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 1px;
-        align-items: start;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
     }
 
     #newsfusoes > .itenssite {
@@ -237,17 +232,14 @@ a.conteudo:visited {
 @media only screen and (min-width: 2000px) {
     body{
         max-width: 1200px;
-        display: grid;
         justify-items: center;
     }
 
     #homes {
-        display: grid;
         grid-template-columns: 1fr 1fr 1fr;
     }
 
     #maislidas {
-        display: grid;
         grid-template-columns: 1fr 1fr 1fr;
     }
 }

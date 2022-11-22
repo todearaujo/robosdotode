@@ -63,6 +63,14 @@ console.log("Status: Página completa");
   <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
   {% endfor %}
 </div>
+
+<div class="itenssite">
+  <a class="suno linksite item" href="https://www.suno.com.br/web-stories/" target="_blank">suno.com.br</a>
+  {% for k, v in suno.items() %}
+  <a target="_blank" class="conteudo" href="{{ v }}">{{ k }}</a>
+  {% endfor %}
+</div>
+
 </section>
 
 {% endblock %}

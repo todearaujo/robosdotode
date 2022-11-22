@@ -103,8 +103,10 @@ def economiawebstories():
   infomoney = scrape_a_to_dict('https://www.infomoney.com.br/web-stories/','//span[contains(@class, "hl-title")]//a')
 
   inteligenciaf = scrape_a_to_dict('https://inteligenciafinanceira.com.br/web-stories/','//div[contains(@class, "main-feed__title-area")]//span[contains(@class, "main-feed")]//a')
+
+  suno = scrape_h_to_dict('https://www.suno.com.br/web-stories/','//div[contains(@class, "webStories")]//h2','//div[contains(@class, "webStories")]//a')
  
-  sites = dict(investnews = investnews, infomoney = infomoney, inteligenciaf = inteligenciaf)
+  sites = dict(investnews = investnews, infomoney = infomoney, inteligenciaf = inteligenciaf, suno = suno)
   
   return render_template("economia-webstories.html", **sites)
 
