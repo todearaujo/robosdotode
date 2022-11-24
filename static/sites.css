@@ -230,10 +230,6 @@ a.conteudo:visited {
 }
 
 @media only screen and (min-width: 2000px) {
-    body{
-        max-width: 1200px;
-        justify-items: center;
-    }
 
     #homes {
         grid-template-columns: 1fr 1fr 1fr;
