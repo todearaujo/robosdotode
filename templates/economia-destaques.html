@@ -31,7 +31,6 @@ console.log("Status: Página completa");
 <div id="barra">
   <a onclick="loading()" class="item ativo" href="{{ url_for('economia', secao='destaques') }}">/destaques</a>
   <a onclick="loading()" class="item inativo" href="{{ url_for('economia', secao='maislidas') }}">/maislidas</a>
-  <a onclick="loading()" class="item inativo" href="{{ url_for('tweetsr', secao='top30') }}">/tweets</a>
   <a onclick="loading()" class="item inativo" href="{{ url_for('economia', secao='webstories') }}">/webstories</a>
 </div>
 {% endblock %}
