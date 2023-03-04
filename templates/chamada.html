@@ -138,7 +138,7 @@ console.log("Status: Página completa");
     function pegaImagem() {
       const urlParams = new URLSearchParams(window.location.search);
       const link = urlParams.get('link');
-      const corsUrl = link;
+      const corsUrl = 'https://cors-anywhere.herokuapp.com/' + link;
       
       fetch(corsUrl)
         .then(response => response.text())
@@ -152,7 +152,7 @@ console.log("Status: Página completa");
           document.querySelector('.titulo-Native').textContent = titleTxt;
           var img = new Image();
           img.crossOrigin = "anonymous";
-          img.src = ogImageUrl;
+          img.src = 'https://cors-anywhere.herokuapp.com/' + ogImageUrl;
           img.onload = function () {
             var canvas = document.createElement("canvas");
             var ctx = canvas.getContext("2d");
