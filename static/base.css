@@ -187,6 +187,7 @@ h1 {color: #DD2E43; text-align: center;}
     justify-content: center;
     font-weight: bold;
     width: 100%;
+    margin-top: 10px;
 }
 
 #descricao {

@@ -8,6 +8,10 @@ app = Flask(__name__)
 def home():
     return render_template("home.html")
 
+@app.route("/chamada/")
+def chamada():
+    return render_template("chamada.html")
+
 @app.route("/sobre/")
 def sobre():
     return render_template("sobre.html")
@@ -47,10 +51,6 @@ def economia(secao):
 @app.route("/economia/")
 def economiahome():
     return redirect('/economia/destaques/')
-
-@app.route("/economia/tweets/")
-def tweets():
-    return redirect('/economia/tweets/top30/')
 
 @app.route("/economia/destaques/")
 def economiadestaques():
@@ -109,15 +109,6 @@ def economiawebstories():
   sites = dict(investnews = investnews, infomoney = infomoney, inteligenciaf = inteligenciaf, suno = suno)
   
   return render_template("economia-webstories.html", **sites)
-
-@app.route("/economia/tweets/<secao>/")
-def tweetsr(secao):
-    if secao == "top30":
-        tweets = gettweets('1479520610908876806', 50)
-        return render_template("economia-tweets-top30.html", tweets = tweets)
-    elif secao == "fintwit":
-        tweets = gettweets('1450084107199844356', 150)
-        return render_template("economia-tweets-fintwit.html", tweets = tweets)
 
 @app.route("/fusoes/<secao>/")
 def fusoes(secao):

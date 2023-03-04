@@ -1,0 +1,170 @@
+{% extends 'base.html' %}
+
+{% block title %}Criador de chamada nativas{% endblock title %}
+
+{% block metadescription %}Para criar anúncios com chamadas nativas para a IF{% endblock metadescription %}
+
+{% set manifest = "economia.webmanifest" %}
+
+{% block style %}
+    @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@700&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      width: 300px;
+      height: 250px;
+      outline: auto;
+      box-sizing: border-box;
+    }
+
+    .container>img {
+      width: 300px;
+      height: 150px;
+      object-fit: cover;
+    }
+
+    .container>p {
+      font-size: 16px;
+      font-weight: bold;
+      font-family: 'Manrope', Roboto, Arial, sans-serif;
+      margin: 0;
+      padding: 0 10px;
+    }
+
+    .container>#logoif {
+      height: 20px;
+      width: 73px;
+      margin: 10px;
+      background-repeat: no-repeat;
+      background-image: url("data:image/png;base64,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");
+    }
+
+    a {
+      text-decoration: none;
+      color: black;
+    }
+{% endblock style %}
+
+{% block metatags %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link href="/static/chamada.css" rel="stylesheet">
+{% endblock %}
+
+{% block complete %}
+carregada();
+console.log("Status: Página completa");
+{% endblock complete %}
+
+{% block content %}
+  <div id="anuncios">
+    <div class="container" data-index="1">
+      <img id="imagemId" class="imagemEdit" src='/static/imagempadrao.png' data-index="1" />
+      <p id="logoif"></p>
+      <p class="titulo-Native" contentEditable="true">Esta é uma chamada no padrão com o limite máximo de 65 caracteres</p>
+      <input type="file" class="imagem" style="display: none" data-index="1">
+    </div>
+  </div>
+
+  <button id="duplicar">Duplicar</button>
+  <button id="exportar">Exportar</button>
+
+  <script>
+
+    var clickTag = "http://www.google.com";
+
+    var index = 1;
+
+    $(document).on("click", ".imagemEdit", function () {
+      var dataIndex = $(this).data("index");
+      $(document).find(".imagem[data-index='" + dataIndex + "']").trigger("click");
+    });
+
+    $(document).on("change", ".imagem", function () {
+      var dataIndex = $(this).data("index");
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        var img = new Image();
+        img.onload = function () {
+          var canvas = document.createElement("canvas");
+          var ctx = canvas.getContext("2d");
+          var ratio = 160 / img.height;
+          var newWidth = img.width * ratio;
+          canvas.width = newWidth;
+          canvas.height = 160;
+          ctx.drawImage(img, 0, 0, newWidth, 160);
+          $(document).find(".imagemEdit[data-index='" + dataIndex + "']").attr("src", canvas.toDataURL("image/png", 1));
+        };
+        img.src = e.target.result;
+      };
+      reader.readAsDataURL($(this)[0].files[0]);
+    });
+
+
+    $("#duplicar").click(function () {
+      index++;
+      var lastContainer = $(".container:last");
+      var clone = lastContainer.clone();
+      var lastIndex = parseInt(lastContainer.attr("data-index"));
+      var newIndex = lastIndex + 1;
+      clone.attr("data-index", newIndex);
+      clone.find("input").val("").attr("data-index", newIndex);
+      clone.find(".imagemEdit").attr("data-index", newIndex);
+      clone.find(".titulo-Native").attr("contentEditable", true)
+      clone.insertAfter(lastContainer);
+    });
+
+    $("#exportar").click(function () {
+      $(".titulo-Native").removeAttr("contentEditable");
+      $(".container").each(function (index) {
+        var container = $(this)[0].outerHTML;
+        var titulo = $(this).find(".titulo-Native").text();
+        var imagem = $(this).find(".imagemEdit").attr("src");
+        var css = "<style>" + $("style").text() + "</style>";
+        var inicioClickTag = "<a href=\"javascript:window.open(window.clickTag)\">";
+        var fimClickTag = "</a>";
+        var html = "<!DOCTYPE html>\n<html>\n<head>\n<meta charset=\"utf-8\">\n<title>Anúncio " + (index + 1) + "</title>\n" + css + "\n<meta name=\"ad.size\" content=\"width=300,height=250\">\n<script type=\"text/javascript\">\n var clickTag = \"http://www.google.com\";\n<\/script>\n</head>\n<body>\n" + inicioClickTag + container + fimClickTag + "\n</body>\n</html>";
+        var blob = new Blob([html], { type: "text/html;charset=utf-8" });
+        saveAs(blob, "anuncio_" + (index + 1) + ".html");
+      });
+    });
+
+    document.addEventListener('DOMContentLoaded', pegaImagem);
+
+    function pegaImagem() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const link = urlParams.get('link');
+      const corsUrl = link;
+      
+      fetch(corsUrl)
+        .then(response => response.text())
+        .then(data => {
+          const parser = new DOMParser();
+          const htmlDocument = parser.parseFromString(data, 'text/html');
+          const ogImageTag = htmlDocument.querySelector('meta[property="og:image"]');
+          const ogImageUrl = ogImageTag.getAttribute('content');
+          const titleTag = htmlDocument.querySelector('meta[property="og:title"]');
+          const titleTxt = titleTag.getAttribute('content');
+          document.querySelector('.titulo-Native').textContent = titleTxt;
+          var img = new Image();
+          img.crossOrigin = "anonymous";
+          img.src = ogImageUrl;
+          img.onload = function () {
+            var canvas = document.createElement("canvas");
+            var ctx = canvas.getContext("2d");
+            var ratio = 160 / img.height;
+            var newWidth = img.width * ratio;
+            canvas.width = newWidth;
+            canvas.height = 160;
+            ctx.drawImage(img, 0, 0, newWidth, 160);
+            $(".imagemEdit[data-index='1']").attr("src", canvas.toDataURL("image/png", 1));
+          };
+        }).catch(error => console.error(error));
+    }
+
+  </script>
+{% endblock content %}
