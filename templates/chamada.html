@@ -7,46 +7,53 @@
 {% set manifest = "economia.webmanifest" %}
 
 {% block style %}
-    @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@700&display=swap');
 
-    body {
-      margin: 0;
-      padding: 0;
-    }
+body {
+margin: 0;
+padding: 0;
+}
 
-    .container {
-      width: 300px;
-      height: 250px;
-      outline: auto;
-      box-sizing: border-box;
-    }
+.container {
+width: 300px;
+height: 250px;
+outline: auto;
+box-sizing: border-box;
+background-color: white;
+position: relative;
+display: grid;
+}
 
-    .container>img {
-      width: 300px;
-      height: 150px;
-      object-fit: cover;
-    }
+.container>img {
+object-fit: cover;
+width: 100%;
+height: 165px;
+}
 
-    .container>p {
-      font-size: 16px;
-      font-weight: bold;
-      font-family: 'Manrope', Roboto, Arial, sans-serif;
-      margin: 0;
-      padding: 0 10px;
-    }
+.container>p {
+font-size: 16px;
+font-weight: bold;
+font-family: 'Manrope', Roboto, Arial, sans-serif;
+margin: 0;
+padding: 0 10px;
+}
 
-    .container>#logoif {
-      height: 20px;
-      width: 73px;
-      margin: 10px;
-      background-repeat: no-repeat;
-      background-image: url("data:image/png;base64,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");
-    }
+.container>#logoif {
+height: 20px;
+width: 73px;
+margin: 10px;
+background-repeat: no-repeat;
+background-image:
+url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEkAAAAUCAYAAADBYxD1AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAl6SURBVFhH3Zd7UNTXFcd3eYgiC0pAURzU8UUIFBCrLSpGprHSxkmmxI4paTTNVDOtjAkWrUNbNB01NZaJRDNMFfOYQAUfsSHRMT4IiJZWWAUfqzxEBeShKAoiKMv2c365uwPsApLxr35nzvzuPfd5Hvec89PV1tb+FHpZp9PpoT4RERHhqpp2uHnz5kaz2dy5f//+Hz148CCvoaHhj2rIDkVFRYF3795Nu3//fk55eflCxR4Qubm5PrJ3fX39asXqE9nZ2UMaGxvfa2lpuXTv3r0KR8T58q3qixgvv3PnTvrRo0ef0VksliIErGFvp++O6Ilt27a5NTU1XWLRnxTLDlYl7d27d+7Dhw/ruWCaGrJDVVXVhlu3bv0dYd+prq7OUewBcezYMf/29vY61n6gWH2irq4uEbmeCpB9v55vUVdXl19+fn5gaGjopMuXL5c5OTlNHQIqKiqMs2fPjhw9evRxLpjO4ZumTJlSXVhYOM7d3T3w8ePH5XjYdVESc9bu27cvPDg42N3Z2bkxMDCwateuXYbIyMjp9C0XLlwoj42NrZs3b55LamrqD1xdXQ05OTnGESNGtC9evPhZ9qjBEN4eHh7+eOTJDRs2dMn6uXPnhnPHrqtXr54ZP3582MiRI+s3b95cv3Llymc535tr3s3IyCiR+UpHOjwh19PT83nV1RmNxhXMq5s2bVr2xYsX33ZxcalVQzYEBQVlI/cw1bXhEbB5EhqLRFmW1tbWUr4C89mzZ1/r6Oh4KBoV3L59+x81NTWLOzs7H8Fv45LtKDLa6kmHDx/+MbzHKPRzLvMcXtXIGfWwWhjvWrt2bQBP7UvWm+F3tLW1mXbu3DlZ9kNBZbKHnIOXvW0ymULYp1E7GBw6dCiIfTq5164TJ05EcH4H+7fQt/AsspDHFi7gF6hlGnbv3j0lOTnZif1as7KypjFFz128Vq1aNcJKnN2iptuhxxPT6/U6Dr2A0Im0nfz8/MYh7FsyEQV9ikXex0KJHFZ9/Pjx8QjX5OXlFaeW24BFdGPHjo3HYp7MC2dtJjz9nDlzIpj/YnNz8weVlZVxw4YNC5wwYUKorOGIhvPnz8eJdcSTR40alYC3+ZSVlcWeOXMmwMfHp0XbHOzZs6eUeDbmwIEDAejKOHz48Pmsd1bDA+LGjRtD169fX7Fly5YaKyHvcDVsB7s4hGBn/f39i1XbjCJKuYC0qxHuOptNxnWfmT9//kGE8EJpPtpCewThLfcJno0IbREGT3Ai6/WseYmno8U4FOUrX4StwHtOi5Kkz5lT4TVnZmYemjlzZjXP2Sx8werVqycHBAR8tmjRIiP3CuY5OxcXF/ebeLoDr7EgVyPUIMRZHZCFxHADsnuKDoO1I3B3Z7yqi71aEL6Ozf+CW79EJnMY0Ll3O0ocCtxQqp/wCOit8kX4o1x0NU/7J8S508LrDc5pRgHu0dHRIxXLBl9f3/V4zwslJSWvsI/D9f1h4sSJ7Vu3bg3Bg6YI8bz/hjytSUlJoYSdKGTVjGrFgEpCEc1c2MylfrV8+fI3uNRXCD4J73iT9jt4RaSa2gNY5ARCGqKiovLxlheEd+7cuUIU1ITyYhj7NRdbz9N10Rb0AvOymedGYsgnox25dOmSQQ2JJzzAIV3CwsL+zHe6Yj8xkMc1ISHhwzVr1qQJ8ZR/IXyMaTYYDDaPtcIJ62ZDn1Ar1XOZ7QRBI99aaaNVI9noGsF6CRc7huBtJ0+eTGQsGQHksCqCr5F5/ybu7CD4yh4f0f4mLS1tK3u+ghJSeKZZYh0sf50nNQ8F5IiQeGQu+zbIGug4Qb1V9uEO344bN+4zyoUlzDtFJq1lrJlzdnDXEySLdeyZwtmFtF9nzU6yny27DQRKDxf2fAP6rRAOMEsNDQp6CjLn7oRC9Fz65WvXrv1czekXkp0QaBVBMh5l3EaBRjX0xCBoz2P9EtV9YgyU3dhzGJmyDcXnUJr4obR3Mdy9xMREAwYaj+EkrNjg8LmVlpZOX7BgQf3ChQsbrCS1BgE9nXiwQw5UU/sEh46l5vkdddBa2v8lG9llwYFAdn1vzJgx6XFxcZ6K9b1A8vDAuJ7Iq8dYHmRF2U9qxHbqunq+tsz5xMB1Z0mWYfNCnsFGIeLJLLQeTfCOUtOskKzSO7NoShRlQt1jjiPl9k7dtj7GiuC8GNW1ovtZDo3V25OIfY+gDpEJTzFB58Vb+O6V+XhW4qA9yQoWFuA5SUIEyf9Q+6zBsr9HYbFUtcV4RwJxoQRlfsu/lQdP7C0uaMKVK3Dlr/HAgGXLlq0he3wNJePuZSg8na31V65cicKquTzFSmJeslTx9P+l1n4p/2qk/deJTetOnTr1QzmvoKBAzj1y8ODB+cwtYm4lcbKY56IF3r5ApnWFhojAR44ceZE7ziLWPVLDA6JfJZG5olF+qpBUqET+ECiIZ+TL2HQU9irTOuhHSd/NzU0U9CECfE7RGENdlMD8AJQcQ0acycWG8Pxe27Rp0yTS8BfMD0MhGZQCpqlTp24jCz6PJT9ivwXh4eGJrJ0MhTLPIPtTL33KXcwoWp5IJsH7fbKkv7e3d4rEze9u/fTRr5IQKhhv+o0QlnBXbBuomv+KF2g/s3iJK/0LzNXh2gaEsUBa2hZ3xwvexOpH6eqpfZ4jO3ozNwNvSUpJSflCFI1X3UJhd7D0XZQdJGu7g2y5kX+3GM4sR1FVpOzR3LGDr4H/vycuJgeLfpWEa6diXQ8hrF+n2L2hFV4oZAg/s/JjmcSbFqv2KMgUNB5eoMUpaq12+eIpcg8XDOGFp/0MBZ3GGx0Vidr8FStWvIsn7uOcsez1GEXpBlNxDxb9KmkwwPoGvGMSHnWVGGWUi/cF6qUyFPGQp/JLap9XKVJnsP48SuvEW9KIcxnw89R0O+B18r/XSYnxFV9HxniqcKgkBJCq1ox39CjQhCV8ml08IbMEQrqSPcx42x08758UZrN5QktR1E1ZL5A1CC7eprWZ14SAf2AfA/Ekk1S/jOezjqGukJCQb+jvgT9D+kJyjpwBNIUQtz6m3cn/33aUWy4DVOY2ZdFVLXvwpJ2p96zxSyzpzN59Oov1TIfgXk5QD3dQPI0vX1jytbVlztKlS4dKW9K/GrOOy3pbWyDlQXx8vK+1TCCuOONVPvDcpN9tvvaVvvAFzHPtdoZtTwEV+HZ4DiF2ElJtgeYMwIJzSKnwSJuoIFlVbfv/hby8vDEkCZOS83sDL20wmUwz/geFUAzCAEsfxQAAAABJRU5ErkJggg==");
+position: absolute;
+left: 0;
+top: 0;
+}
 
-    a {
-      text-decoration: none;
-      color: black;
-    }
+a {
+text-decoration: none;
+color: black;
+}
 {% endblock style %}
 
 {% block metatags %}
@@ -61,111 +68,125 @@ console.log("Status: Página completa");
 {% endblock complete %}
 
 {% block content %}
-  <div id="anuncios">
-    <div class="container" data-index="1">
-      <img id="imagemId" class="imagemEdit" src='/static/imagempadrao.png' data-index="1" />
-      <p id="logoif"></p>
-      <p class="titulo-Native" contentEditable="true">Esta é uma chamada no padrão com o limite máximo de 65 caracteres</p>
-      <input type="file" class="imagem" style="display: none" data-index="1">
-    </div>
-  </div>
 
+<div class="imgrobo">
+  Criador de chamadas nativas
   <button id="duplicar">Duplicar</button>
-  <button id="exportar" style="margin-bottom:20px;">Exportar</button>
+  <button id="exportar">Exportar</button>
+</div>
 
-  <script>
+<div id="anuncios">
+  <div class="container" data-index="1">
+    <img id="imagemId" class="imagemEdit" src='/static/imagempadrao.png' data-index="1" />
+    <p id="logoif"></p>
+    <p class="titulo-Native" contentEditable="true" data-index="1">Esta é uma chamada no padrão com o limite máximo de
+      65 caracteres</p>
+    <input type="file" class="imagem" style="display: none" data-index="1">
+  </div>
+</div>
 
-    var index = 1;
+<script>
 
-    $(document).on("click", ".imagemEdit", function () {
-      var dataIndex = $(this).data("index");
-      $(document).find(".imagem[data-index='" + dataIndex + "']").trigger("click");
-    });
+  var index = 1;
 
-    $(document).on("change", ".imagem", function () {
-      var dataIndex = $(this).data("index");
-      var reader = new FileReader();
-      reader.onload = function (e) {
-        var img = new Image();
-        img.onload = function () {
-          var canvas = document.createElement("canvas");
-          var ctx = canvas.getContext("2d");
-          var ratio = 160 / img.height;
-          var newWidth = img.width * ratio;
-          canvas.width = newWidth;
-          canvas.height = 160;
-          ctx.drawImage(img, 0, 0, newWidth, 160);
-          $(document).find(".imagemEdit[data-index='" + dataIndex + "']").attr("src", canvas.toDataURL("image/png", 1));
-        };
-        img.src = e.target.result;
-      };
-      reader.readAsDataURL($(this)[0].files[0]);
-    });
-
-
-    $("#duplicar").click(function () {
-      index++;
-      var lastContainer = $(".container:last");
-      var clone = lastContainer.clone();
-      var lastIndex = parseInt(lastContainer.attr("data-index"));
-      var newIndex = lastIndex + 1;
-      clone.attr("data-index", newIndex);
-      clone.find("input").val("").attr("data-index", newIndex);
-      clone.find(".imagemEdit").attr("data-index", newIndex);
-      clone.find(".titulo-Native").attr("contentEditable", true)
-      clone.insertAfter(lastContainer);
-    });
-
-    $("#exportar").click(function () {
-      $(".titulo-Native").removeAttr("contentEditable");
-      $(".container").each(function (index) {
-        var container = $(this)[0].outerHTML;
-        var titulo = $(this).find(".titulo-Native").text();
-        var imagem = $(this).find(".imagemEdit").attr("src");
-        var css = "<style>" + $("style").text() + "</style>";
-        var inicioClickTag = "<a href=\"javascript:window.open(window.clickTag)\">";
-        var fimClickTag = "</a>";
-        var html = "<!DOCTYPE html>\n<html>\n<head>\n<meta charset=\"utf-8\">\n<title>Anúncio " + (index + 1) + "</title>\n" + css + "\n<meta name=\"ad.size\" content=\"width=300,height=250\">\n<script type=\"text/javascript\">\n var clickTag = \"http://www.google.com\";\n<\/script>\n</head>\n<body>\n" + inicioClickTag + container + fimClickTag + "\n</body>\n</html>";
-        var blob = new Blob([html], { type: "text/html;charset=utf-8" });
-        saveAs(blob, "anuncio_" + (index + 1) + ".html");
-      });
-    });
-
-    function leiaURL() {
-
-      const urlParams = new URLSearchParams(window.location.search);
-      const link = urlParams.get('link');
-      const corsUrl = `https://api.allorigins.win/raw?url=${link}`;
-
-      if (link) {
-        fetch(corsUrl)
-          .then(response => response.text())
-          .then(data => {
-            const parser = new DOMParser();
-            const htmlDocument = parser.parseFromString(data, 'text/html');
-            const ogImageTag = htmlDocument.querySelector('meta[property="og:image"]');
-            const ogImageUrl = ogImageTag.getAttribute('content');
-            const titleTag = htmlDocument.querySelector('meta[property="og:title"]');
-            const titleTxt = titleTag.getAttribute('content');
-            document.querySelector('.titulo-Native').textContent = titleTxt;
-            var img = new Image();
-            img.crossOrigin = "anonymous";
-            img.src = `https://api.allorigins.win/raw?url=${ogImageUrl}`;
-            img.onload = function () {
-              var canvas = document.createElement("canvas");
-              var ctx = canvas.getContext("2d");
-              var ratio = 160 / img.height;
-              var newWidth = img.width * ratio;
-              canvas.width = newWidth;
-              canvas.height = 160;
-              ctx.drawImage(img, 0, 0, newWidth, 160);
-              $(".imagemEdit[data-index='1']").attr("src", canvas.toDataURL("image/png", 1));
-            };
-          }).catch(error => console.error(error));
-      }
+  $(document).on('keydown paste', ".titulo-Native", function (event) {
+    const ctrlV = (event.ctrlKey && event.keyCode != 86);
+    const teclas = [8, 16, 17, 37, 38, 39, 40, 46].includes(event.keyCode);
+    var dataIndex = $(this).data("index");
+    if ($(document).find(".titulo-Native[data-index='" + dataIndex + "']").text().length >= 65 && !teclas && !ctrlV) {
+      event.preventDefault();
     }
+  });
 
-    document.addEventListener('DOMContentLoaded', leiaURL);
+  $(document).on("click", ".imagemEdit", function () {
+    var dataIndex = $(this).data("index");
+    $(document).find(".imagem[data-index='" + dataIndex + "']").trigger("click");
+  });
 
-  </script>
+  $(document).on("change", ".imagem", function () {
+    var dataIndex = $(this).data("index");
+    var reader = new FileReader();
+    reader.onload = function (e) {
+      var img = new Image();
+      img.onload = function () {
+        var canvas = document.createElement("canvas");
+        var ctx = canvas.getContext("2d");
+        var ratio = 160 / img.height;
+        var newWidth = img.width * ratio;
+        canvas.width = newWidth;
+        canvas.height = 160;
+        ctx.drawImage(img, 0, 0, newWidth, 160);
+        $(document).find(".imagemEdit[data-index='" + dataIndex + "']").attr("src", canvas.toDataURL("image/png", 1));
+      };
+      img.src = e.target.result;
+    };
+    reader.readAsDataURL($(this)[0].files[0]);
+  });
+
+  $("#duplicar").click(function () {
+    index++;
+    var lastContainer = $(".container:last");
+    var clone = lastContainer.clone();
+    var lastIndex = parseInt(lastContainer.attr("data-index"));
+    var newIndex = lastIndex + 1;
+    clone.attr("data-index", newIndex);
+    clone.find("input").val("").attr("data-index", newIndex);
+    clone.find(".imagemEdit").attr("data-index", newIndex);
+    clone.find(".titulo-Native").attr("contentEditable", true).attr("data-index", newIndex);
+    clone.insertAfter(lastContainer);
+  });
+
+  $("#exportar").click(function () {
+    $(".titulo-Native").removeAttr("contentEditable");
+    $(".container").find('input').remove();
+    $(".container").each(function (index) {
+      var container = $(this)[0].outerHTML;
+      var titulo = $(this).find(".titulo-Native").text();
+      var imagem = $(this).find(".imagemEdit").attr("src");
+      var css = "<style>" + $("style").text() + "</style>";
+      var inicioClickTag = "<a href=\"javascript:window.open(window.clickTag)\">";
+      var fimClickTag = "</a>";
+      var html = "<!DOCTYPE html>\n<html lang=\"pt\">\n<head>\n<meta charset=\"utf-8\">\n<title>Anúncio " + (index + 1) + "</title>\n" + css + "\n<meta name=\"ad.size\" content=\"width=300,height=250\">\n<script type=\"text/javascript\">\n var clickTag = \"http://www.google.com\";\n<\/script>\n</head>\n<body>\n" + inicioClickTag + container + fimClickTag + "\n</body>\n</html>";
+      var blob = new Blob([html], { type: "text/html;charset=utf-8" });
+      saveAs(blob, "anuncio_" + (index + 1) + ".html");
+    });
+  });
+
+  function leiaURL() {
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const link = urlParams.get('link');
+    const corsUrl = `https://api.allorigins.win/raw?url=${link}`;
+
+    if (link) {
+      fetch(corsUrl)
+        .then(response => response.text())
+        .then(data => {
+          const parser = new DOMParser();
+          const htmlDocument = parser.parseFromString(data, 'text/html');
+          const ogImageTag = htmlDocument.querySelector('meta[property="og:image"]');
+          const ogImageUrl = ogImageTag.getAttribute('content');
+          const titleTag = htmlDocument.querySelector('meta[property="og:title"]');
+          const titleTxt = titleTag.getAttribute('content');
+          document.querySelector('.titulo-Native').textContent = titleTxt;
+          var img = new Image();
+          img.crossOrigin = "anonymous";
+          img.src = `https://api.allorigins.win/raw?url=${ogImageUrl}`;
+          img.onload = function () {
+            var canvas = document.createElement("canvas");
+            var ctx = canvas.getContext("2d");
+            var ratio = 160 / img.height;
+            var newWidth = img.width * ratio;
+            canvas.width = newWidth;
+            canvas.height = 160;
+            ctx.drawImage(img, 0, 0, newWidth, 160);
+            $(".imagemEdit[data-index='1']").attr("src", canvas.toDataURL("image/png", 1));
+          };
+        }).catch(error => console.error(error));
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', leiaURL);
+
+</script>
 {% endblock content %}

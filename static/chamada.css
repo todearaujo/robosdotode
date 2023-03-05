@@ -6,9 +6,19 @@ body {
 #anuncios{
     display: flex;
     flex-flow: wrap;
-    gap: 10px;
+    justify-content: center;
+    padding: 10px;
+    background-color: antiquewhite;
+}
+
+button{
+    color: white;
+    background: #dd2e44;
+    border: 0;
+    font-weight: bold;
+    padding: 5px;
 }
 
 .container{
-    margin-bottom: 10px;
+    margin: 10px;
 }

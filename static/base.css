@@ -181,12 +181,13 @@ h1 {color: #DD2E43; text-align: center;}
     background-color: #55acee;  
     color: #FFFFFF;
     font-size: 25px;
-    height: 60px;
-    display: flex;
+    display: grid;
     align-items: center;
     justify-content: center;
     font-weight: bold;
     width: 100%;
+    padding: 10px;
+    gap: 5px;
 }
 
 #descricao {
