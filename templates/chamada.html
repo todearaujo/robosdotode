@@ -75,8 +75,6 @@ console.log("Status: Página completa");
 
   <script>
 
-    var clickTag = "http://www.google.com";
-
     var index = 1;
 
     $(document).on("click", ".imagemEdit", function () {
@@ -133,38 +131,41 @@ console.log("Status: Página completa");
       });
     });
 
-    document.addEventListener('DOMContentLoaded', pegaImagem);
+    function leiaURL() {
 
-    function pegaImagem() {
       const urlParams = new URLSearchParams(window.location.search);
       const link = urlParams.get('link');
-      const corsUrl = 'https://cors-anywhere.herokuapp.com/' + link;
-      
-      fetch(corsUrl)
-        .then(response => response.text())
-        .then(data => {
-          const parser = new DOMParser();
-          const htmlDocument = parser.parseFromString(data, 'text/html');
-          const ogImageTag = htmlDocument.querySelector('meta[property="og:image"]');
-          const ogImageUrl = ogImageTag.getAttribute('content');
-          const titleTag = htmlDocument.querySelector('meta[property="og:title"]');
-          const titleTxt = titleTag.getAttribute('content');
-          document.querySelector('.titulo-Native').textContent = titleTxt;
-          var img = new Image();
-          img.crossOrigin = "anonymous";
-          img.src = 'https://cors-anywhere.herokuapp.com/' + ogImageUrl;
-          img.onload = function () {
-            var canvas = document.createElement("canvas");
-            var ctx = canvas.getContext("2d");
-            var ratio = 160 / img.height;
-            var newWidth = img.width * ratio;
-            canvas.width = newWidth;
-            canvas.height = 160;
-            ctx.drawImage(img, 0, 0, newWidth, 160);
-            $(".imagemEdit[data-index='1']").attr("src", canvas.toDataURL("image/png", 1));
-          };
-        }).catch(error => console.error(error));
+      const corsUrl = `https://api.allorigins.win/raw?url=${link}`;
+
+      if (link) {
+        fetch(corsUrl)
+          .then(response => response.text())
+          .then(data => {
+            const parser = new DOMParser();
+            const htmlDocument = parser.parseFromString(data, 'text/html');
+            const ogImageTag = htmlDocument.querySelector('meta[property="og:image"]');
+            const ogImageUrl = ogImageTag.getAttribute('content');
+            const titleTag = htmlDocument.querySelector('meta[property="og:title"]');
+            const titleTxt = titleTag.getAttribute('content');
+            document.querySelector('.titulo-Native').textContent = titleTxt;
+            var img = new Image();
+            img.crossOrigin = "anonymous";
+            img.src = `https://api.allorigins.win/raw?url=${ogImageUrl}`;
+            img.onload = function () {
+              var canvas = document.createElement("canvas");
+              var ctx = canvas.getContext("2d");
+              var ratio = 160 / img.height;
+              var newWidth = img.width * ratio;
+              canvas.width = newWidth;
+              canvas.height = 160;
+              ctx.drawImage(img, 0, 0, newWidth, 160);
+              $(".imagemEdit[data-index='1']").attr("src", canvas.toDataURL("image/png", 1));
+            };
+          }).catch(error => console.error(error));
+      }
     }
+
+    document.addEventListener('DOMContentLoaded', leiaURL);
 
   </script>
 {% endblock content %}
