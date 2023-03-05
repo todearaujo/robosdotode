@@ -93,7 +93,7 @@ console.log("Status: Página completa");
     const ctrlV = (event.ctrlKey && event.keyCode != 86);
     const teclas = [8, 16, 17, 37, 38, 39, 40, 46].includes(event.keyCode);
     var dataIndex = $(this).data("index");
-    if ($(document).find(".titulo-Native[data-index='" + dataIndex + "']").text().length >= 65 && !teclas && !ctrlV) {
+    if ($(document).find(".titulo-Native[data-index='" + dataIndex + "']").text().length >= 100 && !teclas && !ctrlV) {
       event.preventDefault();
     }
   });
