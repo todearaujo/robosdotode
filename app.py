@@ -80,8 +80,6 @@ def economiadestaques():
 
 @app.route("/economia/maislidas/")
 def economiamaislidas():
-
-  investnews = scrape_h_to_dict('https://investnews.com.br/','//div[@class="mvp-feat1-mid-wrap left relative"]//p','//div[@class="mvp-feat1-mid-wrap left relative"]//a')
   
   moneytimes = scrape_a_to_dict('https://www.moneytimes.com.br/ultimas-noticias/','//div[@class="widget widget-maislidas widget-mt-mais-lidas"]//a')
   
@@ -91,7 +89,7 @@ def economiamaislidas():
 
   inteligenciaf = scrape_a_to_dict('https://inteligenciafinanceira.com.br/saiba/','//div[contains(@class, "most-viewed")]//li[contains(@class, "list_mostviewed")]//div//div//a')
  
-  sites = dict(investnews = investnews, moneytimes = moneytimes, valor = valor, valorinveste = valorinveste, inteligenciaf = inteligenciaf)
+  sites = dict(moneytimes = moneytimes, valor = valor, valorinveste = valorinveste, inteligenciaf = inteligenciaf)
   
   return render_template("economia-maislidas.html", **sites)
 
@@ -127,3 +125,6 @@ def fusoes(secao):
         return render_template("fusoes-gbusca.html", conteudo = conteudo)
 
 Talisman(app, content_security_policy=None)
+
+def economiahome():
+    return render_template("webstories.html", **sites)
